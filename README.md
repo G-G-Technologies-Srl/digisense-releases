@@ -1,6 +1,11 @@
-# Podz.AI
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.png">
+    <img src="assets/logo.png" alt="Podz.AI" width="340">
+  </picture>
+</p>
 
-> **Your AI. Your data. Your machine.**
+<p align="center"><strong>Your AI. Your data. Your machine.</strong></p>
 
 **Podz.AI** is a local-first, multi-agent AI runtime powered by the **DigiSense** framework (a registered trademark of G&G Technologies Srl). With built-in edge-AI, it lets local and cloud models work in synergy — combining the reach of the cloud with the privacy of on-device inference — while an integrated algorithmic document-anonymization engine keeps your sensitive data private by design.
 
