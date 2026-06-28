@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prezzi e licenza Podz.AI — licenza perpetua, aggiorni solo quando vuoi</title>
+<meta name="description" content="Prezzi e licenza di Podz.AI: licenza full-feature perpetua a 2.400 € una tantum, valida a vita su un computer, con 12 mesi di aggiornamenti major inclusi. Aggiornamento alla nuova major a 900 €." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://g-g-technologies-srl.github.io/digisense-releases/pricing.html" />
+<meta property="og:site_name" content="Podz.AI" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:title" content="Prezzi e licenza Podz.AI — licenza perpetua" />
+<meta property="og:description" content="Licenza full-feature perpetua a 2.400 € una tantum, valida a vita su un computer, con 12 mesi di aggiornamenti inclusi. Aggiornamento alla nuova major a 900 €." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://g-g-technologies-srl.github.io/digisense-releases/pricing.html" />
+<meta property="og:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/og-card.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Prezzi e licenza Podz.AI — licenza perpetua" />
+<meta name="twitter:description" content="Licenza full-feature perpetua a 2.400 € una tantum, valida a vita su un computer. Aggiornamento alla nuova major a 900 €." />
+<meta name="twitter:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/og-card.png" />
+<meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#06080f" media="(prefers-color-scheme: dark)" />
+<link rel="icon" type="image/svg+xml" href="assets/podz-symbol-static.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
+<link rel="alternate icon" href="assets/icons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- set theme + language before paint to avoid flash -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('podz-theme');
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    try {
+      var l = localStorage.getItem('podz-lang');
+      if (l !== 'it' && l !== 'en') l = (navigator.language || 'it').slice(0, 2) === 'en' ? 'en' : 'it';
+      document.documentElement.setAttribute('lang', l);
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+  /* -----------------------------------------------------------------------------------------------------------------
+       design tokens (shared with index.html / download.html)
+     ----------------------------------------------------------------------------------------------------------------- */
+  :root[data-theme="light"]{
+    --bg:#f4f6f8; --bg-elev:#ffffff; --bg-subtle:#eaf0f3; --bg-inset:#f8fafb;
+    --text:#16273d; --text-soft:#475467; --text-faint:#5a6472;
+    --border:#e2e9ee; --border-strong:#d2dde4;
+    --accent:#1488c4; --accent-bright:#1ba6e4; --link:#0f6f9e; --accent-ink:#0f6f9e;
+    --btn-bg:#0e7cb3; --btn-text:#ffffff;
+    --ring:rgba(20,136,196,.40); --code-bg:#eef3f6; --code-fg:#0a5f88;
+    --shadow:0 1px 2px rgba(16,39,61,.05),0 8px 30px rgba(16,39,61,.06);
+  }
+  :root[data-theme="dark"]{
+    --bg:#06080f; --bg-elev:#0d1320; --bg-subtle:#0f1726; --bg-inset:#0a1018;
+    --text:#e9edf5; --text-soft:#aab4c4; --text-faint:#7c8798;
+    --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.17);
+    --accent:#38e1ff; --accent-bright:#5ad6f7; --link:#5ad6f7; --accent-ink:#7fe3ff;
+    --btn-bg:#38e1ff; --btn-text:#06121a;
+    --ring:rgba(56,225,255,.45); --code-bg:rgba(56,225,255,.10); --code-fg:#7fe3ff;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 50px rgba(0,0,0,.45);
+  }
+  :root{--maxw:1120px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-pill:999px;
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;min-height:100vh;transition:background .35s ease,color .35s ease}
+  @media(prefers-reduced-motion:reduce){body{transition:none}html{scroll-behavior:auto}}
+  a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:3px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;color:var(--text);line-height:1.1}
+  ::selection{background:var(--accent);color:var(--btn-text)}
+  .skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--bg-elev);color:var(--text);
+    border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:10px 16px}
+  .skip:focus{left:16px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       nav (shared)
+     ----------------------------------------------------------------------------------------------------------------- */
+  header.nav{position:sticky;top:0;z-index:100;background:var(--bg);background:color-mix(in srgb,var(--bg) 82%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  #main{scroll-margin-top:84px}
+  .nav-inner{display:flex;align-items:center;gap:18px;height:68px}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand-logo{height:30px;width:auto;display:block}
+  .brand-sub{color:var(--text-faint);font-weight:600;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+    border-left:1px solid var(--border-strong);padding-left:11px}
+  .nav-links{display:flex;gap:6px;align-items:center;margin-left:14px}
+  .nav-links a{color:var(--text-soft);font-size:.93rem;font-weight:500;padding:8px 12px;border-radius:var(--r-sm)}
+  .nav-links a:hover{color:var(--text);background:var(--bg-subtle);text-decoration:none}
+  .nav-links a.active{color:var(--text);background:var(--bg-subtle)}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .icon-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--r-pill);
+    border:1px solid var(--border);background:var(--bg-elev);color:var(--text-soft);cursor:pointer;transition:.2s}
+  .icon-btn:hover{color:var(--text);border-color:var(--border-strong)}
+  .icon-btn svg{width:18px;height:18px}
+  .seg{display:flex;border:1px solid var(--border);border-radius:var(--r-pill);overflow:hidden;background:var(--bg-elev)}
+  .seg button{background:transparent;border:none;color:var(--text-faint);font:600 .76rem/1 var(--sans);padding:11px 14px;cursor:pointer;transition:.2s}
+  .seg button.active{background:var(--btn-bg);color:var(--btn-text)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:.95rem;
+    padding:11px 20px;border-radius:var(--r-pill);cursor:pointer;border:1px solid transparent;transition:.2s;white-space:nowrap}
+  .btn:hover{text-decoration:none}
+  .btn-primary{background:var(--btn-bg);color:var(--btn-text)}
+  .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn-ghost{background:var(--bg-elev);border-color:var(--border-strong);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--text)}
+  .btn-lg{padding:14px 26px;font-size:1rem}
+  .btn small{font-weight:500;opacity:.8;font-size:.78em}
+  .nav-cta{display:inline-flex}
+  .menu-toggle{display:none}
+  @media(max-width:820px){.nav-links{display:none}.menu-toggle{display:grid}.nav-cta{display:none}}
+  .mobile-nav{display:none;flex-direction:column;gap:4px;position:sticky;top:68px;z-index:99;
+    background:var(--bg-elev);border-bottom:1px solid var(--border);padding:14px 24px}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:12px 12px;border-radius:var(--r-sm);color:var(--text-soft);font-weight:500}
+  .mobile-nav a:hover{background:var(--bg-subtle);color:var(--text);text-decoration:none}
+  @media(min-width:821px){.mobile-nav{display:none !important}}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       hero
+     ----------------------------------------------------------------------------------------------------------------- */
+  .ph-head{text-align:center;padding:clamp(48px,8vw,84px) 0 8px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px}
+  .ph-head h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:500;margin-bottom:16px}
+  .ph-head p{color:var(--text-soft);max-width:60ch;margin:0 auto;font-size:1.06rem}
+  .vatline{display:inline-flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center;margin-top:22px;
+    font-family:var(--mono);font-size:.8rem;color:var(--text-soft);border:1px solid var(--border);
+    background:var(--bg-elev);border-radius:var(--r-pill);padding:8px 18px}
+  .vatline b{color:var(--text)}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       pricing cards
+     ----------------------------------------------------------------------------------------------------------------- */
+  .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:20px;max-width:1080px;margin:40px auto 0}
+  .plan{position:relative;border:1px solid var(--border);background:var(--bg-elev);border-radius:var(--r-lg);
+    padding:30px;display:flex;flex-direction:column;gap:18px;box-shadow:var(--shadow);transition:.22s}
+  .plan:hover{transform:translateY(-3px);border-color:var(--border-strong)}
+  .plan.is-primary{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+    background:color-mix(in srgb,var(--accent) 6%,var(--bg-elev))}
+  .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);font-size:.64rem;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--btn-text);background:var(--btn-bg);
+    border-radius:var(--r-pill);padding:5px 14px;white-space:nowrap}
+  .plan-tag{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink)}
+  .plan-price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .plan-price .amount{font-family:var(--serif);font-size:2.7rem;font-weight:600;color:var(--text);line-height:1}
+  .plan-price .per{font-size:.9rem;color:var(--text-faint)}
+  .plan-vat{font-family:var(--mono);font-size:.72rem;color:var(--text-faint);margin-top:-8px}
+  .plan-desc{color:var(--text-soft);font-size:.95rem}
+  .plan-feats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:2px}
+  .plan-feats li{display:flex;gap:11px;align-items:flex-start;font-size:.94rem;color:var(--text)}
+  .plan-feats svg{width:19px;height:19px;flex:0 0 auto;margin-top:2px;color:var(--accent)}
+  .plan .btn{margin-top:auto;justify-content:center;width:100%}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       how licensing works
+     ----------------------------------------------------------------------------------------------------------------- */
+  .sec{padding:64px 0 8px}
+  .sec-eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);text-align:center;margin-bottom:12px}
+  .sec-title{text-align:center;font-size:clamp(1.6rem,3.6vw,2.3rem);font-weight:500;margin-bottom:14px}
+  .sec-sub{text-align:center;color:var(--text-soft);max-width:58ch;margin:0 auto 36px;font-size:1.02rem}
+  .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:960px;margin:0 auto}
+  .how-card{border:1px solid var(--border);background:var(--bg-elev);border-radius:var(--r-md);padding:24px;display:flex;flex-direction:column;gap:11px}
+  .how-num{display:grid;place-items:center;width:38px;height:38px;border-radius:var(--r-pill);
+    background:color-mix(in srgb,var(--accent) 12%,var(--bg-elev));color:var(--accent-ink);
+    font-family:var(--serif);font-weight:600;font-size:1.1rem}
+  .how-card h3{font-size:1.12rem;font-weight:600}
+  .how-card p{color:var(--text-soft);font-size:.92rem}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       faq
+     ----------------------------------------------------------------------------------------------------------------- */
+  .faq{max-width:780px;margin:0 auto}
+  .faq details{border:1px solid var(--border);background:var(--bg-elev);border-radius:var(--r-md);padding:4px 20px;margin-bottom:12px}
+  .faq summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:600;font-size:1rem;color:var(--text);
+    display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .chev{transition:transform .2s;color:var(--text-faint);flex:0 0 auto}
+  .faq details[open] summary .chev{transform:rotate(180deg)}
+  .faq details p{color:var(--text-soft);font-size:.95rem;padding:0 0 18px}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       cta + note
+     ----------------------------------------------------------------------------------------------------------------- */
+  .cta{max-width:780px;margin:0 auto;text-align:center;border:1px solid color-mix(in srgb,var(--accent) 35%,var(--border));
+    background:color-mix(in srgb,var(--accent) 7%,var(--bg-elev));border-radius:var(--r-lg);padding:40px 28px}
+  .cta h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:500;margin-bottom:12px}
+  .cta p{color:var(--text-soft);max-width:52ch;margin:0 auto 24px}
+  .cta-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .note{max-width:780px;margin:34px auto 0;text-align:center;color:var(--text-faint);font-size:.84rem}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       footer + i18n + theme visibility (shared)
+     ----------------------------------------------------------------------------------------------------------------- */
+  footer{border-top:1px solid var(--border);padding:40px 0;margin-top:72px}
+  .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--text-faint);font-size:.86rem}
+  .foot-inner a:hover{color:var(--accent)}
+
+  [data-lang-en]{display:none}
+  html[lang="en"] [data-lang-it]{display:none}
+  html[lang="en"] [data-lang-en]{display:inline}
+  .theme-dark-only{display:none}
+  :root[data-theme="dark"] .theme-dark-only{display:inline-flex}
+  :root[data-theme="dark"] .theme-light-only{display:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span data-lang-it>Vai al contenuto</span><span data-lang-en>Skip to content</span></a>
+
+<!-- nav -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Podz.AI home">
+      <img class="brand-logo theme-light-only" src="assets/podz-logo-light.svg" alt="Podz.AI" />
+      <img class="brand-logo theme-dark-only" src="assets/podz-logo-dark.svg" alt="Podz.AI" />
+      <span class="brand-sub">DigiSense</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#overview"><span data-lang-it>Funzionalità</span><span data-lang-en>Features</span></a>
+      <a href="index.html#compliance"><span data-lang-it>Conformità</span><span data-lang-en>Compliance</span></a>
+      <a href="pricing.html" class="active"><span data-lang-it>Prezzi</span><span data-lang-en>Pricing</span></a>
+      <a href="download.html">Download</a>
+    </nav>
+    <div class="nav-right">
+      <div class="seg" role="group" aria-label="Language">
+        <button id="lang-it" type="button" onclick="setLang('it')" aria-pressed="true">IT</button>
+        <button id="lang-en" type="button" onclick="setLang('en')" aria-pressed="false">EN</button>
+      </div>
+      <button class="icon-btn" id="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle dark/light theme" aria-pressed="false" title="Theme">
+        <svg class="theme-light-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+        <svg class="theme-dark-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-primary nav-cta" href="download.html"><span data-lang-it>Scarica</span><span data-lang-en>Download</span></a>
+      <button class="icon-btn menu-toggle" id="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
+    <a href="index.html#overview" onclick="closeMenu()"><span data-lang-it>Funzionalità</span><span data-lang-en>Features</span></a>
+    <a href="index.html#compliance" onclick="closeMenu()"><span data-lang-it>Conformità</span><span data-lang-en>Compliance</span></a>
+    <a href="pricing.html" onclick="closeMenu()"><span data-lang-it>Prezzi</span><span data-lang-en>Pricing</span></a>
+    <a href="download.html" onclick="closeMenu()">Download</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- hero -->
+<section class="ph-head wrap">
+  <div class="eyebrow"><span data-lang-it>Prezzi e licenza</span><span data-lang-en>Pricing &amp; license</span></div>
+  <h1>
+    <span data-lang-it>Una licenza, a vita. Aggiorni solo quando vuoi.</span>
+    <span data-lang-en>One license, for life. Update only when you want.</span>
+  </h1>
+  <p>
+    <span data-lang-it>Provalo gratis 30 giorni, poi acquisto una tantum per versione. La tua versione continua a funzionare sul tuo computer, senza canoni obbligatori e senza scadenze nascoste.</span>
+    <span data-lang-en>Try it free for 30 days, then a one-time purchase per version. Your version keeps running on your computer, with no mandatory subscription and no hidden expiry.</span>
+  </p>
+  <div class="vatline">
+    <span data-lang-it>Tutti i prezzi sono <b>IVA esclusa</b></span>
+    <span data-lang-en>All prices are <b>VAT excluded</b></span>
+  </div>
+</section>
+
+<!-- pricing cards -->
+<div class="wrap">
+  <div class="plans">
+
+    <!-- free trial -->
+    <div class="plan">
+      <span class="plan-tag"><span data-lang-it>Prova gratuita</span><span data-lang-en>Free trial</span></span>
+      <div class="plan-price">
+        <span class="amount">0 €</span>
+        <span class="per"><span data-lang-it>per 30 giorni</span><span data-lang-en>for 30 days</span></span>
+      </div>
+      <div class="plan-vat"><span data-lang-it>Nessuna carta richiesta</span><span data-lang-en>No card required</span></div>
+      <p class="plan-desc">
+        <span data-lang-it>Scarica il programma e provalo: al primo avvio viene creata una licenza di prova di 30 giorni.</span>
+        <span data-lang-en>Download the program and try it: on first launch a 30-day trial license is created.</span>
+      </p>
+      <ul class="plan-feats">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it><b>Tutte le funzionalità</b> sbloccate</span><span data-lang-en><b>All features</b> unlocked</span></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it>Licenza di prova creata <b>al primo avvio</b></span><span data-lang-en>Trial license created <b>on first launch</b></span></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it>Valida <b>30 giorni</b></span><span data-lang-en>Valid for <b>30 days</b></span></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it>Nessun pagamento, nessuna registrazione</span><span data-lang-en>No payment, no sign-up</span></span>
+        </li>
+      </ul>
+      <a class="btn btn-ghost btn-lg" href="download.html">
+        <span data-lang-it>Scarica e prova</span><span data-lang-en>Download &amp; try</span>
+      </a>
+    </div>
+
+    <!-- full license -->
+    <div class="plan is-primary">
+      <span class="plan-badge"><span data-lang-it>Consigliata</span><span data-lang-en>Recommended</span></span>
+      <span class="plan-tag"><span data-lang-it>Licenza completa</span><span data-lang-en>Full license</span></span>
+      <div class="plan-price">
+        <span class="amount">2.400 €</span>
+        <span class="per"><span data-lang-it>una tantum</span><span data-lang-en>one-time</span></span>
+      </div>
+      <div class="plan-vat"><span data-lang-it>IVA esclusa</span><span data-lang-en>VAT excluded</span></div>
+      <p class="plan-desc">
+        <span data-lang-it>Tutte le funzionalità, diritto d'uso perpetuo della major version che acquisti.</span>
+        <span data-lang-en>Every feature, with perpetual usage rights for the major version you buy.</span>
+      </p>
+      <ul class="plan-feats">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it><b>Full-feature</b>: tutte le funzionalità incluse</span><span data-lang-en><b>Full-feature</b>: every feature included</span></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it><b>Uso perpetuo</b>: la versione resta tua a vita</span><span data-lang-en><b>Perpetual use</b>: the version stays yours for life</span></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it><b>12 mesi</b> di aggiornamenti major e bug fix inclusi</span><span data-lang-en><b>12 months</b> of major updates and bug fixes included</span></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it>Valida per <b>un singolo computer</b></span><span data-lang-en>Valid for <b>a single computer</b></span></span>
+        </li>
+      </ul>
+      <a class="btn btn-primary btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20Acquisto%20licenza&amp;body=Vorrei%20acquistare%20una%20licenza%20Podz.AI.">
+        <span data-lang-it>Richiedi la licenza</span><span data-lang-en>Request a license</span>
+      </a>
+    </div>
+
+    <!-- update -->
+    <div class="plan">
+      <span class="plan-tag"><span data-lang-it>Aggiornamento</span><span data-lang-en>Update</span></span>
+      <div class="plan-price">
+        <span class="amount">900 €</span>
+        <span class="per"><span data-lang-it>una tantum</span><span data-lang-en>one-time</span></span>
+      </div>
+      <div class="plan-vat"><span data-lang-it>IVA esclusa</span><span data-lang-en>VAT excluded</span></div>
+      <p class="plan-desc">
+        <span data-lang-it>Per chi ha già una licenza e vuole passare a una nuova major version.</span>
+        <span data-lang-en>For those who already own a license and want to move to a new major version.</span>
+      </p>
+      <ul class="plan-feats">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it>Passaggio alla <b>nuova major version</b></span><span data-lang-en>Upgrade to the <b>new major version</b></span></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it>Altri <b>12 mesi</b> di manutenzione, major e bug fix</span><span data-lang-en>Another <b>12 months</b> of maintenance, majors and bug fixes</span></span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          <span><span data-lang-it><b>Non obbligatorio</b>: aggiorni solo se vuoi o se serve</span><span data-lang-en><b>Optional</b>: update only when you want or need to</span></span>
+        </li>
+      </ul>
+      <a class="btn btn-ghost btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20Aggiornamento%20licenza&amp;body=Vorrei%20aggiornare%20la%20mia%20licenza%20Podz.AI.">
+        <span data-lang-it>Richiedi l'aggiornamento</span><span data-lang-en>Request an update</span>
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- how licensing works -->
+<section class="sec wrap">
+  <div class="sec-eyebrow"><span data-lang-it>Come funziona la licenza</span><span data-lang-en>How licensing works</span></div>
+  <h2 class="sec-title"><span data-lang-it>Semplice e senza sorprese</span><span data-lang-en>Simple, with no surprises</span></h2>
+  <p class="sec-sub">
+    <span data-lang-it>Paghi una volta per versione. Ogni major update cambia versione: aggiorni quando vuoi, non quando lo decidiamo noi.</span>
+    <span data-lang-en>You pay once per version. Each major update is a new version: you upgrade when you want, not when we decide.</span>
+  </p>
+  <div class="how">
+    <div class="how-card">
+      <div class="how-num">1</div>
+      <h3><span data-lang-it>Acquisto una tantum</span><span data-lang-en>One-time purchase</span></h3>
+      <p>
+        <span data-lang-it>La licenza si acquista una volta per major version. Ogni major update cambia il numero di versione e rappresenta una licenza a sé.</span>
+        <span data-lang-en>The license is bought once per major version. Each major update changes the version number and is a license of its own.</span>
+      </p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">2</div>
+      <h3><span data-lang-it>Un anno di manutenzione</span><span data-lang-en>One year of maintenance</span></h3>
+      <p>
+        <span data-lang-it>Per 12 mesi dall'acquisto il prodotto è in manutenzione: le major release e le correzioni dei bug sono aggiornamenti gratuiti.</span>
+        <span data-lang-en>For 12 months from purchase the product is under maintenance: major releases and bug fixes are free updates.</span>
+      </p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">3</div>
+      <h3><span data-lang-it>Continua a funzionare</span><span data-lang-en>Keeps working</span></h3>
+      <p>
+        <span data-lang-it>Scaduto l'anno non sei obbligato ad aggiornare: il prodotto continua a funzionare sul tuo PC. Da quel momento, però, ogni nuova versione e ogni bug fix richiedono l'acquisto di una licenza di aggiornamento.</span>
+        <span data-lang-en>After the year you are not required to update: the product keeps running on your PC. From then on, though, any new version and any bug fix require purchasing an update license.</span>
+      </p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">4</div>
+      <h3><span data-lang-it>Una licenza per computer</span><span data-lang-en>One license per computer</span></h3>
+      <p>
+        <span data-lang-it>La licenza è legata a un singolo hardware. Se cambi PC, la licenza va aggiornata sul nuovo dispositivo.</span>
+        <span data-lang-en>The license is tied to a single piece of hardware. If you change PC, the license must be updated to the new device.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- faq -->
+<section class="sec wrap">
+  <div class="sec-eyebrow">FAQ</div>
+  <h2 class="sec-title"><span data-lang-it>Domande frequenti</span><span data-lang-en>Frequently asked questions</span></h2>
+  <div class="faq" style="margin-top:30px">
+
+    <details>
+      <summary>
+        <span><span data-lang-it>Come funziona la prova gratuita?</span><span data-lang-en>How does the free trial work?</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <p>
+        <span data-lang-it>Scarica e installa Podz.AI: al primo avvio il programma crea automaticamente una licenza di prova valida 30 giorni, con tutte le funzionalità. Allo scadere puoi acquistare la licenza completa per continuare a usarlo.</span>
+        <span data-lang-en>Download and install Podz.AI: on first launch the program automatically creates a 30-day trial license with every feature. When it expires you can buy the full license to keep using it.</span>
+      </p>
+    </details>
+
+    <details>
+      <summary>
+        <span><span data-lang-it>Devo pagare ogni anno?</span><span data-lang-en>Do I have to pay every year?</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <p>
+        <span data-lang-it>No. La licenza è perpetua: la versione che acquisti resta tua a vita su quel computer. L'aggiornamento da 900 € è facoltativo e lo paghi solo quando passi a una nuova major version.</span>
+        <span data-lang-en>No. The license is perpetual: the version you buy stays yours for life on that computer. The 900 € update is optional and you only pay it when you move to a new major version.</span>
+      </p>
+    </details>
+
+    <details>
+      <summary>
+        <span><span data-lang-it>Cosa succede se non aggiorno dopo i 12 mesi?</span><span data-lang-en>What happens if I don't update after 12 months?</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <p>
+        <span data-lang-it>Continui a usare la tua versione sul PC senza limiti di tempo. Da quel momento, però, le nuove versioni e le correzioni dei bug non sono più gratuite: richiedono l'acquisto di una licenza di aggiornamento. Un aggiornamento diventa strettamente necessario solo se il produttore del sistema host (sistema operativo o componenti di base) introduce un cambiamento strutturale incompatibile.</span>
+        <span data-lang-en>You keep using your version on the PC with no time limit. From then on, however, new versions and bug fixes are no longer free: they require purchasing an update license. An update becomes strictly necessary only if the host system's vendor (operating system or base components) introduces an incompatible structural change.</span>
+      </p>
+    </details>
+
+    <details>
+      <summary>
+        <span><span data-lang-it>L'aggiornamento da 900 € cosa include?</span><span data-lang-en>What does the 900 € update include?</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <p>
+        <span data-lang-it>Il passaggio alla nuova major version e altri 12 mesi di manutenzione, con gli stessi termini della licenza iniziale.</span>
+        <span data-lang-en>The upgrade to the new major version plus another 12 months of maintenance, under the same terms as the initial license.</span>
+      </p>
+    </details>
+
+    <details>
+      <summary>
+        <span><span data-lang-it>Posso usare la licenza su più computer?</span><span data-lang-en>Can I use the license on more than one computer?</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <p>
+        <span data-lang-it>La licenza vale per un singolo hardware. Per un secondo computer serve un'altra licenza; se cambi PC, la licenza esistente va aggiornata sul nuovo dispositivo. Scrivici per le condizioni multi-postazione.</span>
+        <span data-lang-en>The license is valid for a single piece of hardware. A second computer needs another license; if you change PC, the existing license must be moved and updated to the new device. Contact us for multi-seat terms.</span>
+      </p>
+    </details>
+
+    <details>
+      <summary>
+        <span><span data-lang-it>Come si acquista?</span><span data-lang-en>How do I buy?</span></span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="m6 9 6 6 6-6"/></svg>
+      </summary>
+      <p>
+        <span data-lang-it>Scrivici a info@ggtechnologies.sm: ti inviamo i dettagli per l'acquisto e la fatturazione. La fatturazione è a cura di G&amp;G Technologies Srl.</span>
+        <span data-lang-en>Email us at info@ggtechnologies.sm: we'll send you the details for purchase and invoicing. Invoicing is handled by G&amp;G Technologies Srl.</span>
+      </p>
+    </details>
+
+  </div>
+</section>
+
+<!-- cta -->
+<section class="sec wrap">
+  <div class="cta">
+    <h2><span data-lang-it>Pronto a iniziare?</span><span data-lang-en>Ready to get started?</span></h2>
+    <p>
+      <span data-lang-it>Scrivici per acquistare la licenza, aggiornare la tua versione o ricevere un preventivo per più postazioni.</span>
+      <span data-lang-en>Get in touch to buy a license, update your version or request a quote for multiple seats.</span>
+    </p>
+    <div class="cta-actions">
+      <a class="btn btn-primary btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20licenza"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a>
+      <a class="btn btn-ghost btn-lg" href="download.html"><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></a>
+    </div>
+  </div>
+  <p class="note">
+    <span data-lang-it>I prezzi sono in euro, IVA esclusa, e possono variare. Le condizioni di licenza valide sono quelle riportate nel contratto di licenza fornito all'acquisto.</span>
+    <span data-lang-en>Prices are in euro, VAT excluded, and may change. The binding license terms are those set out in the license agreement provided at purchase.</span>
+  </p>
+</section>
+
+</main>
+
+<!-- footer -->
+<footer>
+  <div class="wrap foot-inner">
+    <div><a href="index.html"><strong style="color:var(--text)">Podz.AI</strong></a> · <span data-lang-it>basato sul framework DigiSense</span><span data-lang-en>powered by the DigiSense framework</span></div>
+    <div><a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a> · © <span id="year"></span> G&amp;G Technologies Srl</div>
+  </div>
+</footer>
+
+<script>
+  // -----------------------------------------------------------------------------------------------------------------
+  //  theme
+  // -----------------------------------------------------------------------------------------------------------------
+  function _applyThemeMeta(t){
+    var m = document.getElementById('meta-theme');
+    if(!m){ m = document.createElement('meta'); m.id = 'meta-theme'; m.name = 'theme-color'; document.head.appendChild(m); }
+    m.setAttribute('content', t === 'dark' ? '#06080f' : '#f4f6f8');
+    var tt = document.getElementById('theme-toggle'); if(tt) tt.setAttribute('aria-pressed', t === 'dark');
+  }
+  function toggleTheme(){
+    var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    _applyThemeMeta(next);
+    try{ localStorage.setItem('podz-theme', next); }catch(e){}
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  language
+  // -----------------------------------------------------------------------------------------------------------------
+  function _updateLangUI(lang){
+    var it = document.getElementById('lang-it'), en = document.getElementById('lang-en');
+    it.classList.toggle('active', lang === 'it'); en.classList.toggle('active', lang === 'en');
+    it.setAttribute('aria-pressed', lang === 'it'); en.setAttribute('aria-pressed', lang === 'en');
+  }
+  function setLang(lang){
+    document.documentElement.setAttribute('lang', lang);
+    _updateLangUI(lang);
+    try{ localStorage.setItem('podz-lang', lang); }catch(e){}
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  mobile menu
+  // -----------------------------------------------------------------------------------------------------------------
+  function toggleMenu(){
+    var n = document.getElementById('mobile-nav'), b = document.getElementById('menu-toggle');
+    var open = !n.classList.contains('open');
+    n.classList.toggle('open', open); n.hidden = !open; b.setAttribute('aria-expanded', open);
+  }
+  function closeMenu(){
+    var n = document.getElementById('mobile-nav');
+    n.classList.remove('open'); n.hidden = true;
+    document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  init
+  // -----------------------------------------------------------------------------------------------------------------
+  (function init(){
+    _updateLangUI(document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'it');
+    document.getElementById('year').textContent = new Date().getFullYear();
+    _applyThemeMeta(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  })();
+</script>
+</body>
+</html>
