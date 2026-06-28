@@ -152,6 +152,7 @@
   .hero .lead{font-size:clamp(1.08rem,1.6vw,1.28rem);color:var(--text-soft);max-width:42ch;margin-bottom:32px}
   .hero .cta-row{display:flex;gap:13px;flex-wrap:wrap}
   .hero-note{margin-top:18px;font-size:.84rem;color:var(--text-faint)}
+  .hero-cap{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.85rem;color:var(--text-faint)}
 
   /* agent preview card */
   .agent{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);
@@ -168,7 +169,10 @@
   .msg .ava{width:28px;height:28px;border-radius:var(--r-pill);flex:0 0 auto;display:grid;place-items:center;overflow:hidden;border:1px solid var(--border)}
   .msg .ava img{width:20px;height:20px}
   .msg .ava.user{background:var(--bg-subtle);color:var(--text-soft);font-weight:700;font-size:.8rem}
-  .bubble{background:var(--bg-subtle);border:1px solid var(--border);border-radius:14px;padding:11px 14px;font-size:.92rem;color:var(--text);max-width:90%}
+  .bubble{background:var(--bg-subtle);border:1px solid var(--border);border-radius:14px;padding:11px 14px;font-size:.92rem;color:var(--text);max-width:90%;transition:opacity .35s ease}
+  #demo-sector{transition:opacity .35s ease}
+  .demo-fading{opacity:0}
+  @media(prefers-reduced-motion:reduce){.bubble,#demo-sector{transition:none}}
   .msg.me{flex-direction:row-reverse}
   .msg.me .bubble{background:color-mix(in srgb,var(--accent) 14%,transparent);border-color:color-mix(in srgb,var(--accent) 30%,transparent)}
   .agent-foot{padding:12px 18px;border-top:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap}
@@ -319,8 +323,8 @@
     <div class="hero-copy">
       <span class="eyebrow"><span class="dot"></span><span data-lang-it>La tua IA Local-First</span><span data-lang-en>Your Local-First AI</span></span>
       <h1>
-        <span data-lang-it>Tutta la potenza dell'IA, <span class="em">sui tuoi dati riservati</span></span>
-        <span data-lang-en>All the power of AI, <span class="em">on your confidential data</span></span>
+        <span data-lang-it>Usa l'IA sui tuoi dati riservati. <span class="em">Senza farli uscire.</span></span>
+        <span data-lang-en>Use AI on your confidential data. <span class="em">Without letting it leave.</span></span>
       </h1>
       <p class="lead">
         <span data-lang-it>Esegui modelli, agenti e app dove vivono i tuoi dati — sulla tua macchina o sul tuo server. Quando serve un LLM in cloud, i dati personali vengono anonimizzati prima. Tutta la produttività dell'IA, riservatezza compresa.</span>
@@ -329,8 +333,10 @@
       <div class="cta-row">
         <a class="btn btn-primary btn-lg" href="download.html"><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></a>
         <a class="btn btn-ghost btn-lg" href="#how"><span data-lang-it>Come funziona</span><span data-lang-en>How it works</span></a>
+        <a class="btn btn-ghost btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a>
       </div>
       <p class="hero-note"><span data-lang-it>Pensato per GDPR e AI Act · Made in EU</span><span data-lang-en>Built for GDPR and the AI Act · Made in EU</span></p>
+      <p class="hero-cap"><span data-lang-it>I tuoi modelli, in locale o in cloud:</span><span data-lang-en>Your models, local or cloud:</span> <span class="chip">OLLAMA</span><span class="chip">ONNX</span><span class="chip">auto-select</span></p>
     </div>
 
     <aside class="agent" aria-label="Podz agent preview">
@@ -340,10 +346,11 @@
           <div class="who">Podz Agent</div>
           <div class="stat"><span data-lang-it>in esecuzione · locale</span><span data-lang-en>running · local</span></div>
         </div>
+        <span class="pill" id="demo-sector" style="margin-left:auto"><span data-lang-it>Studio legale</span><span data-lang-en>Law firm</span></span>
       </div>
       <div class="agent-body">
-        <div class="msg me"><span class="ava user">GA</span><div class="bubble"><span data-lang-it>Estrai le clausole chiave da questi contratti con dati dei clienti.</span><span data-lang-en>Extract the key clauses from these contracts containing client data.</span></div></div>
-        <div class="msg"><span class="ava"><img src="assets/podz-symbol-static.svg" alt="Podz" /></span><div class="bubble"><span data-lang-it>Fatto, <strong>tutto in locale</strong>. Dati personali anonimizzati prima di ogni chiamata: nulla ha lasciato la tua infrastruttura.</span><span data-lang-en>Done, <strong>all on-device</strong>. Personal data anonymized before any call: nothing left your infrastructure.</span></div></div>
+        <div class="msg me"><span class="ava user">GA</span><div class="bubble" id="demo-user"><span data-lang-it>Estrai le clausole chiave da questi contratti con dati dei clienti.</span><span data-lang-en>Extract the key clauses from these contracts containing client data.</span></div></div>
+        <div class="msg"><span class="ava"><img src="assets/podz-symbol-static.svg" alt="Podz" /></span><div class="bubble" id="demo-assistant"><span data-lang-it>Fatto. Elaborazione in locale; quando ho interpellato un LLM in cloud, <strong>nomi e identificativi erano già anonimizzati</strong> — non sono mai usciti.</span><span data-lang-en>Done. Processed locally; when I queried a cloud LLM, <strong>names and identifiers were already anonymized</strong> — they never left.</span></div></div>
       </div>
       <div class="agent-foot">
         <span class="pill">local-first</span><span class="pill">data sovereignty</span><span class="pill">anonymization</span><span class="pill">privacy by design</span>
@@ -384,7 +391,7 @@
   <div class="wrap">
     <div class="sec-eyebrow"><span data-lang-it>Conformità</span><span data-lang-en>Compliance</span></div>
     <h2 class="sec-title"><span data-lang-it>Pensato per chi lavora sotto GDPR e AI Act</span><span data-lang-en>Built for teams working under GDPR and the AI Act</span></h2>
-    <p class="sec-sub"><span data-lang-it>Studi legali, sanità, finanza, pubblica amministrazione e professionisti: usa l'IA generativa senza spostare dati riservati fuori dal tuo controllo.</span><span data-lang-en>Law firms, healthcare, finance, public sector and professionals: use generative AI without moving confidential data outside your control.</span></p>
+    <p class="sec-sub"><span data-lang-it>Avvocati e commercialisti, sanità, finanza e pubblica amministrazione: usa l'IA generativa sui dati coperti da segreto professionale, senza spostarli fuori dal tuo controllo.</span><span data-lang-en>Lawyers and accountants, healthcare, finance and public sector: use generative AI on data covered by professional secrecy, without moving it outside your control.</span></p>
 
     <div class="cards">
       <div class="card">
@@ -426,7 +433,7 @@
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.4 5.1A8.6 8.6 0 0 1 12 5c5 0 9 5 9 7a13 13 0 0 1-2 2.8M6 6.7C3.6 8.2 2 11 2 12c0 0 3.5 7 10 7 .9 0 1.7-.1 2.5-.3"/></svg></div>
         <h3><span data-lang-it>Anonimizzatore documenti</span><span data-lang-en>Document anonymizer</span></h3>
-        <p><span data-lang-it>Maschera nomi, identificativi e dati sensibili prima di ogni chiamata a un LLM in cloud: data minimization concreta, così usi i modelli più potenti senza esporre informazioni personali.</span><span data-lang-en>Masks names, identifiers and sensitive data before any call to a cloud LLM: real data minimization, so you use the most powerful models without exposing personal information.</span></p>
+        <p><span data-lang-it>Maschera nomi, identificativi e dati sensibili prima di ogni chiamata a un LLM in cloud: usi i modelli più potenti senza esporre informazioni personali. Sei tu a decidere cosa mascherare.</span><span data-lang-en>Masks names, identifiers and sensitive data before any call to a cloud LLM: use the most powerful models without exposing personal information. You decide what gets masked.</span></p>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h6v6"/><path d="M20 10h-6V4"/><path d="M10 14l-7 7"/><path d="M14 10l7-7"/></svg></div>
@@ -548,7 +555,7 @@
       <div class="rel">
         <div class="meta"><span class="ver">Podz.AI v1.0.18</span><span class="tag tag-latest"><span data-lang-it>ultima</span><span data-lang-en>latest</span></span><span class="date">2026-06-23</span></div>
         <ul>
-          <li><span data-lang-it>Runtime AI multi-agente local-first con framework <strong>DigiSense</strong> ed edge-AI integrata.</span><span data-lang-en>Local-first, multi-agent AI runtime with the <strong>DigiSense</strong> framework and built-in edge-AI.</span></li>
+          <li><span data-lang-it>Runtime IA multi-agente local-first con framework <strong>DigiSense</strong> ed edge-AI integrata.</span><span data-lang-en>Local-first, multi-agent AI runtime with the <strong>DigiSense</strong> framework and built-in edge-AI.</span></li>
           <li><span data-lang-it>Pacchetti per Windows x64, macOS (Apple Silicon / Intel), Linux x64 / ARM64.</span><span data-lang-en>Packages for Windows x64, macOS (Apple Silicon / Intel), Linux x64 / ARM64.</span></li>
           <li><span data-lang-it>macOS firmato e notarizzato; installer Windows firmato Authenticode. Build self-contained, richiede <strong>Docker</strong>.</span><span data-lang-en>macOS signed and notarized; Windows installer Authenticode signed. Self-contained build, requires <strong>Docker</strong>.</span></li>
         </ul>
@@ -574,7 +581,7 @@
       <p><span data-lang-it>Installa Podz.AI su Windows, macOS o Linux e inizia a usare modelli e agenti mantenendo i dati sotto il tuo controllo.</span><span data-lang-en>Install Podz.AI on Windows, macOS or Linux and start using models and agents while keeping your data under your control.</span></p>
       <div class="cta-row">
         <a class="btn btn-primary btn-lg" href="download.html"><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></a>
-        <a class="btn btn-ghost btn-lg" href="#releases"><span data-lang-it>Vedi le release</span><span data-lang-en>See the releases</span></a>
+        <a class="btn btn-ghost btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a>
       </div>
     </div>
   </div>
@@ -588,7 +595,7 @@
       <div class="foot-brand">
         <img class="brand-logo theme-light-only" src="assets/podz-logo-light.svg" alt="Podz.AI" />
         <img class="brand-logo theme-dark-only" src="assets/podz-logo-dark.svg" alt="Podz.AI" />
-        <p><span data-lang-it>La tua IA local-first. Privacy by design e sovranità del dato, dal progetto DigiSense.</span><span data-lang-en>Your local-first AI. Privacy by design and data sovereignty, from the DigiSense project.</span></p>
+        <p><span data-lang-it>La tua IA local-first. Privacy by design e sovranità del dato. Software europeo, dal progetto DigiSense.</span><span data-lang-en>Your local-first AI. Privacy by design and data sovereignty. European software, from the DigiSense project.</span></p>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
@@ -602,7 +609,7 @@
           <h5><span data-lang-it>Risorse</span><span data-lang-en>Resources</span></h5>
           <a href="#releases"><span data-lang-it>Release</span><span data-lang-en>Releases</span></a>
           <a href="https://github.com/G-G-Technologies-Srl/digisense-releases" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://github.com/G-G-Technologies-Srl/digisense-releases/releases/latest" target="_blank" rel="noopener"><span data-lang-it>Ultima versione</span><span data-lang-en>Latest release</span></a>
+          <a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Contatti</span><span data-lang-en>Contact</span></a>
         </div>
       </div>
     </div>
@@ -657,6 +664,32 @@
     n.classList.remove('open'); n.hidden = true;
     document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
   }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  hero agent demo (alternating sector scenarios)
+  // -----------------------------------------------------------------------------------------------------------------
+  var DEMO = [
+    { sector:'<span data-lang-it>Studio legale</span><span data-lang-en>Law firm</span>',
+      user:'<span data-lang-it>Estrai le clausole chiave da questi contratti con dati dei clienti.</span><span data-lang-en>Extract the key clauses from these contracts containing client data.</span>',
+      bot:'<span data-lang-it>Fatto. Elaborazione in locale; quando ho interpellato un LLM in cloud, <strong>nomi e identificativi erano già anonimizzati</strong> — non sono mai usciti.</span><span data-lang-en>Done. Processed locally; when I queried a cloud LLM, <strong>names and identifiers were already anonymized</strong> — they never left.</span>' },
+    { sector:'<span data-lang-it>Studio commercialista</span><span data-lang-en>Accounting firm</span>',
+      user:'<span data-lang-it>Riassumi questi bilanci e segnala le anomalie: sono dati fiscali dei clienti.</span><span data-lang-en>Summarize these financial statements and flag anomalies — it\'s clients\' tax data.</span>',
+      bot:'<span data-lang-it>Pronto. Analisi in locale; i dati fiscali e i nominativi sono stati <strong>anonimizzati prima di qualsiasi chiamata</strong> in cloud.</span><span data-lang-en>Ready. Analyzed locally; tax data and names were <strong>anonymized before any cloud call</strong>.</span>' }
+  ];
+  (function demoRotate(){
+    var u = document.getElementById('demo-user'), b = document.getElementById('demo-assistant'), s = document.getElementById('demo-sector');
+    if(!u || !b || !s) return;
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; // respect user preference: no auto-rotation
+    var i = 0;
+    setInterval(function(){
+      i = (i + 1) % DEMO.length;
+      [u, b, s].forEach(function(el){ el.classList.add('demo-fading'); });
+      setTimeout(function(){
+        u.innerHTML = DEMO[i].user; b.innerHTML = DEMO[i].bot; s.innerHTML = DEMO[i].sector;
+        [u, b, s].forEach(function(el){ el.classList.remove('demo-fading'); });
+      }, 360);
+    }, 5200);
+  })();
 
   // -----------------------------------------------------------------------------------------------------------------
   //  init
