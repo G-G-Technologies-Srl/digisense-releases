@@ -180,6 +180,47 @@
   .how-card p{color:var(--text-soft);font-size:.92rem}
 
   /* -----------------------------------------------------------------------------------------------------------------
+       license + updates lifecycle
+     ----------------------------------------------------------------------------------------------------------------- */
+  .flow{max-width:880px;margin:34px auto 0;display:flex;flex-direction:column;gap:0}
+  .flow-step{display:grid;grid-template-columns:auto 1fr;gap:18px}
+  .flow-rail{display:flex;flex-direction:column;align-items:center}
+  .flow-dot{width:34px;height:34px;border-radius:var(--r-pill);flex:0 0 auto;display:grid;place-items:center;
+    background:var(--btn-bg);color:var(--btn-text);font-weight:700;font-size:.9rem;font-family:var(--sans)}
+  .flow-line{width:2px;flex:1 1 auto;background:var(--border-strong);min-height:14px;margin:4px 0}
+  .flow-step:last-child .flow-line{display:none}
+  .flow-body{padding-bottom:26px}
+  .flow-body h3{font-size:1.1rem;font-weight:600;margin-bottom:5px}
+  .flow-body p{color:var(--text-soft);font-size:.94rem}
+  .flow-body .tagline{display:inline-block;margin-top:7px;font-family:var(--mono);font-size:.72rem;
+    color:var(--accent-ink);background:color-mix(in srgb,var(--accent) 10%,var(--bg-elev));
+    border:1px solid color-mix(in srgb,var(--accent) 28%,var(--border));border-radius:var(--r-pill);padding:3px 11px}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       studio / team volume pricing
+     ----------------------------------------------------------------------------------------------------------------- */
+  .team-wrap{max-width:880px;margin:34px auto 0}
+  .vtable{width:100%;border-collapse:collapse;background:var(--bg-elev);border:1px solid var(--border);
+    border-radius:var(--r-md);overflow:hidden}
+  .vtable th,.vtable td{padding:14px 18px;text-align:left;border-bottom:1px solid var(--border);font-size:.95rem}
+  .vtable thead th{font-family:var(--sans);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--text-faint);background:var(--bg-subtle)}
+  .vtable tbody tr:last-child td{border-bottom:none}
+  .vtable td.price{font-family:var(--serif);font-weight:600;color:var(--text)}
+  .vtable td.disc{color:var(--accent-ink);font-weight:600}
+  .vtable tr.is-best td{background:color-mix(in srgb,var(--accent) 7%,var(--bg-elev))}
+  .team-note{color:var(--text-faint);font-size:.84rem;margin-top:14px;text-align:center}
+  .example{margin-top:22px;border:1px solid color-mix(in srgb,var(--accent) 32%,var(--border));border-radius:var(--r-md);
+    background:color-mix(in srgb,var(--accent) 6%,var(--bg-elev));padding:22px 24px}
+  .example h4{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin-bottom:10px}
+  .example ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .example li{font-size:.93rem;color:var(--text-soft)}
+  .example li b{color:var(--text)}
+  .example .save{color:var(--accent-ink);font-weight:600}
+  .team-cta{display:flex;justify-content:center;margin-top:24px}
+  @media(max-width:560px){.vtable th,.vtable td{padding:11px 12px;font-size:.86rem}}
+
+  /* -----------------------------------------------------------------------------------------------------------------
        faq
      ----------------------------------------------------------------------------------------------------------------- */
   .faq{max-width:780px;margin:0 auto}
@@ -322,7 +363,7 @@
         <span class="amount">2.400 €</span>
         <span class="per"><span data-lang-it>una tantum</span><span data-lang-en>one-time</span></span>
       </div>
-      <div class="plan-vat"><span data-lang-it>IVA esclusa</span><span data-lang-en>VAT excluded</span></div>
+      <div class="plan-vat"><span data-lang-it>IVA esclusa · per postazione · sconti volume</span><span data-lang-en>VAT excluded · per seat · volume discounts</span></div>
       <p class="plan-desc">
         <span data-lang-it>Tutte le funzionalità, diritto d'uso perpetuo della major version che acquisti.</span>
         <span data-lang-en>Every feature, with perpetual usage rights for the major version you buy.</span>
@@ -350,34 +391,34 @@
       </a>
     </div>
 
-    <!-- update -->
+    <!-- updates renewal -->
     <div class="plan">
-      <span class="plan-tag"><span data-lang-it>Aggiornamento</span><span data-lang-en>Update</span></span>
+      <span class="plan-tag"><span data-lang-it>Rinnovo aggiornamenti</span><span data-lang-en>Updates renewal</span></span>
       <div class="plan-price">
         <span class="amount">900 €</span>
-        <span class="per"><span data-lang-it>una tantum</span><span data-lang-en>one-time</span></span>
+        <span class="per"><span data-lang-it>per 12 mesi</span><span data-lang-en>for 12 months</span></span>
       </div>
-      <div class="plan-vat"><span data-lang-it>IVA esclusa</span><span data-lang-en>VAT excluded</span></div>
+      <div class="plan-vat"><span data-lang-it>IVA esclusa · per postazione</span><span data-lang-en>VAT excluded · per seat</span></div>
       <p class="plan-desc">
-        <span data-lang-it>Per chi ha già una licenza e vuole passare a una nuova major version.</span>
-        <span data-lang-en>For those who already own a license and want to move to a new major version.</span>
+        <span data-lang-it>Quando scadono i 12 mesi inclusi nella licenza, rinnovi per altri 12 mesi di aggiornamenti completi.</span>
+        <span data-lang-en>When the 12 months included with the license run out, you renew for another 12 months of full updates.</span>
       </p>
       <ul class="plan-feats">
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-          <span><span data-lang-it>Passaggio alla <b>nuova major version</b></span><span data-lang-en>Upgrade to the <b>new major version</b></span></span>
+          <span><span data-lang-it><b>Tutte le major</b> e le nuove feature del periodo</span><span data-lang-en><b>Every major</b> and new feature in the period</span></span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-          <span><span data-lang-it>Altri <b>12 mesi</b> di manutenzione, major e bug fix</span><span data-lang-en>Another <b>12 months</b> of maintenance, majors and bug fixes</span></span>
+          <span><span data-lang-it><b>Bug fix</b> e patch di sicurezza inclusi</span><span data-lang-en><b>Bug fixes</b> and security patches included</span></span>
         </li>
         <li>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
-          <span><span data-lang-it><b>Non obbligatorio</b>: aggiorni solo se vuoi o se serve</span><span data-lang-en><b>Optional</b>: update only when you want or need to</span></span>
+          <span><span data-lang-it><b>Non obbligatorio</b>: la versione che hai resta tua a vita</span><span data-lang-en><b>Optional</b>: the version you have stays yours for life</span></span>
         </li>
       </ul>
-      <a class="btn btn-ghost btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20Aggiornamento%20licenza&amp;body=Vorrei%20aggiornare%20la%20mia%20licenza%20Podz.AI.">
-        <span data-lang-it>Richiedi l'aggiornamento</span><span data-lang-en>Request an update</span>
+      <a class="btn btn-ghost btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20Rinnovo%20aggiornamenti&amp;body=Vorrei%20rinnovare%20gli%20aggiornamenti%20della%20mia%20licenza%20Podz.AI.">
+        <span data-lang-it>Rinnova gli aggiornamenti</span><span data-lang-en>Renew updates</span>
       </a>
     </div>
 
@@ -386,44 +427,154 @@
 
 <!-- how licensing works -->
 <section class="sec wrap">
-  <div class="sec-eyebrow"><span data-lang-it>Come funziona la licenza</span><span data-lang-en>How licensing works</span></div>
-  <h2 class="sec-title"><span data-lang-it>Semplice e senza sorprese</span><span data-lang-en>Simple, with no surprises</span></h2>
+  <div class="sec-eyebrow"><span data-lang-it>Come funziona</span><span data-lang-en>How it works</span></div>
+  <h2 class="sec-title"><span data-lang-it>Licenza e aggiornamenti, spiegati</span><span data-lang-en>License and updates, explained</span></h2>
   <p class="sec-sub">
-    <span data-lang-it>Paghi una volta per versione. Ogni major update cambia versione: aggiorni quando vuoi, non quando lo decidiamo noi.</span>
-    <span data-lang-en>You pay once per version. Each major update is a new version: you upgrade when you want, not when we decide.</span>
+    <span data-lang-it>Due cose distinte. La <b>licenza</b> è il diritto d'uso del prodotto: la paghi una volta e la versione che acquisti resta tua a vita. Gli <b>aggiornamenti</b> sono un servizio annuale: il primo anno è incluso, poi decidi tu se rinnovare.</span>
+    <span data-lang-en>Two distinct things. The <b>license</b> is the right to use the product: you pay once and the version you buy stays yours for life. <b>Updates</b> are an annual service: the first year is included, then it's up to you whether to renew.</span>
   </p>
-  <div class="how">
+
+  <!-- lifecycle -->
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-rail"><div class="flow-dot">1</div><div class="flow-line"></div></div>
+      <div class="flow-body">
+        <h3><span data-lang-it>Provi gratis per 30 giorni</span><span data-lang-en>Try it free for 30 days</span></h3>
+        <p>
+          <span data-lang-it>Scarichi e installi Podz.AI: al primo avvio parte automaticamente una licenza di prova di 30 giorni, con tutte le funzionalità. Nessun pagamento, nessuna registrazione.</span>
+          <span data-lang-en>You download and install Podz.AI: on first launch a 30-day trial license starts automatically, with every feature. No payment, no sign-up.</span>
+        </p>
+        <span class="tagline">0 € · 30 <span data-lang-it>giorni</span><span data-lang-en>days</span></span>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-rail"><div class="flow-dot">2</div><div class="flow-line"></div></div>
+      <div class="flow-body">
+        <h3><span data-lang-it>Acquisti la licenza</span><span data-lang-en>You buy the license</span></h3>
+        <p>
+          <span data-lang-it>Acquisto una tantum, per postazione. Ottieni il diritto d'uso <b>perpetuo</b>: quella versione resta tua a vita su quel computer, anche se non aggiorni mai più.</span>
+          <span data-lang-en>One-time purchase, per seat. You get a <b>perpetual</b> usage right: that version stays yours for life on that computer, even if you never update again.</span>
+        </p>
+        <span class="tagline">2.400 € · <span data-lang-it>perpetua · per postazione</span><span data-lang-en>perpetual · per seat</span></span>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-rail"><div class="flow-dot">3</div><div class="flow-line"></div></div>
+      <div class="flow-body">
+        <h3><span data-lang-it>12 mesi con tutto incluso</span><span data-lang-en>12 months with everything included</span></h3>
+        <p>
+          <span data-lang-it>Per i 12 mesi successivi all'acquisto il prodotto è in manutenzione: <b>tutte</b> le nuove major version, le nuove feature, i bug fix e le patch di sicurezza sono aggiornamenti gratuiti. Per quante release escano nell'anno, sono incluse.</span>
+          <span data-lang-en>For the 12 months after purchase the product is under maintenance: <b>all</b> new major versions, new features, bug fixes and security patches are free updates. However many releases ship during the year, they're included.</span>
+        </p>
+        <span class="tagline"><span data-lang-it>major + feature + bug fix inclusi</span><span data-lang-en>majors + features + bug fixes included</span></span>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-rail"><div class="flow-dot">4</div><div class="flow-line"></div></div>
+      <div class="flow-body">
+        <h3><span data-lang-it>A fine anno scegli tu</span><span data-lang-en>At the end of the year, you choose</span></h3>
+        <p>
+          <span data-lang-it>Allo scadere dei 12 mesi hai due strade. <b>Rinnovi</b> gli aggiornamenti a 900 €/anno per postazione e continui a ricevere tutte le nuove versioni per altri 12 mesi. Oppure <b>non rinnovi</b>: continui a usare a vita l'ultima versione a cui hai diritto. Un aggiornamento diventa davvero necessario solo se il produttore del sistema host (sistema operativo o componenti di base) introduce un cambiamento strutturale incompatibile.</span>
+          <span data-lang-en>When the 12 months end you have two paths. You <b>renew</b> updates at 900 €/year per seat and keep receiving all new versions for another 12 months. Or you <b>don't renew</b>: you keep using the last version you're entitled to, for life. An update only becomes truly necessary if the host system's vendor (operating system or base components) introduces an incompatible structural change.</span>
+        </p>
+        <span class="tagline"><span data-lang-it>rinnovo 900 €/anno · opzionale</span><span data-lang-en>renewal 900 €/year · optional</span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- good to know -->
+  <div class="how" style="margin-top:40px">
     <div class="how-card">
-      <div class="how-num">1</div>
-      <h3><span data-lang-it>Acquisto una tantum</span><span data-lang-en>One-time purchase</span></h3>
+      <div class="how-num">✓</div>
+      <h3><span data-lang-it>La versione è tua a vita</span><span data-lang-en>The version is yours for life</span></h3>
       <p>
-        <span data-lang-it>La licenza si acquista una volta per major version. Ogni major update cambia il numero di versione e rappresenta una licenza a sé.</span>
-        <span data-lang-en>The license is bought once per major version. Each major update changes the version number and is a license of its own.</span>
+        <span data-lang-it>Senza rinnovo il prodotto non si spegne e non perde funzioni: continua a funzionare sul computer licenziato senza limiti di tempo.</span>
+        <span data-lang-en>Without renewal the product doesn't switch off or lose features: it keeps running on the licensed computer with no time limit.</span>
       </p>
     </div>
     <div class="how-card">
-      <div class="how-num">2</div>
-      <h3><span data-lang-it>Un anno di manutenzione</span><span data-lang-en>One year of maintenance</span></h3>
-      <p>
-        <span data-lang-it>Per 12 mesi dall'acquisto il prodotto è in manutenzione: le major release e le correzioni dei bug sono aggiornamenti gratuiti.</span>
-        <span data-lang-en>For 12 months from purchase the product is under maintenance: major releases and bug fixes are free updates.</span>
-      </p>
-    </div>
-    <div class="how-card">
-      <div class="how-num">3</div>
-      <h3><span data-lang-it>Continua a funzionare</span><span data-lang-en>Keeps working</span></h3>
-      <p>
-        <span data-lang-it>Scaduto l'anno non sei obbligato ad aggiornare: il prodotto continua a funzionare sul tuo PC. Da quel momento, però, ogni nuova versione e ogni bug fix richiedono l'acquisto di una licenza di aggiornamento.</span>
-        <span data-lang-en>After the year you are not required to update: the product keeps running on your PC. From then on, though, any new version and any bug fix require purchasing an update license.</span>
-      </p>
-    </div>
-    <div class="how-card">
-      <div class="how-num">4</div>
+      <div class="how-num">⌘</div>
       <h3><span data-lang-it>Una licenza per computer</span><span data-lang-en>One license per computer</span></h3>
       <p>
-        <span data-lang-it>La licenza è legata a un singolo hardware. Se cambi PC, la licenza va aggiornata sul nuovo dispositivo.</span>
-        <span data-lang-en>The license is tied to a single piece of hardware. If you change PC, the license must be updated to the new device.</span>
+        <span data-lang-it>Ogni licenza è legata a un singolo hardware. Se cambi PC, la licenza si sposta e va aggiornata sul nuovo dispositivo. Per più postazioni, vedi le condizioni per studi e team.</span>
+        <span data-lang-en>Each license is tied to a single piece of hardware. If you change PC, the license moves and must be updated on the new device. For multiple seats, see the studio &amp; team terms.</span>
       </p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">↻</div>
+      <h3><span data-lang-it>Il rinnovo mantiene la fascia</span><span data-lang-en>Renewal keeps your tier</span></h3>
+      <p>
+        <span data-lang-it>Il rinnovo annuale segue lo stesso prezzo per postazione della tua fascia a volume: non riparte mai dal listino pieno.</span>
+        <span data-lang-en>The annual renewal follows the same per-seat price as your volume tier: it never resets to full list price.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- studio / team -->
+<section class="sec wrap">
+  <div class="sec-eyebrow"><span data-lang-it>Per studi e team</span><span data-lang-en>For studios &amp; teams</span></div>
+  <h2 class="sec-title"><span data-lang-it>Più postazioni, prezzo più basso</span><span data-lang-en>More seats, lower price</span></h2>
+  <p class="sec-sub">
+    <span data-lang-it>Le licenze di uno studio si contano insieme: più postazioni acquisti, meno paghi per ognuna. Lo sconto della tua fascia vale sia sulla licenza sia sul rinnovo annuale degli aggiornamenti.</span>
+    <span data-lang-en>A studio's licenses are counted together: the more seats you buy, the less each one costs. Your tier's discount applies both to the license and to the annual updates renewal.</span>
+  </p>
+
+  <div class="team-wrap">
+    <table class="vtable">
+      <thead>
+        <tr>
+          <th><span data-lang-it>Postazioni</span><span data-lang-en>Seats</span></th>
+          <th><span data-lang-it>Licenza / postazione</span><span data-lang-en>License / seat</span></th>
+          <th><span data-lang-it>Rinnovo / anno</span><span data-lang-en>Renewal / year</span></th>
+          <th><span data-lang-it>Sconto</span><span data-lang-en>Discount</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1–2</td>
+          <td class="price">2.400 €</td>
+          <td class="price">900 €</td>
+          <td class="disc">—</td>
+        </tr>
+        <tr>
+          <td>3–5</td>
+          <td class="price">2.000 €</td>
+          <td class="price">750 €</td>
+          <td class="disc">~17%</td>
+        </tr>
+        <tr class="is-best">
+          <td>6–9</td>
+          <td class="price">1.800 €</td>
+          <td class="price">675 €</td>
+          <td class="disc">25%</td>
+        </tr>
+        <tr>
+          <td>10+</td>
+          <td class="price"><span data-lang-it>su misura</span><span data-lang-en>custom</span></td>
+          <td class="price"><span data-lang-it>su misura</span><span data-lang-en>custom</span></td>
+          <td class="disc"><span data-lang-it>licenza studio</span><span data-lang-en>studio license</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="team-note">
+      <span data-lang-it>Prezzi per postazione, IVA esclusa. Da 10 postazioni proponiamo una licenza studio dedicata, anche con licenze concorrenti (floating).</span>
+      <span data-lang-en>Per-seat prices, VAT excluded. From 10 seats we offer a dedicated studio license, including concurrent (floating) licenses.</span>
+    </p>
+
+    <div class="example">
+      <h4><span data-lang-it>Esempio · studio da 6 postazioni</span><span data-lang-en>Example · a 6-seat studio</span></h4>
+      <ul>
+        <li><span data-lang-it>Licenze: 6 × 1.800 € = <b>10.800 €</b> una tantum <span class="save">(risparmi 3.600 € sul listino)</span></span><span data-lang-en>Licenses: 6 × 1,800 € = <b>10,800 €</b> one-time <span class="save">(you save 3,600 € off list)</span></span></li>
+        <li><span data-lang-it>Primo anno di aggiornamenti: <b>incluso</b></span><span data-lang-en>First year of updates: <b>included</b></span></li>
+        <li><span data-lang-it>Dal 2° anno, aggiornamenti (opzionali): 6 × 675 € = <b>4.050 €/anno</b></span><span data-lang-en>From year 2, updates (optional): 6 × 675 € = <b>4,050 €/year</b></span></li>
+      </ul>
+    </div>
+
+    <div class="team-cta">
+      <a class="btn btn-primary btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20Preventivo%20studio&amp;body=Vorrei%20un%20preventivo%20per%20__%20postazioni%20Podz.AI.">
+        <span data-lang-it>Richiedi un preventivo studio</span><span data-lang-en>Request a studio quote</span>
+      </a>
     </div>
   </div>
 </section>
@@ -451,8 +602,8 @@
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <p>
-        <span data-lang-it>No. La licenza è perpetua: la versione che acquisti resta tua a vita su quel computer. L'aggiornamento da 900 € è facoltativo e lo paghi solo quando passi a una nuova major version.</span>
-        <span data-lang-en>No. The license is perpetual: the version you buy stays yours for life on that computer. The 900 € update is optional and you only pay it when you move to a new major version.</span>
+        <span data-lang-it>No. La licenza è perpetua: la versione che acquisti resta tua a vita su quel computer. Il rinnovo degli aggiornamenti da 900 €/anno è facoltativo e serve solo se vuoi continuare a ricevere le nuove versioni dopo i 12 mesi inclusi.</span>
+        <span data-lang-en>No. The license is perpetual: the version you buy stays yours for life on that computer. The 900 €/year updates renewal is optional and only serves to keep receiving new versions after the 12 included months.</span>
       </p>
     </details>
 
@@ -469,12 +620,12 @@
 
     <details>
       <summary>
-        <span><span data-lang-it>L'aggiornamento da 900 € cosa include?</span><span data-lang-en>What does the 900 € update include?</span></span>
+        <span><span data-lang-it>Cosa include il rinnovo da 900 €?</span><span data-lang-en>What does the 900 € renewal include?</span></span>
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <p>
-        <span data-lang-it>Il passaggio alla nuova major version e altri 12 mesi di manutenzione, con gli stessi termini della licenza iniziale.</span>
-        <span data-lang-en>The upgrade to the new major version plus another 12 months of maintenance, under the same terms as the initial license.</span>
+        <span data-lang-it>Altri 12 mesi di aggiornamenti completi: tutte le nuove major version, le nuove feature, i bug fix e le patch di sicurezza rilasciati nel periodo, con gli stessi termini della licenza iniziale. Per quante release escano, sono incluse.</span>
+        <span data-lang-en>Another 12 months of full updates: all new major versions, new features, bug fixes and security patches released in the period, under the same terms as the initial license. However many releases ship, they're included.</span>
       </p>
     </details>
 
@@ -484,8 +635,8 @@
         <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="18" height="18"><path d="m6 9 6 6 6-6"/></svg>
       </summary>
       <p>
-        <span data-lang-it>La licenza vale per un singolo hardware. Per un secondo computer serve un'altra licenza; se cambi PC, la licenza esistente va aggiornata sul nuovo dispositivo. Scrivici per le condizioni multi-postazione.</span>
-        <span data-lang-en>The license is valid for a single piece of hardware. A second computer needs another license; if you change PC, the existing license must be moved and updated to the new device. Contact us for multi-seat terms.</span>
+        <span data-lang-it>Ogni licenza vale per un singolo hardware, quindi serve una licenza per postazione. Le postazioni di uno studio però si contano insieme e accedono agli sconti a volume (vedi "Per studi e team"). Se cambi PC, la licenza si sposta e va aggiornata sul nuovo dispositivo.</span>
+        <span data-lang-en>Each license is valid for a single piece of hardware, so you need one license per seat. A studio's seats are counted together, though, and unlock the volume discounts (see "For studios &amp; teams"). If you change PC, the license moves and must be updated on the new device.</span>
       </p>
     </details>
 
