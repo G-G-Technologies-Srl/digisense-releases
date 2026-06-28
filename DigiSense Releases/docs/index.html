@@ -3,19 +3,29 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Podz.AI — Your Local-First AI · DigiSense</title>
-<meta name="description" content="Podz.AI is your local-first AI: run models, agents and applications on confidential data without it leaving your infrastructure. Privacy by design, EU data sovereignty, and document anonymization for cloud LLMs." />
+<title>Podz.AI — Intelligenza artificiale locale e privata</title>
+<meta name="description" content="Podz.AI: l'intelligenza artificiale local-first che lavora sui dati riservati senza inviarli al cloud. Privacy by design, anonimizzazione documenti, conforme a GDPR e AI Act. Per studi legali, commercialisti e aziende." />
+<meta name="keywords" content="intelligenza artificiale locale, IA on-premise, AI privata GDPR, anonimizzazione documenti, alternativa privata ChatGPT, IA per studi legali, IA per commercialisti, sovranità del dato, AI Act, local-first AI" />
+<meta name="author" content="G&G Technologies Srl" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#06080f" media="(prefers-color-scheme: dark)" />
 <link rel="canonical" href="https://g-g-technologies-srl.github.io/digisense-releases/" />
-<meta property="og:title" content="Podz.AI — Your Local-First AI" />
-<meta property="og:description" content="Run AI on confidential data without it leaving your infrastructure. Privacy by design, EU data sovereignty, anonymization for cloud LLMs." />
+<meta property="og:site_name" content="Podz.AI" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:title" content="Podz.AI — IA locale e privata, i dati restano da te" />
+<meta property="og:description" content="Usa modelli e agenti sui dati riservati senza inviarli al cloud. Privacy by design, anonimizzazione documenti, GDPR e AI Act. Per studi legali, commercialisti e aziende." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://g-g-technologies-srl.github.io/digisense-releases/" />
-<meta property="og:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/icons/icon-512.png" />
+<meta property="og:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/og-card.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Podz.AI — Usa l'IA sui tuoi dati riservati. Senza farli uscire." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Podz.AI — Your Local-First AI" />
-<meta name="twitter:description" content="Run AI on confidential data without it leaving your infrastructure. Privacy by design, EU data sovereignty, anonymization for cloud LLMs." />
+<meta name="twitter:title" content="Podz.AI — IA locale e privata, i dati restano da te" />
+<meta name="twitter:description" content="Usa modelli e agenti sui dati riservati senza inviarli al cloud. Privacy by design, anonimizzazione, GDPR e AI Act." />
+<meta name="twitter:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/og-card.png" />
 <meta name="twitter:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/icons/icon-512.png" />
 <link rel="icon" type="image/svg+xml" href="assets/podz-symbol-static.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
@@ -248,6 +258,18 @@
   .band h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:500;margin-bottom:14px}
   .band p{color:var(--text-soft);max-width:52ch;margin:0 auto 30px;font-size:1.08rem}
   .band .cta-row{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+
+  /* faq */
+  .faq{max-width:780px;display:flex;flex-direction:column;gap:12px}
+  .faq details{border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg-elev);overflow:hidden}
+  .faq details[open]{border-color:var(--border-strong)}
+  .faq summary{cursor:pointer;padding:18px 22px;font-family:var(--serif);font-weight:600;font-size:1.06rem;
+    list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";color:var(--accent-ink);font-weight:400;font-size:1.5rem;line-height:1;transition:transform .2s}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq details p{padding:0 22px 20px;color:var(--text-soft);font-size:.98rem;margin:0}
+  @media(prefers-reduced-motion:reduce){.faq summary::after{transition:none}}
 
   /* footer */
   footer{border-top:1px solid var(--border);padding:54px 0 40px;margin-top:8px}
@@ -573,6 +595,38 @@
   </div>
 </section>
 
+<!-- faq -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <div class="sec-eyebrow">FAQ</div>
+    <h2 class="sec-title"><span data-lang-it>Domande frequenti</span><span data-lang-en>Frequently asked questions</span></h2>
+    <p class="sec-sub"><span data-lang-it>Le risposte alle domande più comuni su IA, privacy e dati riservati.</span><span data-lang-en>Answers to the most common questions about AI, privacy and confidential data.</span></p>
+
+    <div class="faq">
+      <details>
+        <summary><span data-lang-it>Posso usare l'IA con i dati dei miei clienti?</span><span data-lang-en>Can I use AI with my clients' data?</span></summary>
+        <p><span data-lang-it>Sì, se restano sotto il tuo controllo. Con Podz.AI l'elaborazione avviene in locale; quando serve un modello in cloud, i dati personali vengono anonimizzati prima. Riduci l'esposizione e tuteli il segreto professionale.</span><span data-lang-en>Yes, as long as it stays under your control. With Podz.AI processing happens locally; when a cloud model is needed, personal data is anonymized first. You reduce exposure and protect professional secrecy.</span></p>
+      </details>
+      <details>
+        <summary><span data-lang-it>Podz.AI è conforme al GDPR e all'AI Act?</span><span data-lang-en>Is Podz.AI GDPR and AI Act compliant?</span></summary>
+        <p><span data-lang-it>Podz.AI è progettato attorno ai principi di privacy by design, data minimization e sovranità del dato, con supervisione umana e tracciabilità. La conformità dipende dal tuo utilizzo: Podz.AI ti fornisce gli strumenti per applicarli, ma non sostituisce una valutazione legale.</span><span data-lang-en>Podz.AI is designed around privacy-by-design, data minimization and data-sovereignty principles, with human oversight and traceability. Compliance depends on your use: Podz.AI gives you the tools to apply these principles but does not replace a legal assessment.</span></p>
+      </details>
+      <details>
+        <summary><span data-lang-it>I dati restano in Italia e nell'UE?</span><span data-lang-en>Does my data stay in Italy and the EU?</span></summary>
+        <p><span data-lang-it>Sì: i dati riservati restano sulla tua macchina o sul tuo server. Niente trasferimenti automatici verso cloud statunitensi, evitando le incertezze legate a Schrems II e al CLOUD Act.</span><span data-lang-en>Yes: confidential data stays on your machine or server. No automatic transfers to US clouds, avoiding the uncertainty around Schrems II and the CLOUD Act.</span></p>
+      </details>
+      <details>
+        <summary><span data-lang-it>È un'alternativa privata a ChatGPT per studi e aziende?</span><span data-lang-en>Is it a private alternative to ChatGPT for firms and companies?</span></summary>
+        <p><span data-lang-it>Sì: usi modelli potenti, locali e in cloud, senza incollare dati riservati in chatbot esterni. Tu decidi cosa resta in locale e cosa, già anonimizzato, può uscire.</span><span data-lang-en>Yes: you use powerful models, both local and cloud, without pasting confidential data into external chatbots. You decide what stays local and what, already anonymized, can leave.</span></p>
+      </details>
+      <details>
+        <summary><span data-lang-it>Devo informare i clienti se uso l'IA?</span><span data-lang-en>Do I have to inform clients if I use AI?</span></summary>
+        <p><span data-lang-it>La normativa italiana (L. 132/2025) chiede ai professionisti di informare i clienti sull'uso dell'IA. Lavorando in locale e con dati anonimizzati comunichi un uso responsabile e sotto controllo. Per gli obblighi specifici fai riferimento ai modelli del tuo ordine professionale.</span><span data-lang-en>Italian law (132/2025) requires professionals to inform clients about AI use. Working locally and with anonymized data shows responsible, controlled use. For specific obligations, refer to your professional body's templates.</span></p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="block">
   <div class="wrap">
@@ -587,6 +641,72 @@
   </div>
 </section>
 </main>
+
+<!-- structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://g-g-technologies-srl.github.io/digisense-releases/#org",
+      "name": "G&G Technologies Srl",
+      "url": "https://g-g-technologies-srl.github.io/digisense-releases/",
+      "logo": "https://g-g-technologies-srl.github.io/digisense-releases/assets/icons/icon-512.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://g-g-technologies-srl.github.io/digisense-releases/#website",
+      "url": "https://g-g-technologies-srl.github.io/digisense-releases/",
+      "name": "Podz.AI",
+      "inLanguage": ["it", "en"],
+      "publisher": { "@id": "https://g-g-technologies-srl.github.io/digisense-releases/#org" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "Podz.AI",
+      "operatingSystem": "Windows, macOS, Linux",
+      "applicationCategory": "BusinessApplication",
+      "softwareVersion": "1.0.18",
+      "url": "https://g-g-technologies-srl.github.io/digisense-releases/",
+      "downloadUrl": "https://g-g-technologies-srl.github.io/digisense-releases/download.html",
+      "image": "https://g-g-technologies-srl.github.io/digisense-releases/assets/og-card.png",
+      "description": "Intelligenza artificiale local-first: esegue modelli, agenti e applicazioni sui dati riservati senza inviarli al cloud. Privacy by design, anonimizzazione dei documenti e sovranità del dato, pensato per GDPR e AI Act.",
+      "publisher": { "@id": "https://g-g-technologies-srl.github.io/digisense-releases/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Posso usare l'IA con i dati dei miei clienti?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sì, se restano sotto il tuo controllo. Con Podz.AI l'elaborazione avviene in locale; quando serve un modello in cloud, i dati personali vengono anonimizzati prima. Riduci l'esposizione e tuteli il segreto professionale." }
+        },
+        {
+          "@type": "Question",
+          "name": "Podz.AI è conforme al GDPR e all'AI Act?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Podz.AI è progettato attorno ai principi di privacy by design, data minimization e sovranità del dato, con supervisione umana e tracciabilità. La conformità dipende dal tuo utilizzo: Podz.AI ti fornisce gli strumenti per applicarli, ma non sostituisce una valutazione legale." }
+        },
+        {
+          "@type": "Question",
+          "name": "I dati restano in Italia e nell'UE?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sì: i dati riservati restano sulla tua macchina o sul tuo server. Niente trasferimenti automatici verso cloud statunitensi, evitando le incertezze legate a Schrems II e al CLOUD Act." }
+        },
+        {
+          "@type": "Question",
+          "name": "È un'alternativa privata a ChatGPT per studi e aziende?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sì: usi modelli potenti, locali e in cloud, senza incollare dati riservati in chatbot esterni. Tu decidi cosa resta in locale e cosa, già anonimizzato, può uscire." }
+        },
+        {
+          "@type": "Question",
+          "name": "Devo informare i clienti se uso l'IA?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La normativa italiana (L. 132/2025) chiede ai professionisti di informare i clienti sull'uso dell'IA. Lavorando in locale e con dati anonimizzati comunichi un uso responsabile e sotto controllo. Per gli obblighi specifici fai riferimento ai modelli del tuo ordine professionale." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 <!-- footer -->
 <footer>
@@ -607,6 +727,7 @@
         </div>
         <div class="foot-col">
           <h5><span data-lang-it>Risorse</span><span data-lang-en>Resources</span></h5>
+          <a href="#faq">FAQ</a>
           <a href="#releases"><span data-lang-it>Release</span><span data-lang-en>Releases</span></a>
           <a href="https://github.com/G-G-Technologies-Srl/digisense-releases" target="_blank" rel="noopener">GitHub</a>
           <a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Contatti</span><span data-lang-en>Contact</span></a>
@@ -674,7 +795,22 @@
       bot:'<span data-lang-it>Fatto. Elaborazione in locale; quando ho interpellato un LLM in cloud, <strong>nomi e identificativi erano già anonimizzati</strong> — non sono mai usciti.</span><span data-lang-en>Done. Processed locally; when I queried a cloud LLM, <strong>names and identifiers were already anonymized</strong> — they never left.</span>' },
     { sector:'<span data-lang-it>Studio commercialista</span><span data-lang-en>Accounting firm</span>',
       user:'<span data-lang-it>Riassumi questi bilanci e segnala le anomalie: sono dati fiscali dei clienti.</span><span data-lang-en>Summarize these financial statements and flag anomalies — it\'s clients\' tax data.</span>',
-      bot:'<span data-lang-it>Pronto. Analisi in locale; i dati fiscali e i nominativi sono stati <strong>anonimizzati prima di qualsiasi chiamata</strong> in cloud.</span><span data-lang-en>Ready. Analyzed locally; tax data and names were <strong>anonymized before any cloud call</strong>.</span>' }
+      bot:'<span data-lang-it>Pronto. Analisi in locale; i dati fiscali e i nominativi sono stati <strong>anonimizzati prima di qualsiasi chiamata</strong> in cloud.</span><span data-lang-en>Ready. Analyzed locally; tax data and names were <strong>anonymized before any cloud call</strong>.</span>' },
+    { sector:'<span data-lang-it>PMI · Contratti</span><span data-lang-en>SME · Contracts</span>',
+      user:'<span data-lang-it>Confronta questi contratti con i fornitori e segnala le clausole a rischio.</span><span data-lang-en>Compare these supplier contracts and flag the risky clauses.</span>',
+      bot:'<span data-lang-it>Confronto eseguito in locale. Importi e ragioni sociali <strong>mascherati prima</strong> di consultare il modello in cloud.</span><span data-lang-en>Compared locally. Amounts and company names <strong>masked before</strong> consulting the cloud model.</span>' },
+    { sector:'<span data-lang-it>Ufficio brevetti · IP</span><span data-lang-en>Patent office · IP</span>',
+      user:'<span data-lang-it>Analizza questa documentazione tecnica brevettuale, è riservata.</span><span data-lang-en>Analyze this patent technical documentation — it\'s confidential.</span>',
+      bot:'<span data-lang-it>Analisi interamente on-device: <strong>l\'invenzione non lascia la rete aziendale</strong>. Nessun dato inviato in cloud.</span><span data-lang-en>Fully on-device analysis: <strong>the invention never leaves your network</strong>. No data sent to the cloud.</span>' },
+    { sector:'<span data-lang-it>Ufficio legale</span><span data-lang-en>In-house legal</span>',
+      user:'<span data-lang-it>Rivedi questo NDA e verifica le clausole di riservatezza.</span><span data-lang-en>Review this NDA and check the confidentiality clauses.</span>',
+      bot:'<span data-lang-it>Revisione in locale; controparti e termini sensibili <strong>anonimizzati prima</strong> del supporto cloud.</span><span data-lang-en>Reviewed locally; counterparties and sensitive terms <strong>anonymized before</strong> any cloud assistance.</span>' },
+    { sector:'<span data-lang-it>Ufficio produzione</span><span data-lang-en>Production</span>',
+      user:'<span data-lang-it>Estrai i parametri di processo da queste distinte riservate.</span><span data-lang-en>Extract the process parameters from these confidential bills of materials.</span>',
+      bot:'<span data-lang-it>Estrazione on-device: <strong>i segreti industriali restano sui tuoi server</strong>.</span><span data-lang-en>On-device extraction: <strong>trade secrets stay on your servers</strong>.</span>' },
+    { sector:'<span data-lang-it>HR · Dati dipendenti</span><span data-lang-en>HR · Employee data</span>',
+      user:'<span data-lang-it>Riassumi questi CV e le valutazioni dei dipendenti.</span><span data-lang-en>Summarize these CVs and employee reviews.</span>',
+      bot:'<span data-lang-it>Sintesi in locale; i dati personali dei dipendenti sono stati <strong>anonimizzati prima di ogni passaggio</strong> in cloud.</span><span data-lang-en>Summarized locally; employees\' personal data was <strong>anonymized before any cloud step</strong>.</span>' }
   ];
   (function demoRotate(){
     var u = document.getElementById('demo-user'), b = document.getElementById('demo-assistant'), s = document.getElementById('demo-sector');

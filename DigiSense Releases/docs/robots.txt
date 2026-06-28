@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://g-g-technologies-srl.github.io/digisense-releases/sitemap.xml
