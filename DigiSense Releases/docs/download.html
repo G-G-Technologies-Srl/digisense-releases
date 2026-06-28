@@ -1,136 +1,222 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-theme="light">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Download · Podz.AI — DigiSense</title>
-<meta name="description" content="Scarica l'ultima versione di Podz.AI per la tua piattaforma — Windows, macOS o Linux." />
+<meta name="description" content="Download the latest Podz.AI build for your platform — Windows, macOS or Linux." />
+<link rel="canonical" href="https://g-g-technologies-srl.github.io/digisense-releases/download.html" />
+<meta property="og:title" content="Download Podz.AI" />
+<meta property="og:description" content="Download the latest Podz.AI build for your platform — Windows, macOS or Linux." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://g-g-technologies-srl.github.io/digisense-releases/download.html" />
+<meta property="og:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/icons/icon-512.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Download Podz.AI" />
+<meta name="twitter:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/icons/icon-512.png" />
+<meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#06080f" media="(prefers-color-scheme: dark)" />
 <link rel="icon" type="image/svg+xml" href="assets/podz-symbol-static.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
 <link rel="alternate icon" href="assets/icons/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('podz-theme');
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    try {
+      var l = localStorage.getItem('podz-lang');
+      if (l !== 'it' && l !== 'en') l = (navigator.language || 'it').slice(0, 2) === 'en' ? 'en' : 'it';
+      document.documentElement.setAttribute('lang', l);
+    } catch (e) {}
+  })();
+</script>
+
 <style>
-  :root{
-    --bg:#05060a;--bg-2:#0a0d16;--panel:rgba(255,255,255,.03);--panel-brd:rgba(255,255,255,.08);
-    --txt:#e9edf5;--txt-dim:#9aa4b8;--txt-faint:#5e6678;
-    --accent:#38e1ff;--accent-2:#a06bff;--accent-3:#3bffb0;
-    --glow:0 0 40px rgba(56,225,255,.25);--radius:18px;--maxw:1140px;
-    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  :root[data-theme="light"]{
+    --bg:#f4f6f8; --bg-elev:#ffffff; --bg-subtle:#eaf0f3; --bg-inset:#f8fafb;
+    --text:#16273d; --text-soft:#475467; --text-faint:#5a6472;
+    --border:#e2e9ee; --border-strong:#d2dde4;
+    --accent:#1488c4; --accent-bright:#1ba6e4; --link:#0f6f9e; --accent-ink:#0f6f9e;
+    --btn-bg:#0e7cb3; --btn-text:#ffffff;
+    --ring:rgba(20,136,196,.40); --code-bg:#eef3f6; --code-fg:#0a5f88;
+    --shadow:0 1px 2px rgba(16,39,61,.05),0 8px 30px rgba(16,39,61,.06);
   }
+  :root[data-theme="dark"]{
+    --bg:#06080f; --bg-elev:#0d1320; --bg-subtle:#0f1726; --bg-inset:#0a1018;
+    --text:#e9edf5; --text-soft:#aab4c4; --text-faint:#7c8798;
+    --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.17);
+    --accent:#38e1ff; --accent-bright:#5ad6f7; --link:#5ad6f7; --accent-ink:#7fe3ff;
+    --btn-bg:#38e1ff; --btn-text:#06121a;
+    --ring:rgba(56,225,255,.45); --code-bg:rgba(56,225,255,.10); --code-fg:#7fe3ff;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 50px rgba(0,0,0,.45);
+  }
+  :root{--maxw:1120px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-pill:999px;
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--txt);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
-  body::before{content:"";position:fixed;inset:0;z-index:-2;background:
-    radial-gradient(900px 600px at 12% -5%, rgba(56,225,255,.14), transparent 60%),
-    radial-gradient(800px 600px at 95% 8%, rgba(160,107,255,.16), transparent 60%),
-    radial-gradient(700px 700px at 50% 110%, rgba(59,255,176,.08), transparent 60%),var(--bg);}
-  body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.4;pointer-events:none;
-    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-    background-size:46px 46px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);}
-  a{color:inherit;text-decoration:none}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;min-height:100vh;transition:background .35s ease,color .35s ease}
+  @media(prefers-reduced-motion:reduce){body{transition:none}html{scroll-behavior:auto}}
+  a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:3px}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;color:var(--text);line-height:1.1}
+  ::selection{background:var(--accent);color:var(--btn-text)}
+  .skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--bg-elev);color:var(--text);
+    border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:10px 16px}
+  .skip:focus{left:16px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
 
-  /* nav */
-  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(5,6,10,.6);border-bottom:1px solid var(--panel-brd)}
-  .nav-inner{display:flex;align-items:center;gap:24px;height:66px}
-  .brand{display:flex;align-items:center;gap:12px}
+  header.nav{position:sticky;top:0;z-index:100;background:var(--bg);background:color-mix(in srgb,var(--bg) 82%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  #main{scroll-margin-top:84px}
+  .nav-inner{display:flex;align-items:center;gap:18px;height:68px}
+  .brand{display:flex;align-items:center;gap:11px}
   .brand-logo{height:30px;width:auto;display:block}
-  .brand-sub{color:var(--txt-faint);font-weight:600;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;border-left:1px solid var(--panel-brd);padding-left:12px}
-  @media(max-width:520px){.brand-sub{display:none}}
-  .nav-links{margin-left:auto;display:flex;gap:28px;align-items:center}
-  .nav-links a{color:var(--txt-dim);font-size:.92rem;transition:color .2s}
-  .nav-links a:hover{color:var(--txt)}
-  .nav-links a.active{color:var(--txt)}
-  .lang{display:flex;border:1px solid var(--panel-brd);border-radius:999px;overflow:hidden;font-size:.78rem;font-weight:600}
-  .lang button{background:transparent;border:none;color:var(--txt-faint);padding:6px 13px;cursor:pointer;font-family:var(--font);font-weight:600;transition:.2s}
-  .lang button.active{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#04060c}
-  @media(max-width:760px){.nav-links a{display:none}}
+  .brand-sub{color:var(--text-faint);font-weight:600;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+    border-left:1px solid var(--border-strong);padding-left:11px}
+  .nav-links{display:flex;gap:6px;align-items:center;margin-left:14px}
+  .nav-links a{color:var(--text-soft);font-size:.93rem;font-weight:500;padding:8px 12px;border-radius:var(--r-sm)}
+  .nav-links a:hover{color:var(--text);background:var(--bg-subtle);text-decoration:none}
+  .nav-links a.active{color:var(--text);background:var(--bg-subtle)}
+  .nav-right{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .icon-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--r-pill);
+    border:1px solid var(--border);background:var(--bg-elev);color:var(--text-soft);cursor:pointer;transition:.2s}
+  .icon-btn:hover{color:var(--text);border-color:var(--border-strong)}
+  .icon-btn svg{width:18px;height:18px}
+  .seg{display:flex;border:1px solid var(--border);border-radius:var(--r-pill);overflow:hidden;background:var(--bg-elev)}
+  .seg button{background:transparent;border:none;color:var(--text-faint);font:600 .76rem/1 var(--sans);padding:11px 14px;cursor:pointer;transition:.2s}
+  .seg button.active{background:var(--btn-bg);color:var(--btn-text)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:.95rem;
+    padding:11px 20px;border-radius:var(--r-pill);cursor:pointer;border:1px solid transparent;transition:.2s;white-space:nowrap}
+  .btn:hover{text-decoration:none}
+  .btn-primary{background:var(--btn-bg);color:var(--btn-text)}
+  .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn-ghost{background:var(--bg-elev);border-color:var(--border-strong);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--text)}
+  .btn small{font-weight:500;opacity:.8;font-size:.78em}
+  .menu-toggle{display:none}
+  @media(max-width:760px){.nav-links{display:none}.menu-toggle{display:grid}}
+  .mobile-nav{display:none;flex-direction:column;gap:4px;position:sticky;top:68px;z-index:99;
+    background:var(--bg-elev);border-bottom:1px solid var(--border);padding:14px 24px}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:12px 12px;border-radius:var(--r-sm);color:var(--text-soft);font-weight:500}
+  .mobile-nav a:hover{background:var(--bg-subtle);color:var(--text);text-decoration:none}
+  @media(min-width:761px){.mobile-nav{display:none !important}}
 
-  /* head */
-  .dl-head{text-align:center;padding:clamp(56px,9vw,96px) 0 24px}
-  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
-  .dl-head h1{font-size:clamp(2.1rem,5.5vw,3.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.08;
-    background:linear-gradient(180deg,#fff 30%,#a8b2c8);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:16px}
-  .dl-head p{color:var(--txt-dim);max-width:620px;margin:0 auto;font-size:1.06rem}
-  .verline{display:inline-flex;gap:10px;align-items:center;margin-top:22px;font-family:var(--mono);font-size:.82rem;color:var(--txt-dim);border:1px solid var(--panel-brd);background:var(--panel);border-radius:999px;padding:7px 16px}
-  .verline b{color:#fff}
+  .dl-head{text-align:center;padding:clamp(48px,8vw,84px) 0 8px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px}
+  .dl-head h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:500;margin-bottom:16px}
+  .dl-head p{color:var(--text-soft);max-width:56ch;margin:0 auto;font-size:1.06rem}
+  .verline{display:inline-flex;gap:12px;align-items:center;flex-wrap:wrap;justify-content:center;margin-top:22px;
+    font-family:var(--mono);font-size:.82rem;color:var(--text-soft);border:1px solid var(--border);
+    background:var(--bg-elev);border-radius:var(--r-pill);padding:8px 18px}
+  .verline b{color:var(--text)}
 
-  /* recommended */
-  .reco{max-width:760px;margin:38px auto 0}
-  .reco-card{border:1px solid rgba(56,225,255,.4);border-radius:22px;padding:30px;background:linear-gradient(120deg,rgba(56,225,255,.08),rgba(160,107,255,.1));box-shadow:var(--glow);position:relative;overflow:hidden}
-  .reco-tag{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-3);margin-bottom:12px}
+  .reco{max-width:780px;margin:34px auto 0}
+  .reco-card{border:1px solid color-mix(in srgb,var(--accent) 40%,var(--border));border-radius:var(--r-lg);padding:28px;
+    background:color-mix(in srgb,var(--accent) 7%,var(--bg-elev));box-shadow:var(--shadow);margin-bottom:14px}
+  .reco-tag{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px}
   .reco-os{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-  .reco-os .pico{font-size:2.4rem;line-height:1}
-  .reco-os h2{font-size:1.5rem;font-weight:800}
-  .reco-os p{color:var(--txt-dim);font-size:.9rem}
+  .reco-os .pico{width:48px;height:48px}
+  .reco-os h2{font-family:var(--serif);font-size:1.5rem;font-weight:600}
+  .reco-os p{color:var(--text-soft);font-size:.9rem}
   .reco-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
 
-  /* buttons */
-  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:12px;font-weight:600;font-size:.95rem;cursor:pointer;transition:.22s;border:1px solid transparent;font-family:var(--font)}
-  .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#04060c;box-shadow:var(--glow)}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 55px rgba(56,225,255,.45)}
-  .btn-ghost{border-color:var(--panel-brd);background:rgba(255,255,255,.04);color:var(--txt)}
-  .btn-ghost:hover{border-color:var(--accent);color:#fff}
-  .btn small{font-weight:500;opacity:.75;font-size:.78em}
-
-  /* all platforms */
-  .all{padding:60px 0 40px}
-  .all h3{text-align:center;font-size:1.4rem;font-weight:800;margin-bottom:8px}
-  .all .sub{text-align:center;color:var(--txt-dim);margin-bottom:34px;font-size:.96rem}
-  .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
-  .pcard{border:1px solid var(--panel-brd);background:var(--panel);border-radius:var(--radius);padding:24px;transition:.22s;display:flex;flex-direction:column;gap:14px}
-  .pcard:hover{border-color:rgba(56,225,255,.35);transform:translateY(-3px)}
-  .pcard.is-reco{border-color:rgba(59,255,176,.45)}
+  .all{padding:56px 0 40px}
+  .all h3{text-align:center;font-family:var(--serif);font-size:1.5rem;font-weight:600;margin-bottom:8px}
+  .all .sub{text-align:center;color:var(--text-soft);margin-bottom:34px;font-size:.98rem}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(248px,1fr));gap:18px}
+  .pcard{border:1px solid var(--border);background:var(--bg-elev);border-radius:var(--r-md);padding:22px;
+    display:flex;flex-direction:column;gap:14px;transition:.22s}
+  .pcard:hover{border-color:var(--border-strong);box-shadow:var(--shadow);transform:translateY(-3px)}
+  .pcard.is-reco{border-color:color-mix(in srgb,var(--accent) 45%,var(--border))}
   .pcard .ptop{display:flex;align-items:center;gap:13px}
-  .pcard .ico{font-size:1.7rem}
-  .pcard h4{font-size:1.08rem}
-  .pcard .sub2{font-size:.78rem;color:var(--txt-faint)}
-  .pcard .files{display:flex;flex-direction:column;gap:9px;margin-top:2px}
-  .file-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--panel-brd);background:rgba(255,255,255,.02);border-radius:11px;padding:11px 14px;transition:.2s}
-  .file-btn:hover{border-color:var(--accent);background:rgba(56,225,255,.06)}
+  .pcard .ico{width:40px;height:40px;flex:0 0 auto}
+  .pcard h4{font-family:var(--serif);font-size:1.1rem;font-weight:600}
+  .pcard .sub2{font-size:.78rem;color:var(--text-faint)}
+  .pcard .files{display:flex;flex-direction:column;gap:9px}
+  .file-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--border);
+    background:var(--bg-inset);border-radius:11px;padding:11px 14px;transition:.2s;color:var(--text)}
+  .file-btn:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--bg-inset));text-decoration:none}
   .file-btn .lbl{font-size:.9rem;font-weight:600}
-  .file-btn .ext{font-family:var(--mono);font-size:.72rem;color:var(--txt-faint)}
+  .file-btn .ext{font-family:var(--mono);font-size:.72rem;color:var(--text-faint)}
   .file-btn .arr{color:var(--accent);font-weight:700}
-  .reco-badge{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#04060c;background:linear-gradient(120deg,var(--accent),var(--accent-3));border-radius:6px;padding:2px 8px}
-
-  .note{max-width:760px;margin:30px auto 0;text-align:center;color:var(--txt-faint);font-size:.86rem}
-  .note code{font-family:var(--mono);color:var(--accent);background:rgba(56,225,255,.08);border:1px solid var(--panel-brd);border-radius:5px;padding:1px 6px}
-  .state{text-align:center;color:var(--txt-dim);padding:40px 0;font-size:.96rem}
-  .spinner{display:inline-block;width:18px;height:18px;border:2px solid var(--panel-brd);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;vertical-align:-3px;margin-right:9px}
+  .reco-badge{font-size:.62rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--btn-text);
+    background:var(--btn-bg);border-radius:6px;padding:2px 8px}
+  .note{max-width:780px;margin:30px auto 0;text-align:center;color:var(--text-faint);font-size:.86rem}
+  .note code{font-family:var(--mono);color:var(--code-fg);background:var(--code-bg);border-radius:5px;padding:1px 6px}
+  .state{text-align:center;color:var(--text-soft);padding:40px 0;font-size:.96rem}
+  .spinner{display:inline-block;width:18px;height:18px;border:2px solid var(--border-strong);border-top-color:var(--accent);
+    border-radius:50%;animation:spin .8s linear infinite;vertical-align:-3px;margin-right:9px}
   @keyframes spin{to{transform:rotate(360deg)}}
+  @media(prefers-reduced-motion:reduce){.spinner{animation:none}}
 
-  footer{border-top:1px solid var(--panel-brd);padding:36px 0;margin-top:40px}
-  .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--txt-faint);font-size:.86rem}
+  footer{border-top:1px solid var(--border);padding:40px 0;margin-top:40px}
+  .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--text-faint);font-size:.86rem}
   .foot-inner a:hover{color:var(--accent)}
 
   [data-lang-en]{display:none}
   html[lang="en"] [data-lang-it]{display:none}
   html[lang="en"] [data-lang-en]{display:inline}
+  .theme-dark-only{display:none}
+  :root[data-theme="dark"] .theme-dark-only{display:inline-flex}
+  :root[data-theme="dark"] .theme-light-only{display:none}
 </style>
 </head>
 <body>
+<a class="skip" href="#main"><span data-lang-it>Vai al contenuto</span><span data-lang-en>Skip to content</span></a>
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="index.html"><img class="brand-logo" src="assets/podz-logo-dark.svg" alt="Podz.AI" /><span class="brand-sub">DigiSense</span></a>
-    <nav class="nav-links">
-      <a href="index.html#overview"><span data-lang-it>Panoramica</span><span data-lang-en>Overview</span></a>
+    <a class="brand" href="index.html" aria-label="Podz.AI home">
+      <img class="brand-logo theme-light-only" src="assets/podz-logo-light.svg" alt="Podz.AI" />
+      <img class="brand-logo theme-dark-only" src="assets/podz-logo-dark.svg" alt="Podz.AI" />
+      <span class="brand-sub">DigiSense</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#overview"><span data-lang-it>Funzionalità</span><span data-lang-en>Features</span></a>
+      <a href="index.html#compliance"><span data-lang-it>Conformità</span><span data-lang-en>Compliance</span></a>
       <a href="index.html#architecture"><span data-lang-it>Architettura</span><span data-lang-en>Architecture</span></a>
-      <a href="index.html#releases"><span data-lang-it>Release</span><span data-lang-en>Releases</span></a>
       <a href="download.html" class="active">Download</a>
-      <div class="lang">
-        <button id="it" class="active" onclick="setLang('it')">IT</button>
-        <button id="en" onclick="setLang('en')">EN</button>
-      </div>
     </nav>
+    <div class="nav-right">
+      <div class="seg" role="group" aria-label="Language">
+        <button id="lang-it" type="button" onclick="setLang('it')" aria-pressed="true">IT</button>
+        <button id="lang-en" type="button" onclick="setLang('en')" aria-pressed="false">EN</button>
+      </div>
+      <button class="icon-btn" id="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle dark/light theme" aria-pressed="false" title="Theme">
+        <svg class="theme-light-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+        <svg class="theme-dark-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn menu-toggle" id="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
   </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
+    <a href="index.html#overview" onclick="closeMenu()"><span data-lang-it>Funzionalità</span><span data-lang-en>Features</span></a>
+    <a href="index.html#compliance" onclick="closeMenu()"><span data-lang-it>Conformità</span><span data-lang-en>Compliance</span></a>
+    <a href="index.html#architecture" onclick="closeMenu()"><span data-lang-it>Architettura</span><span data-lang-en>Architecture</span></a>
+    <a href="index.html#releases" onclick="closeMenu()"><span data-lang-it>Release</span><span data-lang-en>Releases</span></a>
+    <a href="download.html" onclick="closeMenu()">Download</a>
+  </nav>
 </header>
 
+<main id="main">
 <section class="dl-head wrap">
   <div class="eyebrow">Download</div>
   <h1><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></h1>
-  <p><span data-lang-it>L'ultima versione, pronta per la tua piattaforma. Build firmate, notarizzate e self-contained.</span><span data-lang-en>The latest version, ready for your platform. Signed, notarized, self-contained builds.</span></p>
+  <p><span data-lang-it>L'ultima versione della tua IA local-first, pronta per la tua piattaforma. Build firmate, notarizzate e self-contained.</span><span data-lang-en>The latest version of your local-first AI, ready for your platform. Signed, notarized, self-contained builds.</span></p>
   <div id="verline" class="verline" hidden></div>
 </section>
 
@@ -148,10 +234,11 @@
     </p>
   </section>
 </div>
+</main>
 
 <footer>
   <div class="wrap foot-inner">
-    <div><a href="index.html"><strong style="color:var(--txt)">Podz.AI</strong></a> · <span data-lang-it>basato sul framework DigiSense</span><span data-lang-en>powered by the DigiSense framework</span></div>
+    <div><a href="index.html"><strong style="color:var(--text)">Podz.AI</strong></a> · <span data-lang-it>basato sul framework DigiSense</span><span data-lang-en>powered by the DigiSense framework</span></div>
     <div>© <span id="year"></span> G&amp;G Technologies Srl</div>
   </div>
 </footer>
@@ -164,23 +251,28 @@
   var RELEASES_URL = 'https://github.com/' + REPO + '/releases';
   var LATEST_API = 'https://api.github.com/repos/' + REPO + '/releases/latest';
 
+  // platform icons (inline svg) keyed by os
+  var ICONS = {
+    windows:'<svg class="ico" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent)"><path d="M3 5.1 10.3 4v7.2H3zM10.3 12.8V20L3 18.9v-6.1zM11.4 3.85 21 2.5v8.7h-9.6zM21 12.8v8.7l-9.6-1.35V12.8z"/></svg>',
+    mac:'<svg class="ico" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent)"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.45-1.1-1.6-2.8-1.82-3.4-1.84-1.45-.15-2.83.85-3.56.85-.73 0-1.86-.83-3.06-.81-1.57.02-3.02.91-3.83 2.32-1.63 2.83-.42 7.02 1.17 9.32.78 1.13 1.7 2.39 2.9 2.35 1.17-.05 1.61-.75 3.02-.75 1.41 0 1.81.75 3.05.73 1.26-.02 2.06-1.15 2.83-2.28.89-1.31 1.26-2.58 1.28-2.64-.03-.01-2.45-.94-2.47-3.72zM14.2 5.6c.65-.79 1.09-1.88.97-2.97-.94.04-2.07.62-2.74 1.4-.6.7-1.13 1.81-.99 2.88 1.05.08 2.11-.53 2.76-1.31z"/></svg>',
+    linux:'<svg class="ico" viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent)"><path d="M12 2c-2.2 0-3.3 1.9-3.2 4.1.04.96.1 1.6-.3 2.5-.5 1.1-1.7 2.3-2.2 3.9-.3.9-.2 1.5.06 1.9-.5.3-.9.8-.5 1.7.3.7.2 1.2.1 1.8-.1.6.1 1.2.9 1.4.9.2 2.4.5 3.1-.4.6.1 1.4.1 2.1 0 .7.9.6 3.1.4.7.9 2.2.6 3.1.4.8-.2 1-.8.9-1.4-.1-.6-.2-1.1.1-1.8.4-.9 0-1.4-.5-1.7.26-.4.36-1 .06-1.9-.5-1.6-1.7-2.8-2.2-3.9-.4-.9-.34-1.54-.3-2.5C15.3 3.9 14.2 2 12 2zm-1.3 4.2c.3 0 .55.35.55.78s-.25.78-.55.78-.55-.35-.55-.78.25-.78.55-.78zm2.6 0c.3 0 .55.35.55.78s-.25.78-.55.78-.55-.35-.55-.78.25-.78.55-.78zM12 8.6c.7 0 1.6.5 1.6.9 0 .2-.5.5-1.6.5s-1.6-.3-1.6-.5c0-.4.9-.9 1.6-.9z"/></svg>'
+  };
+
   var PLATFORMS = [
-    { key:'windows-x64', os:'windows', arch:'x64',   icon:'🪟', name:'Windows x64',          sub:'Windows 10 / 11' },
-    { key:'mac-arm64',   os:'mac',     arch:'arm64', icon:'🍎', name:'macOS · Apple Silicon', sub:'M1 / M2 / M3 …' },
-    { key:'mac-x64',     os:'mac',     arch:'x64',   icon:'🍎', name:'macOS · Intel',         sub:'Intel Mac' },
-    { key:'linux-x64',   os:'linux',   arch:'x64',   icon:'🐧', name:'Linux x64',             sub:'.deb · amd64' },
-    { key:'linux-arm64', os:'linux',   arch:'arm64', icon:'🐧', name:'Linux ARM64',           sub:'.deb · arm64' }
+    { key:'windows-x64', os:'windows', arch:'x64',   name:'Windows x64',          sub:'Windows 10 / 11' },
+    { key:'mac-arm64',   os:'mac',     arch:'arm64', name:'macOS · Apple Silicon', sub:'M1 / M2 / M3 …' },
+    { key:'mac-x64',     os:'mac',     arch:'x64',   name:'macOS · Intel',         sub:'Intel Mac' },
+    { key:'linux-x64',   os:'linux',   arch:'x64',   name:'Linux x64',             sub:'.deb · amd64' },
+    { key:'linux-arm64', os:'linux',   arch:'arm64', name:'Linux ARM64',           sub:'.deb · arm64' }
   ];
 
-  // local fallback used when the GitHub API is unreachable (offline / blocked / preview iframe).
-  // it is replaced by live API data as soon as the request succeeds.
+  // local fallback used when the GitHub API is unreachable (offline / blocked / preview).
+  // replaced by live API data as soon as the request succeeds.
   var FB_VER = 'v1.0.18';
   var FB_DATE = '2026-06-23T06:08:00Z';
   var FB_BASE = 'https://github.com/' + REPO + '/releases/download/' + FB_VER + '/';
   var FALLBACK = {
-    tag_name: FB_VER,
-    published_at: FB_DATE,
-    _fallback: true,
+    tag_name: FB_VER, published_at: FB_DATE, _fallback: true,
     assets: [
       { name:'podz-ai-1.0.18-win-x64-setup.exe', browser_download_url: FB_BASE + 'podz-ai-1.0.18-win-x64-setup.exe' },
       { name:'podz-ai-1.0.18-win-x64.zip',       browser_download_url: FB_BASE + 'podz-ai-1.0.18-win-x64.zip' },
@@ -206,28 +298,46 @@
          detected:'Detected', notDetected:'platform not recognized' }
   };
 
-  var STATE = { lang:'it', release:null, detected:{os:'unknown',arch:'unknown'}, error:false };
+  var STATE = { lang:'it', release:null, detected:{os:'unknown',arch:'unknown'} };
 
   // -----------------------------------------------------------------------------------------------------------------
-  //  language
+  //  theme + language
   // -----------------------------------------------------------------------------------------------------------------
+  function _applyThemeMeta(t){
+    var m = document.getElementById('meta-theme');
+    if(!m){ m = document.createElement('meta'); m.id = 'meta-theme'; m.name = 'theme-color'; document.head.appendChild(m); }
+    m.setAttribute('content', t === 'dark' ? '#06080f' : '#f4f6f8');
+    var tt = document.getElementById('theme-toggle'); if(tt) tt.setAttribute('aria-pressed', t === 'dark');
+  }
+  function toggleTheme(){
+    var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    _applyThemeMeta(next);
+    try{ localStorage.setItem('podz-theme', next); }catch(e){}
+  }
+  function _updateLangUI(lang){
+    var it = document.getElementById('lang-it'), en = document.getElementById('lang-en');
+    it.classList.toggle('active', lang === 'it'); en.classList.toggle('active', lang === 'en');
+    it.setAttribute('aria-pressed', lang === 'it'); en.setAttribute('aria-pressed', lang === 'en');
+  }
   function setLang(lang){
     STATE.lang = lang;
     document.documentElement.setAttribute('lang', lang);
-    document.getElementById('it').classList.toggle('active', lang === 'it');
-    document.getElementById('en').classList.toggle('active', lang === 'en');
+    _updateLangUI(lang);
     try{ localStorage.setItem('podz-lang', lang); }catch(e){}
     render();
   }
-  (function initLang(){
-    var saved=null; try{ saved=localStorage.getItem('podz-lang'); }catch(e){}
-    STATE.lang = saved || (navigator.language && navigator.language.indexOf('en')===0 ? 'en' : 'it');
-    document.documentElement.setAttribute('lang', STATE.lang);
-    document.getElementById('it').classList.toggle('active', STATE.lang==='it');
-    document.getElementById('en').classList.toggle('active', STATE.lang==='en');
-  })();
-
-  document.getElementById('year').textContent = new Date().getFullYear();
+  function toggleMenu(){
+    var n = document.getElementById('mobile-nav'), b = document.getElementById('menu-toggle');
+    var open = !n.classList.contains('open');
+    n.classList.toggle('open', open); n.hidden = !open; b.setAttribute('aria-expanded', open);
+  }
+  function closeMenu(){
+    var n = document.getElementById('mobile-nav');
+    n.classList.remove('open'); n.hidden = true;
+    document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
+  }
 
   // -----------------------------------------------------------------------------------------------------------------
   //  platform detection
@@ -240,15 +350,12 @@
     else if(/Windows/i.test(ua)) os = 'windows';
     else if(/Mac OS X|Macintosh/i.test(ua)) os = 'mac';
     else if(/Linux/i.test(ua)) os = 'linux';
-    // legacy arch hints from UA
     if(/arm64|aarch64/i.test(ua)) arch = 'arm64';
     else if(/x86_64|win64|wow64|x64/i.test(ua)) arch = 'x64';
-    if(os === 'windows' && arch === 'unknown') arch = 'x64'; // overwhelmingly x64
+    if(os === 'windows' && arch === 'unknown') arch = 'x64';
     return { os:os, arch:arch };
   }
-
   function _refineArch(){
-    // high-entropy client hints (Chromium) give the real CPU architecture
     if(navigator.userAgentData && navigator.userAgentData.getHighEntropyValues){
       return navigator.userAgentData.getHighEntropyValues(['architecture','platform']).then(function(hv){
         if(hv.platform){
@@ -267,8 +374,6 @@
     }
     return Promise.resolve();
   }
-
-  // human-readable label of the detected client platform
   function _detectedLabel(){
     var t = T[STATE.lang];
     var names = { windows:'Windows', mac:'macOS', linux:'Linux', android:'Android', ios:'iOS' };
@@ -277,22 +382,12 @@
     var a = arch === 'arm64' ? 'ARM64' : (arch === 'x64' ? 'x64' : '');
     return names[os] + (a ? ' · ' + a : '');
   }
-
-  // which platform cards to recommend for the detected client
   function _recommendedKeys(){
     var os = STATE.detected.os, arch = STATE.detected.arch;
     if(os === 'windows') return ['windows-x64'];
-    if(os === 'mac'){
-      if(arch === 'arm64') return ['mac-arm64'];
-      if(arch === 'x64')   return ['mac-x64'];
-      return ['mac-arm64','mac-x64']; // arch unknown → both
-    }
-    if(os === 'linux'){
-      if(arch === 'arm64') return ['linux-arm64'];
-      if(arch === 'x64')   return ['linux-x64'];
-      return ['linux-x64','linux-arm64'];
-    }
-    return []; // unknown / mobile → none
+    if(os === 'mac'){ if(arch==='arm64') return ['mac-arm64']; if(arch==='x64') return ['mac-x64']; return ['mac-arm64','mac-x64']; }
+    if(os === 'linux'){ if(arch==='arm64') return ['linux-arm64']; if(arch==='x64') return ['linux-x64']; return ['linux-x64','linux-arm64']; }
+    return [];
   }
 
   // -----------------------------------------------------------------------------------------------------------------
@@ -308,18 +403,13 @@
     if(n.indexOf('linux')>-1 && n.indexOf('x64')>-1)                    return {key:'linux-x64',   kind:'pkg'};
     return null;
   }
-
-  // group the release assets by platform key
   function _assetsByPlatform(){
-    var map = {};
-    PLATFORMS.forEach(function(p){ map[p.key] = []; });
+    var map = {}; PLATFORMS.forEach(function(p){ map[p.key] = []; });
     var rel = STATE.release || FALLBACK;
     if(rel && rel.assets){
       rel.assets.forEach(function(a){
         var c = _classify(a.name);
-        if(c && map[c.key]){
-          map[c.key].push({ kind:c.kind, name:a.name, url:a.browser_download_url, ext:'.'+a.name.split('.').pop() });
-        }
+        if(c && map[c.key]) map[c.key].push({ kind:c.kind, name:a.name, url:a.browser_download_url, ext:'.'+a.name.split('.').pop() });
       });
     }
     return map;
@@ -328,24 +418,16 @@
   // -----------------------------------------------------------------------------------------------------------------
   //  render
   // -----------------------------------------------------------------------------------------------------------------
-  function _kindLabel(kind){
-    var t = T[STATE.lang];
-    if(kind === 'installer') return t.installer;
-    if(kind === 'portable')  return t.portable;
-    return t.pkg;
-  }
-
+  function _kindLabel(kind){ var t=T[STATE.lang]; return kind==='installer'?t.installer:(kind==='portable'?t.portable:t.pkg); }
   function _fileBtn(f){
     return '<a class="file-btn" href="'+f.url+'"><span class="lbl">'+_kindLabel(f.kind)+'</span>'+
            '<span><span class="ext">'+f.ext+'</span> <span class="arr">↓</span></span></a>';
   }
-
   function _platformCard(p, assets, isReco){
     var t = T[STATE.lang];
-    var files = assets.map(_fileBtn).join('');
-    if(!files) files = '<span class="sub2" style="opacity:.6">—</span>';
+    var files = assets.map(_fileBtn).join('') || '<span class="sub2" style="opacity:.6">—</span>';
     return '<div class="pcard'+(isReco?' is-reco':'')+'">'+
-      '<div class="ptop"><span class="ico">'+p.icon+'</span><div><h4>'+p.name+'</h4>'+
+      '<div class="ptop">'+(ICONS[p.os]||'')+'<div><h4>'+p.name+'</h4>'+
       '<div class="sub2">'+p.sub+(isReco?' · <span class="reco-badge">'+t.recoTag.split(' ')[0]+'</span>':'')+'</div></div></div>'+
       '<div class="files">'+files+'</div></div>';
   }
@@ -358,55 +440,46 @@
     var allEl = document.getElementById('all');
     var grid = document.getElementById('pgrid');
 
-    // STATE.release is always set (live API data or local fallback), so we can always render.
     var rel = STATE.release || FALLBACK;
     stateEl.hidden = true;
 
-    // version line
     var ver = rel.tag_name || rel.name || '';
     var when = '';
     if(rel.published_at){
       var d = new Date(rel.published_at);
-      when = d.toLocaleDateString(STATE.lang === 'it' ? 'it-IT' : 'en-US', {year:'numeric',month:'long',day:'numeric'});
+      when = d.toLocaleDateString(STATE.lang==='it'?'it-IT':'en-US',{year:'numeric',month:'long',day:'numeric'});
     }
     verEl.hidden = false;
-    verEl.innerHTML = '<span>'+t.version+' <b>'+ver+'</b></span>' + (when ? '<span>· '+t.released+' '+when+'</span>' : '') +
+    verEl.innerHTML = '<span>'+t.version+' <b>'+ver+'</b></span>' + (when?'<span>· '+t.released+' '+when+'</span>':'') +
       '<span>· '+t.detected+': <b>'+_detectedLabel()+'</b></span>';
 
     var byPlat = _assetsByPlatform();
     var recoKeys = _recommendedKeys();
 
-    // recommended block
     if(recoKeys.length){
       var html = '';
       recoKeys.forEach(function(key){
         var p = PLATFORMS.filter(function(x){return x.key===key;})[0];
         var assets = byPlat[key] || [];
         var primary = assets.filter(function(a){return a.kind==='installer'||a.kind==='pkg';})[0] || assets[0];
-        var secondary = assets.filter(function(a){return a!==primary;});
         if(!primary) return;
-        var actions = '<a class="btn btn-primary" href="'+primary.url+'">'+t.download+' '+p.name+' '+
-                      '<small>'+primary.ext+'</small> ↓</a>';
-        secondary.forEach(function(s){
-          actions += '<a class="btn btn-ghost" href="'+s.url+'">'+_kindLabel(s.kind)+' <small>'+s.ext+'</small></a>';
-        });
-        html += '<div class="reco-card" style="margin-bottom:16px">'+
-          '<div class="reco-tag">★ '+t.recoTag+'</div>'+
-          '<div class="reco-os"><span class="pico">'+p.icon+'</span><div><h2>'+p.name+'</h2><p>'+p.sub+'</p></div></div>'+
+        var secondary = assets.filter(function(a){return a!==primary;});
+        var actions = '<a class="btn btn-primary" href="'+primary.url+'">'+t.download+' '+p.name+' <small>'+primary.ext+'</small> ↓</a>';
+        secondary.forEach(function(s){ actions += '<a class="btn btn-ghost" href="'+s.url+'">'+_kindLabel(s.kind)+' <small>'+s.ext+'</small></a>'; });
+        html += '<div class="reco-card"><div class="reco-tag"><span aria-hidden="true">★</span> '+t.recoTag+'</div>'+
+          '<div class="reco-os">'+(ICONS[p.os]||'').replace('class="ico"','class="ico pico"')+
+          '<div><h2>'+p.name+'</h2><p>'+p.sub+'</p></div></div>'+
           '<div class="reco-actions">'+actions+'</div></div>';
       });
       recoEl.innerHTML = html;
     } else {
-      // unknown or mobile platform → friendly note, then full list
       var msg = (STATE.detected.os==='android'||STATE.detected.os==='ios') ? t.mobile : t.unknown;
-      recoEl.innerHTML = '<div class="reco-card"><div class="reco-tag">ℹ︎</div>'+
-        '<div class="reco-os"><span class="pico">💻</span><div><h2 style="font-size:1.2rem">Podz.AI</h2><p>'+msg+'</p></div></div></div>';
+      recoEl.innerHTML = '<div class="reco-card"><div class="reco-tag"><span aria-hidden="true">ℹ︎</span></div>'+
+        '<div class="reco-os"><img class="pico" src="assets/podz-symbol-static.svg" alt="" width="48" height="48" />'+
+        '<div><h2 style="font-size:1.2rem">Podz.AI</h2><p>'+msg+'</p></div></div></div>';
     }
 
-    // full grid (all platforms, recommended highlighted)
-    grid.innerHTML = PLATFORMS.map(function(p){
-      return _platformCard(p, byPlat[p.key] || [], recoKeys.indexOf(p.key) > -1);
-    }).join('');
+    grid.innerHTML = PLATFORMS.map(function(p){ return _platformCard(p, byPlat[p.key]||[], recoKeys.indexOf(p.key)>-1); }).join('');
     allEl.hidden = false;
   }
 
@@ -414,25 +487,24 @@
   //  boot
   // -----------------------------------------------------------------------------------------------------------------
   (function boot(){
-    // 1) detect platform and render IMMEDIATELY with the local fallback,
-    //    so the page never blocks on the network request.
+    STATE.lang = document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'it';
+    _updateLangUI(STATE.lang);
+    _applyThemeMeta(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+    document.getElementById('year').textContent = new Date().getFullYear();
+
     STATE.detected = _detectPlatform();
     STATE.release = FALLBACK;
     render();
 
-    // 2) refine the CPU architecture (Chromium client hints), then re-render.
     _refineArch().then(function(){
       render();
-      // 3) try to upgrade to the live latest release from the GitHub API.
       return fetch(LATEST_API, { headers:{ 'Accept':'application/vnd.github+json' } });
     }).then(function(r){
       if(!r.ok) throw new Error('HTTP '+r.status);
       return r.json();
     }).then(function(json){
       if(json && json.assets){ STATE.release = json; render(); }
-    }).catch(function(){
-      // keep the fallback already on screen — nothing else to do.
-    });
+    }).catch(function(){ /* keep fallback on screen */ });
   })();
 </script>
 </body>
