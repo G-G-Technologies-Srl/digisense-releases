@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Podz.AI — Agentic Runtime · DigiSense</title>
+<meta name="description" content="Podz.AI — il runtime agentico che ospita modelli, agenti e applicazioni. Nato per girare come agente autonomo in stile Hermes / OpenClaw." />
+<link rel="icon" type="image/svg+xml" href="assets/podz-symbol-static.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
+<link rel="alternate icon" href="assets/icons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+<style>
+  :root{
+    --bg:#05060a;
+    --bg-2:#0a0d16;
+    --panel:rgba(255,255,255,.03);
+    --panel-brd:rgba(255,255,255,.08);
+    --txt:#e9edf5;
+    --txt-dim:#9aa4b8;
+    --txt-faint:#5e6678;
+    --accent:#38e1ff;
+    --accent-2:#a06bff;
+    --accent-3:#3bffb0;
+    --glow:0 0 40px rgba(56,225,255,.25);
+    --radius:18px;
+    --maxw:1140px;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--txt);
+    font-family:var(--font);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* background ambience */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-2;
+    background:
+      radial-gradient(900px 600px at 12% -5%, rgba(56,225,255,.14), transparent 60%),
+      radial-gradient(800px 600px at 95% 8%, rgba(160,107,255,.16), transparent 60%),
+      radial-gradient(700px 700px at 50% 110%, rgba(59,255,176,.08), transparent 60%),
+      var(--bg);
+  }
+  body::after{
+    content:"";position:fixed;inset:0;z-index:-1;opacity:.4;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:46px 46px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(14px);
+    background:rgba(5,6,10,.6);
+    border-bottom:1px solid var(--panel-brd);
+  }
+  .nav-inner{display:flex;align-items:center;gap:24px;height:66px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-logo{height:30px;width:auto;display:block}
+  .brand-sub{color:var(--txt-faint);font-weight:600;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;border-left:1px solid var(--panel-brd);padding-left:12px}
+  @media(max-width:520px){.brand-sub{display:none}}
+  .nav-links{margin-left:auto;display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--txt-dim);font-size:.92rem;transition:color .2s}
+  .nav-links a:hover{color:var(--txt)}
+  .lang{
+    display:flex;border:1px solid var(--panel-brd);border-radius:999px;overflow:hidden;font-size:.78rem;font-weight:600;
+  }
+  .lang button{
+    background:transparent;border:none;color:var(--txt-faint);padding:6px 13px;cursor:pointer;font-family:var(--font);font-weight:600;transition:.2s;
+  }
+  .lang button.active{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#04060c}
+  @media(max-width:860px){.nav-links a:not(.lang-wrap){display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(70px,12vw,140px) 0 80px;text-align:center;position:relative}
+  .hero-logo{height:clamp(46px,7vw,66px);width:auto;display:block;margin:0 auto 30px;filter:drop-shadow(0 0 30px rgba(56,225,255,.25))}
+  .badge{
+    display:inline-flex;align-items:center;gap:9px;
+    border:1px solid var(--panel-brd);background:var(--panel);
+    border-radius:999px;padding:7px 16px;font-size:.78rem;color:var(--txt-dim);
+    margin-bottom:30px;letter-spacing:.02em;
+  }
+  .badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent-3);box-shadow:0 0 10px var(--accent-3);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .hero h1{
+    font-size:clamp(2.5rem,7vw,5rem);line-height:1.05;font-weight:800;letter-spacing:-.02em;
+    background:linear-gradient(180deg,#fff 30%,#a8b2c8);-webkit-background-clip:text;background-clip:text;color:transparent;
+    margin-bottom:24px;
+  }
+  .hero h1 .grad{
+    background:linear-gradient(110deg,var(--accent),var(--accent-2) 55%,var(--accent-3));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{font-size:clamp(1.05rem,2.2vw,1.32rem);color:var(--txt-dim);max-width:720px;margin:0 auto 38px}
+  .cta-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:12px;font-weight:600;font-size:.97rem;cursor:pointer;transition:.22s;border:1px solid transparent;
+  }
+  .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#04060c;box-shadow:var(--glow)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 55px rgba(56,225,255,.45)}
+  .btn-ghost{border-color:var(--panel-brd);background:var(--panel);color:var(--txt)}
+  .btn-ghost:hover{border-color:var(--accent);color:#fff}
+
+  .hero-stats{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:64px}
+  .stat{
+    flex:1 1 180px;max-width:240px;border:1px solid var(--panel-brd);background:var(--panel);border-radius:var(--radius);padding:22px 18px;
+    backdrop-filter:blur(4px);
+  }
+  .stat b{display:block;font-size:1.7rem;font-weight:800;background:linear-gradient(120deg,var(--accent),var(--accent-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat span{font-size:.82rem;color:var(--txt-faint)}
+
+  /* ---------- sections ---------- */
+  section.block{padding:84px 0;position:relative}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .sec-title{font-size:clamp(1.8rem,4vw,2.7rem);font-weight:800;letter-spacing:-.02em;margin-bottom:16px;line-height:1.12}
+  .sec-sub{color:var(--txt-dim);max-width:680px;font-size:1.05rem;margin-bottom:46px}
+
+  /* feature cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+  .card{
+    border:1px solid var(--panel-brd);background:var(--panel);border-radius:var(--radius);padding:28px;transition:.25s;position:relative;overflow:hidden;
+  }
+  .card:hover{border-color:rgba(56,225,255,.4);transform:translateY(-4px)}
+  .card .ico{
+    width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:1.4rem;margin-bottom:18px;
+    background:linear-gradient(135deg,rgba(56,225,255,.16),rgba(160,107,255,.16));border:1px solid var(--panel-brd);
+  }
+  .card h3{font-size:1.15rem;margin-bottom:9px}
+  .card p{color:var(--txt-dim);font-size:.94rem}
+
+  /* ---------- architecture ---------- */
+  .arch{
+    border:1px solid var(--panel-brd);border-radius:24px;background:linear-gradient(180deg,rgba(255,255,255,.02),transparent);
+    padding:34px;
+  }
+  .arch-stack{display:flex;flex-direction:column;gap:16px}
+  .layer{
+    border:1px solid var(--panel-brd);border-radius:14px;padding:18px 22px;position:relative;
+    background:var(--bg-2);
+  }
+  .layer .ltag{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--txt-faint);font-weight:700}
+  .layer h4{font-size:1.05rem;margin:4px 0 4px}
+  .layer p{color:var(--txt-dim);font-size:.9rem}
+  .layer-apps{border-color:rgba(59,255,176,.32);box-shadow:inset 0 0 30px rgba(59,255,176,.05)}
+  .layer-agents{border-color:rgba(160,107,255,.34);box-shadow:inset 0 0 30px rgba(160,107,255,.06)}
+  .layer-models{border-color:rgba(56,225,255,.32);box-shadow:inset 0 0 30px rgba(56,225,255,.06)}
+  .layer-runtime{border-color:rgba(255,255,255,.16);background:linear-gradient(120deg,rgba(56,225,255,.07),rgba(160,107,255,.07))}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .chip{font-size:.74rem;font-family:var(--mono);color:var(--txt-dim);border:1px solid var(--panel-brd);border-radius:7px;padding:4px 10px;background:rgba(255,255,255,.02)}
+  .arrow{text-align:center;color:var(--txt-faint);font-size:1.1rem;line-height:.4}
+
+  /* ---------- pod / hermes ---------- */
+  .pod-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center}
+  @media(max-width:840px){.pod-grid{grid-template-columns:1fr}}
+  .terminal{
+    border:1px solid var(--panel-brd);border-radius:14px;overflow:hidden;background:#070910;font-family:var(--mono);font-size:.84rem;box-shadow:0 24px 60px rgba(0,0,0,.5)
+  }
+  .term-bar{display:flex;gap:7px;align-items:center;padding:11px 14px;background:rgba(255,255,255,.03);border-bottom:1px solid var(--panel-brd)}
+  .term-bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .term-bar i:nth-child(1){background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
+  .term-bar span{margin-left:8px;color:var(--txt-faint);font-size:.74rem}
+  .term-body{padding:18px 18px 22px;line-height:1.85;white-space:pre-wrap}
+  .term-body .c1{color:var(--accent)}.term-body .c2{color:var(--accent-3)}.term-body .c3{color:var(--accent-2)}.term-body .cd{color:var(--txt-faint)}
+  .pod-points{display:flex;flex-direction:column;gap:18px}
+  .pod-point{display:flex;gap:14px}
+  .pod-point .n{flex:0 0 auto;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;font-weight:700;font-family:var(--mono);color:#04060c;background:linear-gradient(120deg,var(--accent),var(--accent-2))}
+  .pod-point h4{font-size:1.02rem;margin-bottom:3px}
+  .pod-point p{color:var(--txt-dim);font-size:.92rem}
+
+  /* ---------- release / changelog ---------- */
+  .timeline{position:relative;padding-left:28px}
+  .timeline::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent-2),transparent)}
+  .rel{position:relative;margin-bottom:34px}
+  .rel::before{content:"";position:absolute;left:-26px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--accent);box-shadow:0 0 12px var(--accent)}
+  .rel .meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+  .rel .ver{font-family:var(--mono);font-weight:700;font-size:1.05rem;color:#fff}
+  .rel .tag{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:6px}
+  .tag-latest{background:linear-gradient(120deg,var(--accent),var(--accent-3));color:#04060c}
+  .tag-beta{background:rgba(160,107,255,.18);color:var(--accent-2);border:1px solid rgba(160,107,255,.4)}
+  .tag-stable{background:rgba(56,225,255,.14);color:var(--accent);border:1px solid rgba(56,225,255,.35)}
+  .rel .date{color:var(--txt-faint);font-size:.82rem;font-family:var(--mono)}
+  .rel ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .rel li{color:var(--txt-dim);font-size:.94rem;padding-left:20px;position:relative}
+  .rel li::before{content:"▹";position:absolute;left:0;color:var(--accent-3)}
+  .rel code,.layer code{font-family:var(--mono);font-size:.84em;color:var(--accent);background:rgba(56,225,255,.08);border:1px solid var(--panel-brd);border-radius:5px;padding:1px 6px}
+
+  /* ---------- cta band ---------- */
+  .band{
+    border:1px solid var(--panel-brd);border-radius:24px;text-align:center;padding:60px 30px;
+    background:linear-gradient(120deg,rgba(56,225,255,.08),rgba(160,107,255,.1));position:relative;overflow:hidden;
+  }
+  .band h2{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;margin-bottom:14px}
+  .band p{color:var(--txt-dim);max-width:560px;margin:0 auto 30px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--panel-brd);padding:40px 0;margin-top:30px}
+  .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--txt-faint);font-size:.88rem}
+  .foot-inner a{color:var(--txt-dim)}.foot-inner a:hover{color:var(--accent)}
+
+  [data-lang-en]{display:none}
+  html[lang="en"] [data-lang-it]{display:none}
+  html[lang="en"] [data-lang-en]{display:inline}
+  html[lang="en"] [data-lang-en].blk{display:block}
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- nav -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <img class="brand-logo" src="assets/podz-logo-dark.svg" alt="Podz.AI" />
+      <span class="brand-sub">DigiSense</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#overview"><span data-lang-it>Panoramica</span><span data-lang-en>Overview</span></a>
+      <a href="#architecture"><span data-lang-it>Architettura</span><span data-lang-en>Architecture</span></a>
+      <a href="#pod"><span data-lang-it>Agente Pod</span><span data-lang-en>Pod Agent</span></a>
+      <a href="#releases"><span data-lang-it>Release</span><span data-lang-en>Releases</span></a>
+      <a href="download.html"><span data-lang-it>Download</span><span data-lang-en>Download</span></a>
+      <div class="lang lang-wrap">
+        <button id="it" class="active" onclick="setLang('it')">IT</button>
+        <button id="en" onclick="setLang('en')">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<a id="top"></a>
+
+<!-- hero -->
+<section class="hero wrap">
+  <img class="hero-logo" src="assets/podz-logo-dark.svg" alt="Podz.AI" />
+  <div class="badge"><span class="pulse"></span>
+    <span data-lang-it>La tua AI. I tuoi dati. La tua macchina.</span>
+    <span data-lang-en>Your AI. Your data. Your machine.</span>
+  </div>
+  <h1>
+    <span data-lang-it>Il runtime agentico <span class="grad">local-first</span> per modelli, agenti e applicazioni</span>
+    <span data-lang-en>The <span class="grad">local-first</span> agentic runtime for models, agents and applications</span>
+  </h1>
+  <p class="lead">
+    <span data-lang-it>Podz.AI è un runtime AI multi-agente <strong>local-first</strong> basato sul framework <strong>DigiSense</strong>. Con edge-AI integrata, fa lavorare in sinergia modelli locali e cloud — la potenza del cloud con la privacy dell'inferenza on-device — mentre un motore algoritmico di anonimizzazione dei documenti protegge i tuoi dati sensibili by design. E può girare anche come <strong>Pod</strong>, agente autonomo in stile Hermes / OpenClaw.</span>
+    <span data-lang-en>Podz.AI is a <strong>local-first</strong>, multi-agent AI runtime powered by the <strong>DigiSense</strong> framework. With built-in edge-AI, it lets local and cloud models work in synergy — the reach of the cloud with the privacy of on-device inference — while an integrated algorithmic document-anonymization engine keeps your sensitive data private by design. It can also run as a <strong>Pod</strong>, an autonomous agent in the Hermes / OpenClaw style.</span>
+  </p>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="download.html">
+      <span data-lang-it>Scarica l'ultima versione</span><span data-lang-en>Download latest</span> ↓
+    </a>
+    <a class="btn btn-ghost" href="#architecture">
+      <span data-lang-it>Esplora l'architettura</span><span data-lang-en>Explore the architecture</span>
+    </a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat reveal"><b>3</b><span data-lang-it>layer: modelli · agenti · app</span><span data-lang-en>layers: models · agents · apps</span></div>
+    <div class="stat reveal"><b>1</b><span data-lang-it>runtime, infinite pipeline agentiche</span><span data-lang-en>runtime, infinite agentic pipelines</span></div>
+    <div class="stat reveal"><b>Pod</b><span data-lang-it>modalità agente autonomo</span><span data-lang-en>autonomous agent mode</span></div>
+  </div>
+</section>
+
+<!-- overview -->
+<section class="block wrap" id="overview">
+  <div class="eyebrow reveal"><span data-lang-it>Panoramica</span><span data-lang-en>Overview</span></div>
+  <h2 class="sec-title reveal"><span data-lang-it>Privacy by design, potenza senza compromessi</span><span data-lang-en>Privacy by design, power without compromise</span></h2>
+  <p class="sec-sub reveal"><span data-lang-it>Podz.AI unisce modelli, agenti e applicazioni in un unico runtime local-first: i dati restano sulla tua macchina, ma puoi attingere al cloud quando serve.</span><span data-lang-en>Podz.AI brings models, agents and applications together in a single local-first runtime: your data stays on your machine, yet you can reach the cloud when you need it.</span></p>
+
+  <div class="cards">
+    <div class="card reveal">
+      <div class="ico">🔒</div>
+      <h3><span data-lang-it>Local-first & privato</span><span data-lang-en>Local-first & private</span></h3>
+      <p><span data-lang-it>I tuoi dati restano sulla tua macchina. Un motore algoritmico di anonimizzazione dei documenti protegge le informazioni sensibili by design.</span><span data-lang-en>Your data stays on your machine. An algorithmic document-anonymization engine keeps sensitive information private by design.</span></p>
+    </div>
+    <div class="card reveal">
+      <div class="ico">⚡</div>
+      <h3><span data-lang-it>Edge-AI: locale + cloud</span><span data-lang-en>Edge-AI: local + cloud</span></h3>
+      <p><span data-lang-it>Modelli locali e cloud lavorano in sinergia: la potenza del cloud unita alla privacy dell'inferenza on-device.</span><span data-lang-en>Local and cloud models work in synergy: the reach of the cloud combined with the privacy of on-device inference.</span></p>
+    </div>
+    <div class="card reveal">
+      <div class="ico">🤖</div>
+      <h3><span data-lang-it>Runtime multi-agente</span><span data-lang-en>Multi-agent runtime</span></h3>
+      <p><span data-lang-it>Modelli, agenti e applicazioni vivono in un solo host: stato, strumenti e orchestrazione gestiti dal runtime, eseguiti come container Docker.</span><span data-lang-en>Models, agents and applications live in one host: state, tools and orchestration handled by the runtime, run as Docker containers.</span></p>
+    </div>
+    <div class="card reveal">
+      <div class="ico">🛰️</div>
+      <h3><span data-lang-it>Modalità Pod autonoma</span><span data-lang-en>Autonomous Pod mode</span></h3>
+      <p><span data-lang-it>Lo stesso runtime può essere lanciato come <strong>agente Pod</strong> autonomo, in stile Hermes / OpenClaw, capace di operare senza supervisione continua.</span><span data-lang-en>The same runtime can launch as an autonomous <strong>Pod agent</strong>, Hermes / OpenClaw style, able to operate without continuous supervision.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- architecture -->
+<section class="block wrap" id="architecture">
+  <div class="eyebrow reveal"><span data-lang-it>Architettura</span><span data-lang-en>Architecture</span></div>
+  <h2 class="sec-title reveal"><span data-lang-it>Un runtime, tre layer che si parlano</span><span data-lang-en>One runtime, three layers that talk to each other</span></h2>
+  <p class="sec-sub reveal"><span data-lang-it>Podz.AI è strutturato a layer: il runtime fa da fondamenta e ospita modelli, agenti e applicazioni sopra di sé, con orchestrazione e osservabilità trasversali.</span><span data-lang-en>Podz.AI is layered: the runtime is the foundation hosting models, agents and applications above it, with cross-cutting orchestration and observability.</span></p>
+
+  <div class="arch reveal">
+    <div class="arch-stack">
+      <div class="layer layer-apps">
+        <span class="ltag">Layer 03 · <span data-lang-it>Applicazioni</span><span data-lang-en>Applications</span></span>
+        <h4><span data-lang-it>Applicazioni & interfacce</span><span data-lang-en>Applications & interfaces</span></h4>
+        <p><span data-lang-it>App, API e UI che consumano gli agenti del runtime.</span><span data-lang-en>Apps, APIs and UIs consuming the runtime's agents.</span></p>
+        <div class="chips"><span class="chip">REST / WS API</span><span class="chip">UI</span><span class="chip">workflows</span><span class="chip">plugins</span></div>
+      </div>
+      <div class="arrow">▼</div>
+      <div class="layer layer-agents">
+        <span class="ltag">Layer 02 · <span data-lang-it>Agenti</span><span data-lang-en>Agents</span></span>
+        <h4><span data-lang-it>Agenti & orchestrazione</span><span data-lang-en>Agents & orchestration</span></h4>
+        <p><span data-lang-it>Agenti con strumenti, memoria, obiettivi e coordinamento multi-agente.</span><span data-lang-en>Agents with tools, memory, goals and multi-agent coordination.</span></p>
+        <div class="chips"><span class="chip">tools</span><span class="chip">memory</span><span class="chip">planning</span><span class="chip">messaging</span></div>
+      </div>
+      <div class="arrow">▼</div>
+      <div class="layer layer-models">
+        <span class="ltag">Layer 01 · <span data-lang-it>Modelli</span><span data-lang-en>Models</span></span>
+        <h4><span data-lang-it>Modelli & inferenza</span><span data-lang-en>Models & inference</span></h4>
+        <p><span data-lang-it>Hosting, routing e serving dei modelli con risorse condivise.</span><span data-lang-en>Model hosting, routing and serving with shared resources.</span></p>
+        <div class="chips"><span class="chip">LLM</span><span class="chip">routing</span><span class="chip">inference</span><span class="chip">embeddings</span></div>
+      </div>
+      <div class="arrow">▼</div>
+      <div class="layer layer-runtime">
+        <span class="ltag">Core · Runtime</span>
+        <h4><span data-lang-it>Podz.AI Runtime</span><span data-lang-en>Podz.AI Runtime</span></h4>
+        <p><span data-lang-it>Fondamenta agentiche: ciclo di vita, stato, sicurezza, osservabilità e — quando serve — esecuzione come Pod autonomo.</span><span data-lang-en>Agentic foundation: lifecycle, state, security, observability and — when needed — execution as an autonomous Pod.</span></p>
+        <div class="chips"><span class="chip">lifecycle</span><span class="chip">state</span><span class="chip">security</span><span class="chip">observability</span><span class="chip">scheduler</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- pod / hermes -->
+<section class="block wrap" id="pod">
+  <div class="eyebrow reveal"><span data-lang-it>Agente Pod</span><span data-lang-en>Pod Agent</span></div>
+  <h2 class="sec-title reveal"><span data-lang-it>Lancialo come agente autonomo</span><span data-lang-en>Launch it as an autonomous agent</span></h2>
+  <p class="sec-sub reveal"><span data-lang-it>Oltre a essere un runtime, Podz.AI nasce per girare come <strong>Pod</strong>: un agente autonomo in stile Hermes / OpenClaw, che percepisce, decide e agisce in loop senza bisogno di supervisione continua.</span><span data-lang-en>Beyond being a runtime, Podz.AI is born to run as a <strong>Pod</strong>: an autonomous agent in the Hermes / OpenClaw style, that perceives, decides and acts in a loop without continuous supervision.</span></p>
+
+  <div class="pod-grid">
+    <div class="terminal reveal">
+      <div class="term-bar"><i></i><i></i><i></i><span>podz · pod mode</span></div>
+      <div class="term-body"><span class="cd"># <span data-lang-it>avvia Podz.AI come agente Pod autonomo</span><span data-lang-en>launch Podz.AI as an autonomous Pod agent</span></span>
+<span class="c1">$</span> podz pod run --autonomous
+
+<span class="c2">✓</span> runtime <span class="cd">ready</span>  ·  models <span class="cd">loaded</span>
+<span class="c2">✓</span> agents <span class="cd">attached</span>  ·  tools <span class="cd">registered</span>
+<span class="c3">⟳</span> <span data-lang-it>loop: percepisci → pianifica → agisci</span><span data-lang-en>loop: perceive → plan → act</span>
+<span class="c3">⟳</span> <span data-lang-it>obiettivo accettato, esecuzione autonoma…</span><span data-lang-en>goal accepted, running autonomously…</span></div>
+    </div>
+
+    <div class="pod-points">
+      <div class="pod-point reveal"><div class="n">1</div><div>
+        <h4><span data-lang-it>Autonomo per design</span><span data-lang-en>Autonomous by design</span></h4>
+        <p><span data-lang-it>Ricevi un obiettivo, il Pod lo persegue in autonomia con cicli di percezione, pianificazione e azione.</span><span data-lang-en>Give it a goal and the Pod pursues it autonomously through perceive–plan–act cycles.</span></p>
+      </div></div>
+      <div class="pod-point reveal"><div class="n">2</div><div>
+        <h4><span data-lang-it>Stile Hermes / OpenClaw</span><span data-lang-en>Hermes / OpenClaw style</span></h4>
+        <p><span data-lang-it>Stessa filosofia degli agenti autonomi di nuova generazione: strumenti, memoria persistente e iniziativa propria.</span><span data-lang-en>Same philosophy as next-gen autonomous agents: tools, persistent memory and self-initiative.</span></p>
+      </div></div>
+      <div class="pod-point reveal"><div class="n">3</div><div>
+        <h4><span data-lang-it>Stesso runtime, due modalità</span><span data-lang-en>Same runtime, two modes</span></h4>
+        <p><span data-lang-it>Host condiviso per app e agenti, oppure Pod singolo autonomo: nessun codice da riscrivere.</span><span data-lang-en>Shared host for apps and agents, or a single autonomous Pod: no code to rewrite.</span></p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- releases -->
+<section class="block wrap" id="releases">
+  <div class="eyebrow reveal"><span data-lang-it>Release</span><span data-lang-en>Releases</span></div>
+  <h2 class="sec-title reveal"><span data-lang-it>Note di release</span><span data-lang-en>Release notes</span></h2>
+  <p class="sec-sub reveal"><span data-lang-it>Le ultime due versioni di Podz.AI: l'attuale e la precedente.</span><span data-lang-en>The latest two Podz.AI versions: the current one and the previous.</span></p>
+
+  <div class="timeline reveal">
+    <div class="rel">
+      <div class="meta"><span class="ver">Podz.AI v1.0.18</span><span class="tag tag-latest"><span data-lang-it>ultima</span><span data-lang-en>latest</span></span><span class="date">2026-06-23</span></div>
+      <ul>
+        <li><span data-lang-it>Runtime AI multi-agente local-first con framework <strong>DigiSense</strong> ed edge-AI integrata.</span><span data-lang-en>Local-first, multi-agent AI runtime with the <strong>DigiSense</strong> framework and built-in edge-AI.</span></li>
+        <li><span data-lang-it>Pacchetti per Windows x64, macOS (Apple Silicon / Intel), Linux x64 / ARM64.</span><span data-lang-en>Packages for Windows x64, macOS (Apple Silicon / Intel), Linux x64 / ARM64.</span></li>
+        <li><span data-lang-it>macOS firmato Apple Developer ID e notarizzato; installer Windows firmato Authenticode.</span><span data-lang-en>macOS Apple Developer ID signed and notarized; Windows installer Authenticode signed.</span></li>
+        <li><span data-lang-it>Build self-contained (.NET e ICU inclusi). Requisito: daemon <strong>Docker</strong> attivo sull'host.</span><span data-lang-en>Self-contained build (.NET and ICU bundled). Requirement: a running <strong>Docker</strong> daemon on the host.</span></li>
+      </ul>
+    </div>
+    <div class="rel">
+      <div class="meta"><span class="ver">Podz.AI v0.0.1</span><span class="tag tag-stable"><span data-lang-it>primo rilascio</span><span data-lang-en>first release</span></span><span class="date">2026-06-22</span></div>
+      <ul>
+        <li><span data-lang-it>Primo rilascio automatizzato di Podz.AI, prodotto da <code>build-all.sh</code>.</span><span data-lang-en>First automated release of Podz.AI, produced by <code>build-all.sh</code>.</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="sec-sub reveal" style="margin-top:34px;margin-bottom:0">
+    <a class="btn btn-ghost" href="https://github.com/G-G-Technologies-Srl/digisense-releases/releases" target="_blank" rel="noopener">
+      <span data-lang-it>Tutte le release su GitHub</span><span data-lang-en>All releases on GitHub</span> ↗
+    </a>
+  </p>
+</section>
+
+<!-- cta band -->
+<section class="block wrap">
+  <div class="band reveal">
+    <h2><span data-lang-it>La tua AI. I tuoi dati. La tua macchina.</span><span data-lang-en>Your AI. Your data. Your machine.</span></h2>
+    <p><span data-lang-it>Disponibile per Windows, macOS e Linux. Build firmate, notarizzate e self-contained — basta un daemon Docker attivo.</span><span data-lang-en>Available for Windows, macOS and Linux. Signed, notarized, self-contained builds — all you need is a running Docker daemon.</span></p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="download.html"><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span> ↓</a>
+      <a class="btn btn-ghost" href="#releases"><span data-lang-it>Vedi le release</span><span data-lang-en>See the releases</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="wrap foot-inner">
+    <div><strong style="color:var(--txt)">Podz.AI</strong> · <span data-lang-it>basato sul framework DigiSense</span><span data-lang-en>powered by the DigiSense framework</span></div>
+    <div>© <span id="year"></span> G&amp;G Technologies Srl · <span data-lang-it>DigiSense è un marchio registrato. Tutti i diritti riservati.</span><span data-lang-en>DigiSense is a registered trademark. All rights reserved.</span></div>
+  </div>
+</footer>
+
+<script>
+  // -----------------------------------------------------------------------------------------------------------------
+  //  language switch
+  // -----------------------------------------------------------------------------------------------------------------
+  function setLang(lang){
+    document.documentElement.setAttribute('lang', lang);
+    document.getElementById('it').classList.toggle('active', lang === 'it');
+    document.getElementById('en').classList.toggle('active', lang === 'en');
+    try{ localStorage.setItem('podz-lang', lang); }catch(e){}
+  }
+  (function initLang(){
+    var saved = null;
+    try{ saved = localStorage.getItem('podz-lang'); }catch(e){}
+    var lang = saved || (navigator.language && navigator.language.startsWith('en') ? 'en' : 'it');
+    setLang(lang);
+  })();
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  year + scroll reveal
+  // -----------------------------------------------------------------------------------------------------------------
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.12 });
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+</script>
+</body>
+</html>

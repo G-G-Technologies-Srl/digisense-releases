@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Download · Podz.AI — DigiSense</title>
+<meta name="description" content="Scarica l'ultima versione di Podz.AI per la tua piattaforma — Windows, macOS o Linux." />
+<link rel="icon" type="image/svg+xml" href="assets/podz-symbol-static.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
+<link rel="alternate icon" href="assets/icons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+<style>
+  :root{
+    --bg:#05060a;--bg-2:#0a0d16;--panel:rgba(255,255,255,.03);--panel-brd:rgba(255,255,255,.08);
+    --txt:#e9edf5;--txt-dim:#9aa4b8;--txt-faint:#5e6678;
+    --accent:#38e1ff;--accent-2:#a06bff;--accent-3:#3bffb0;
+    --glow:0 0 40px rgba(56,225,255,.25);--radius:18px;--maxw:1140px;
+    --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--txt);font-family:var(--font);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+  body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+    radial-gradient(900px 600px at 12% -5%, rgba(56,225,255,.14), transparent 60%),
+    radial-gradient(800px 600px at 95% 8%, rgba(160,107,255,.16), transparent 60%),
+    radial-gradient(700px 700px at 50% 110%, rgba(59,255,176,.08), transparent 60%),var(--bg);}
+  body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.4;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:46px 46px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,#000 30%,transparent 80%);}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+  /* nav */
+  header.nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(5,6,10,.6);border-bottom:1px solid var(--panel-brd)}
+  .nav-inner{display:flex;align-items:center;gap:24px;height:66px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand-logo{height:30px;width:auto;display:block}
+  .brand-sub{color:var(--txt-faint);font-weight:600;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;border-left:1px solid var(--panel-brd);padding-left:12px}
+  @media(max-width:520px){.brand-sub{display:none}}
+  .nav-links{margin-left:auto;display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--txt-dim);font-size:.92rem;transition:color .2s}
+  .nav-links a:hover{color:var(--txt)}
+  .nav-links a.active{color:var(--txt)}
+  .lang{display:flex;border:1px solid var(--panel-brd);border-radius:999px;overflow:hidden;font-size:.78rem;font-weight:600}
+  .lang button{background:transparent;border:none;color:var(--txt-faint);padding:6px 13px;cursor:pointer;font-family:var(--font);font-weight:600;transition:.2s}
+  .lang button.active{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#04060c}
+  @media(max-width:760px){.nav-links a{display:none}}
+
+  /* head */
+  .dl-head{text-align:center;padding:clamp(56px,9vw,96px) 0 24px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .dl-head h1{font-size:clamp(2.1rem,5.5vw,3.4rem);font-weight:800;letter-spacing:-.02em;line-height:1.08;
+    background:linear-gradient(180deg,#fff 30%,#a8b2c8);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:16px}
+  .dl-head p{color:var(--txt-dim);max-width:620px;margin:0 auto;font-size:1.06rem}
+  .verline{display:inline-flex;gap:10px;align-items:center;margin-top:22px;font-family:var(--mono);font-size:.82rem;color:var(--txt-dim);border:1px solid var(--panel-brd);background:var(--panel);border-radius:999px;padding:7px 16px}
+  .verline b{color:#fff}
+
+  /* recommended */
+  .reco{max-width:760px;margin:38px auto 0}
+  .reco-card{border:1px solid rgba(56,225,255,.4);border-radius:22px;padding:30px;background:linear-gradient(120deg,rgba(56,225,255,.08),rgba(160,107,255,.1));box-shadow:var(--glow);position:relative;overflow:hidden}
+  .reco-tag{font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-3);margin-bottom:12px}
+  .reco-os{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+  .reco-os .pico{font-size:2.4rem;line-height:1}
+  .reco-os h2{font-size:1.5rem;font-weight:800}
+  .reco-os p{color:var(--txt-dim);font-size:.9rem}
+  .reco-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:12px;font-weight:600;font-size:.95rem;cursor:pointer;transition:.22s;border:1px solid transparent;font-family:var(--font)}
+  .btn-primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#04060c;box-shadow:var(--glow)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 55px rgba(56,225,255,.45)}
+  .btn-ghost{border-color:var(--panel-brd);background:rgba(255,255,255,.04);color:var(--txt)}
+  .btn-ghost:hover{border-color:var(--accent);color:#fff}
+  .btn small{font-weight:500;opacity:.75;font-size:.78em}
+
+  /* all platforms */
+  .all{padding:60px 0 40px}
+  .all h3{text-align:center;font-size:1.4rem;font-weight:800;margin-bottom:8px}
+  .all .sub{text-align:center;color:var(--txt-dim);margin-bottom:34px;font-size:.96rem}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .pcard{border:1px solid var(--panel-brd);background:var(--panel);border-radius:var(--radius);padding:24px;transition:.22s;display:flex;flex-direction:column;gap:14px}
+  .pcard:hover{border-color:rgba(56,225,255,.35);transform:translateY(-3px)}
+  .pcard.is-reco{border-color:rgba(59,255,176,.45)}
+  .pcard .ptop{display:flex;align-items:center;gap:13px}
+  .pcard .ico{font-size:1.7rem}
+  .pcard h4{font-size:1.08rem}
+  .pcard .sub2{font-size:.78rem;color:var(--txt-faint)}
+  .pcard .files{display:flex;flex-direction:column;gap:9px;margin-top:2px}
+  .file-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--panel-brd);background:rgba(255,255,255,.02);border-radius:11px;padding:11px 14px;transition:.2s}
+  .file-btn:hover{border-color:var(--accent);background:rgba(56,225,255,.06)}
+  .file-btn .lbl{font-size:.9rem;font-weight:600}
+  .file-btn .ext{font-family:var(--mono);font-size:.72rem;color:var(--txt-faint)}
+  .file-btn .arr{color:var(--accent);font-weight:700}
+  .reco-badge{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#04060c;background:linear-gradient(120deg,var(--accent),var(--accent-3));border-radius:6px;padding:2px 8px}
+
+  .note{max-width:760px;margin:30px auto 0;text-align:center;color:var(--txt-faint);font-size:.86rem}
+  .note code{font-family:var(--mono);color:var(--accent);background:rgba(56,225,255,.08);border:1px solid var(--panel-brd);border-radius:5px;padding:1px 6px}
+  .state{text-align:center;color:var(--txt-dim);padding:40px 0;font-size:.96rem}
+  .spinner{display:inline-block;width:18px;height:18px;border:2px solid var(--panel-brd);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;vertical-align:-3px;margin-right:9px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  footer{border-top:1px solid var(--panel-brd);padding:36px 0;margin-top:40px}
+  .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--txt-faint);font-size:.86rem}
+  .foot-inner a:hover{color:var(--accent)}
+
+  [data-lang-en]{display:none}
+  html[lang="en"] [data-lang-it]{display:none}
+  html[lang="en"] [data-lang-en]{display:inline}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/podz-logo-dark.svg" alt="Podz.AI" /><span class="brand-sub">DigiSense</span></a>
+    <nav class="nav-links">
+      <a href="index.html#overview"><span data-lang-it>Panoramica</span><span data-lang-en>Overview</span></a>
+      <a href="index.html#architecture"><span data-lang-it>Architettura</span><span data-lang-en>Architecture</span></a>
+      <a href="index.html#releases"><span data-lang-it>Release</span><span data-lang-en>Releases</span></a>
+      <a href="download.html" class="active">Download</a>
+      <div class="lang">
+        <button id="it" class="active" onclick="setLang('it')">IT</button>
+        <button id="en" onclick="setLang('en')">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<section class="dl-head wrap">
+  <div class="eyebrow">Download</div>
+  <h1><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></h1>
+  <p><span data-lang-it>L'ultima versione, pronta per la tua piattaforma. Build firmate, notarizzate e self-contained.</span><span data-lang-en>The latest version, ready for your platform. Signed, notarized, self-contained builds.</span></p>
+  <div id="verline" class="verline" hidden></div>
+</section>
+
+<div class="wrap">
+  <div id="reco" class="reco"></div>
+  <div id="state" class="state"><span class="spinner"></span><span data-lang-it>Rilevamento della tua piattaforma e dell'ultima release…</span><span data-lang-en>Detecting your platform and the latest release…</span></div>
+
+  <section class="all" id="all" hidden>
+    <h3><span data-lang-it>Tutte le piattaforme</span><span data-lang-en>All platforms</span></h3>
+    <p class="sub"><span data-lang-it>Scegli manualmente il pacchetto adatto al tuo sistema.</span><span data-lang-en>Pick the package that matches your system.</span></p>
+    <div class="pgrid" id="pgrid"></div>
+    <p class="note">
+      <span data-lang-it>Requisito di runtime: un daemon <code>Docker</code> attivo sull'host. macOS firmato e notarizzato; installer Windows firmato Authenticode.</span>
+      <span data-lang-en>Runtime requirement: a running <code>Docker</code> daemon on the host. macOS signed and notarized; Windows installer Authenticode signed.</span>
+    </p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div><a href="index.html"><strong style="color:var(--txt)">Podz.AI</strong></a> · <span data-lang-it>basato sul framework DigiSense</span><span data-lang-en>powered by the DigiSense framework</span></div>
+    <div>© <span id="year"></span> G&amp;G Technologies Srl</div>
+  </div>
+</footer>
+
+<script>
+  // -----------------------------------------------------------------------------------------------------------------
+  //  config
+  // -----------------------------------------------------------------------------------------------------------------
+  var REPO = 'G-G-Technologies-Srl/digisense-releases';
+  var RELEASES_URL = 'https://github.com/' + REPO + '/releases';
+  var LATEST_API = 'https://api.github.com/repos/' + REPO + '/releases/latest';
+
+  var PLATFORMS = [
+    { key:'windows-x64', os:'windows', arch:'x64',   icon:'🪟', name:'Windows x64',          sub:'Windows 10 / 11' },
+    { key:'mac-arm64',   os:'mac',     arch:'arm64', icon:'🍎', name:'macOS · Apple Silicon', sub:'M1 / M2 / M3 …' },
+    { key:'mac-x64',     os:'mac',     arch:'x64',   icon:'🍎', name:'macOS · Intel',         sub:'Intel Mac' },
+    { key:'linux-x64',   os:'linux',   arch:'x64',   icon:'🐧', name:'Linux x64',             sub:'.deb · amd64' },
+    { key:'linux-arm64', os:'linux',   arch:'arm64', icon:'🐧', name:'Linux ARM64',           sub:'.deb · arm64' }
+  ];
+
+  // local fallback used when the GitHub API is unreachable (offline / blocked / preview iframe).
+  // it is replaced by live API data as soon as the request succeeds.
+  var FB_VER = 'v1.0.18';
+  var FB_DATE = '2026-06-23T06:08:00Z';
+  var FB_BASE = 'https://github.com/' + REPO + '/releases/download/' + FB_VER + '/';
+  var FALLBACK = {
+    tag_name: FB_VER,
+    published_at: FB_DATE,
+    _fallback: true,
+    assets: [
+      { name:'podz-ai-1.0.18-win-x64-setup.exe', browser_download_url: FB_BASE + 'podz-ai-1.0.18-win-x64-setup.exe' },
+      { name:'podz-ai-1.0.18-win-x64.zip',       browser_download_url: FB_BASE + 'podz-ai-1.0.18-win-x64.zip' },
+      { name:'podz-ai-1.0.18-osx-arm64.pkg',     browser_download_url: FB_BASE + 'podz-ai-1.0.18-osx-arm64.pkg' },
+      { name:'podz-ai-1.0.18-osx-x64.pkg',       browser_download_url: FB_BASE + 'podz-ai-1.0.18-osx-x64.pkg' },
+      { name:'podz-ai-1.0.18-linux-x64.deb',     browser_download_url: FB_BASE + 'podz-ai-1.0.18-linux-x64.deb' },
+      { name:'podz-ai-1.0.18-linux-arm64.deb',   browser_download_url: FB_BASE + 'podz-ai-1.0.18-linux-arm64.deb' }
+    ]
+  };
+
+  var T = {
+    it:{ recoTag:'Consigliato per il tuo dispositivo', installer:'Installer', portable:'Portable (zip)',
+         pkg:'Pacchetto', download:'Scarica', version:'Versione', released:'rilasciata il',
+         unknown:'Non siamo riusciti a riconoscere la tua piattaforma: scegli manualmente qui sotto.',
+         mobile:'Podz.AI è un\'applicazione desktop. Scaricala su un computer Windows, macOS o Linux.',
+         error:'Impossibile recuperare l\'ultima release in automatico.', openReleases:'Apri la pagina delle release',
+         detected:'Rilevato', notDetected:'piattaforma non riconosciuta' },
+    en:{ recoTag:'Recommended for your device', installer:'Installer', portable:'Portable (zip)',
+         pkg:'Package', download:'Download', version:'Version', released:'released on',
+         unknown:'We couldn\'t recognize your platform: pick one manually below.',
+         mobile:'Podz.AI is a desktop application. Download it on a Windows, macOS or Linux computer.',
+         error:'Could not fetch the latest release automatically.', openReleases:'Open the releases page',
+         detected:'Detected', notDetected:'platform not recognized' }
+  };
+
+  var STATE = { lang:'it', release:null, detected:{os:'unknown',arch:'unknown'}, error:false };
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  language
+  // -----------------------------------------------------------------------------------------------------------------
+  function setLang(lang){
+    STATE.lang = lang;
+    document.documentElement.setAttribute('lang', lang);
+    document.getElementById('it').classList.toggle('active', lang === 'it');
+    document.getElementById('en').classList.toggle('active', lang === 'en');
+    try{ localStorage.setItem('podz-lang', lang); }catch(e){}
+    render();
+  }
+  (function initLang(){
+    var saved=null; try{ saved=localStorage.getItem('podz-lang'); }catch(e){}
+    STATE.lang = saved || (navigator.language && navigator.language.indexOf('en')===0 ? 'en' : 'it');
+    document.documentElement.setAttribute('lang', STATE.lang);
+    document.getElementById('it').classList.toggle('active', STATE.lang==='it');
+    document.getElementById('en').classList.toggle('active', STATE.lang==='en');
+  })();
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  platform detection
+  // -----------------------------------------------------------------------------------------------------------------
+  function _detectPlatform(){
+    var ua = navigator.userAgent || '';
+    var os = 'unknown', arch = 'unknown';
+    if(/Android/i.test(ua)) os = 'android';
+    else if(/iPhone|iPad|iPod/i.test(ua)) os = 'ios';
+    else if(/Windows/i.test(ua)) os = 'windows';
+    else if(/Mac OS X|Macintosh/i.test(ua)) os = 'mac';
+    else if(/Linux/i.test(ua)) os = 'linux';
+    // legacy arch hints from UA
+    if(/arm64|aarch64/i.test(ua)) arch = 'arm64';
+    else if(/x86_64|win64|wow64|x64/i.test(ua)) arch = 'x64';
+    if(os === 'windows' && arch === 'unknown') arch = 'x64'; // overwhelmingly x64
+    return { os:os, arch:arch };
+  }
+
+  function _refineArch(){
+    // high-entropy client hints (Chromium) give the real CPU architecture
+    if(navigator.userAgentData && navigator.userAgentData.getHighEntropyValues){
+      return navigator.userAgentData.getHighEntropyValues(['architecture','platform']).then(function(hv){
+        if(hv.platform){
+          var p = hv.platform.toLowerCase();
+          if(p.indexOf('win')>-1) STATE.detected.os='windows';
+          else if(p.indexOf('mac')>-1) STATE.detected.os='mac';
+          else if(p.indexOf('linux')>-1) STATE.detected.os='linux';
+          else if(p.indexOf('android')>-1) STATE.detected.os='android';
+        }
+        if(hv.architecture){
+          var a = hv.architecture.toLowerCase();
+          if(a.indexOf('arm')>-1) STATE.detected.arch='arm64';
+          else if(a.indexOf('x86')>-1 || a.indexOf('x64')>-1) STATE.detected.arch='x64';
+        }
+      }).catch(function(){});
+    }
+    return Promise.resolve();
+  }
+
+  // human-readable label of the detected client platform
+  function _detectedLabel(){
+    var t = T[STATE.lang];
+    var names = { windows:'Windows', mac:'macOS', linux:'Linux', android:'Android', ios:'iOS' };
+    var os = STATE.detected.os, arch = STATE.detected.arch;
+    if(!names[os]) return t.notDetected;
+    var a = arch === 'arm64' ? 'ARM64' : (arch === 'x64' ? 'x64' : '');
+    return names[os] + (a ? ' · ' + a : '');
+  }
+
+  // which platform cards to recommend for the detected client
+  function _recommendedKeys(){
+    var os = STATE.detected.os, arch = STATE.detected.arch;
+    if(os === 'windows') return ['windows-x64'];
+    if(os === 'mac'){
+      if(arch === 'arm64') return ['mac-arm64'];
+      if(arch === 'x64')   return ['mac-x64'];
+      return ['mac-arm64','mac-x64']; // arch unknown → both
+    }
+    if(os === 'linux'){
+      if(arch === 'arm64') return ['linux-arm64'];
+      if(arch === 'x64')   return ['linux-x64'];
+      return ['linux-x64','linux-arm64'];
+    }
+    return []; // unknown / mobile → none
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  asset classification
+  // -----------------------------------------------------------------------------------------------------------------
+  function _classify(name){
+    var n = name.toLowerCase();
+    if(n.indexOf('win')>-1 && n.indexOf('x64')>-1 && /\.exe$/.test(n))  return {key:'windows-x64', kind:'installer'};
+    if(n.indexOf('win')>-1 && n.indexOf('x64')>-1 && /\.zip$/.test(n))  return {key:'windows-x64', kind:'portable'};
+    if(n.indexOf('osx')>-1 && n.indexOf('arm64')>-1)                    return {key:'mac-arm64',   kind:'pkg'};
+    if(n.indexOf('osx')>-1 && n.indexOf('x64')>-1)                      return {key:'mac-x64',     kind:'pkg'};
+    if(n.indexOf('linux')>-1 && n.indexOf('arm64')>-1)                  return {key:'linux-arm64', kind:'pkg'};
+    if(n.indexOf('linux')>-1 && n.indexOf('x64')>-1)                    return {key:'linux-x64',   kind:'pkg'};
+    return null;
+  }
+
+  // group the release assets by platform key
+  function _assetsByPlatform(){
+    var map = {};
+    PLATFORMS.forEach(function(p){ map[p.key] = []; });
+    var rel = STATE.release || FALLBACK;
+    if(rel && rel.assets){
+      rel.assets.forEach(function(a){
+        var c = _classify(a.name);
+        if(c && map[c.key]){
+          map[c.key].push({ kind:c.kind, name:a.name, url:a.browser_download_url, ext:'.'+a.name.split('.').pop() });
+        }
+      });
+    }
+    return map;
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  render
+  // -----------------------------------------------------------------------------------------------------------------
+  function _kindLabel(kind){
+    var t = T[STATE.lang];
+    if(kind === 'installer') return t.installer;
+    if(kind === 'portable')  return t.portable;
+    return t.pkg;
+  }
+
+  function _fileBtn(f){
+    return '<a class="file-btn" href="'+f.url+'"><span class="lbl">'+_kindLabel(f.kind)+'</span>'+
+           '<span><span class="ext">'+f.ext+'</span> <span class="arr">↓</span></span></a>';
+  }
+
+  function _platformCard(p, assets, isReco){
+    var t = T[STATE.lang];
+    var files = assets.map(_fileBtn).join('');
+    if(!files) files = '<span class="sub2" style="opacity:.6">—</span>';
+    return '<div class="pcard'+(isReco?' is-reco':'')+'">'+
+      '<div class="ptop"><span class="ico">'+p.icon+'</span><div><h4>'+p.name+'</h4>'+
+      '<div class="sub2">'+p.sub+(isReco?' · <span class="reco-badge">'+t.recoTag.split(' ')[0]+'</span>':'')+'</div></div></div>'+
+      '<div class="files">'+files+'</div></div>';
+  }
+
+  function render(){
+    var t = T[STATE.lang];
+    var verEl = document.getElementById('verline');
+    var stateEl = document.getElementById('state');
+    var recoEl = document.getElementById('reco');
+    var allEl = document.getElementById('all');
+    var grid = document.getElementById('pgrid');
+
+    // STATE.release is always set (live API data or local fallback), so we can always render.
+    var rel = STATE.release || FALLBACK;
+    stateEl.hidden = true;
+
+    // version line
+    var ver = rel.tag_name || rel.name || '';
+    var when = '';
+    if(rel.published_at){
+      var d = new Date(rel.published_at);
+      when = d.toLocaleDateString(STATE.lang === 'it' ? 'it-IT' : 'en-US', {year:'numeric',month:'long',day:'numeric'});
+    }
+    verEl.hidden = false;
+    verEl.innerHTML = '<span>'+t.version+' <b>'+ver+'</b></span>' + (when ? '<span>· '+t.released+' '+when+'</span>' : '') +
+      '<span>· '+t.detected+': <b>'+_detectedLabel()+'</b></span>';
+
+    var byPlat = _assetsByPlatform();
+    var recoKeys = _recommendedKeys();
+
+    // recommended block
+    if(recoKeys.length){
+      var html = '';
+      recoKeys.forEach(function(key){
+        var p = PLATFORMS.filter(function(x){return x.key===key;})[0];
+        var assets = byPlat[key] || [];
+        var primary = assets.filter(function(a){return a.kind==='installer'||a.kind==='pkg';})[0] || assets[0];
+        var secondary = assets.filter(function(a){return a!==primary;});
+        if(!primary) return;
+        var actions = '<a class="btn btn-primary" href="'+primary.url+'">'+t.download+' '+p.name+' '+
+                      '<small>'+primary.ext+'</small> ↓</a>';
+        secondary.forEach(function(s){
+          actions += '<a class="btn btn-ghost" href="'+s.url+'">'+_kindLabel(s.kind)+' <small>'+s.ext+'</small></a>';
+        });
+        html += '<div class="reco-card" style="margin-bottom:16px">'+
+          '<div class="reco-tag">★ '+t.recoTag+'</div>'+
+          '<div class="reco-os"><span class="pico">'+p.icon+'</span><div><h2>'+p.name+'</h2><p>'+p.sub+'</p></div></div>'+
+          '<div class="reco-actions">'+actions+'</div></div>';
+      });
+      recoEl.innerHTML = html;
+    } else {
+      // unknown or mobile platform → friendly note, then full list
+      var msg = (STATE.detected.os==='android'||STATE.detected.os==='ios') ? t.mobile : t.unknown;
+      recoEl.innerHTML = '<div class="reco-card"><div class="reco-tag">ℹ︎</div>'+
+        '<div class="reco-os"><span class="pico">💻</span><div><h2 style="font-size:1.2rem">Podz.AI</h2><p>'+msg+'</p></div></div></div>';
+    }
+
+    // full grid (all platforms, recommended highlighted)
+    grid.innerHTML = PLATFORMS.map(function(p){
+      return _platformCard(p, byPlat[p.key] || [], recoKeys.indexOf(p.key) > -1);
+    }).join('');
+    allEl.hidden = false;
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  boot
+  // -----------------------------------------------------------------------------------------------------------------
+  (function boot(){
+    // 1) detect platform and render IMMEDIATELY with the local fallback,
+    //    so the page never blocks on the network request.
+    STATE.detected = _detectPlatform();
+    STATE.release = FALLBACK;
+    render();
+
+    // 2) refine the CPU architecture (Chromium client hints), then re-render.
+    _refineArch().then(function(){
+      render();
+      // 3) try to upgrade to the live latest release from the GitHub API.
+      return fetch(LATEST_API, { headers:{ 'Accept':'application/vnd.github+json' } });
+    }).then(function(r){
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.json();
+    }).then(function(json){
+      if(json && json.assets){ STATE.release = json; render(); }
+    }).catch(function(){
+      // keep the fallback already on screen — nothing else to do.
+    });
+  })();
+</script>
+</body>
+</html>
