@@ -5,11 +5,25 @@
   </picture>
 </p>
 
-<p align="center"><strong>Your AI. Your data. Your machine.</strong></p>
+<p align="center"><strong>Your local-first AI. Your data. Your machine.</strong></p>
 
-**Podz.AI** is a local-first, multi-agent AI runtime powered by the **DigiSense** framework (a registered trademark of G&G Technologies Srl). With built-in edge-AI, it lets local and cloud models work in synergy — combining the reach of the cloud with the privacy of on-device inference — while an integrated algorithmic document-anonymization engine keeps your sensitive data private by design.
+<p align="center">
+  <a href="https://g-g-technologies-srl.github.io/digisense-releases/"><strong>🌐 Website</strong></a> ·
+  <a href="https://g-g-technologies-srl.github.io/digisense-releases/download.html"><strong>⬇️ Download</strong></a> ·
+  <a href="../../releases/latest"><strong>Releases</strong></a>
+</p>
 
 ---
+
+**Podz.AI** is a local-first, multi-agent AI runtime powered by the **DigiSense** framework (a registered trademark of G&G Technologies Srl). It runs models, agents and applications on your own machine, so confidential data never leaves your infrastructure. When a cloud LLM is needed, an integrated **document-anonymization** engine masks personal data first.
+
+Privacy by design and EU data sovereignty — built for teams working under **GDPR** and the **AI Act**: law firms, accountants, healthcare, finance, public sector and companies.
+
+## Website
+
+Presentation site (bilingual IT/EN): **https://g-g-technologies-srl.github.io/digisense-releases/**
+
+The website source lives in [`docs/`](docs) and is published via GitHub Pages (Settings → Pages → Deploy from a branch → `main` → `/docs`).
 
 ## Download
 
@@ -31,6 +45,16 @@ All releases are listed on the [Releases](../../releases) page.
 - **Windows** installer is **Authenticode signed**.
 - Every build is **self-contained**: the .NET runtime and ICU are bundled, nothing else to install.
 - **Runtime requirement:** a running **Docker** daemon on the host (Podz.AI orchestrates its workloads as containers).
+
+## Key features
+
+- **Local-first & privacy by design** — models and data stay on your infrastructure.
+- **Document anonymizer** — mask personal data before any cloud-LLM call.
+- **Context compression** — up to 80% fewer tokens, depending on the content.
+- **Hardware profiling & model matching** — automatic selection of the best local models.
+- **Multi-agent system** — orchestrator, skills, and an autonomous **Pod** agent you can launch from the UI.
+- **Multiple runtimes** — OLLAMA, ONNX and more, with automatic selection.
+- **Extensions & containers** for advanced capabilities.
 
 ## License & trademark
 
