@@ -227,6 +227,21 @@
     font-family:var(--mono);font-size:.85rem;color:var(--btn-text);background:var(--btn-bg)}
   .pod-point h4{font-family:var(--serif);font-size:1.08rem;font-weight:600;margin-bottom:3px}
   .pod-point p{color:var(--text-soft);font-size:.95rem}
+  /* pod UI panel (no console) */
+  .pod-ui{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
+  .pod-ui-head{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--border);background:var(--bg-inset)}
+  .pod-ui-head .who{font-weight:600;font-size:.95rem}
+  .pod-ui-head .stat{font-size:.76rem;color:var(--text-faint);display:flex;align-items:center;gap:6px}
+  .pod-ui-head .stat::before{content:"";width:7px;height:7px;border-radius:50%;background:#27c498;box-shadow:0 0 8px #27c498}
+  .pod-ui-body{padding:18px;display:flex;flex-direction:column;gap:14px}
+  .pod-field{display:flex;flex-direction:column;gap:5px;border:1px solid var(--border);border-radius:12px;padding:11px 13px;background:var(--bg-inset)}
+  .pod-field .lbl{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);font-weight:700}
+  .pod-field .val{font-size:.94rem;color:var(--text)}
+  .pod-run{justify-content:center;width:100%;pointer-events:none}
+  .pod-steps{list-style:none;display:flex;flex-direction:column;gap:9px;margin:0}
+  .pod-steps li{font-size:.92rem;color:var(--text-soft);display:flex;align-items:center;gap:9px}
+  .pod-steps li .mk{color:var(--accent);font-weight:700}
+  .pod-ui-foot{padding:12px 18px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-faint);text-align:center}
   .terminal{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:var(--term-bg);
     color:var(--term-text);font-family:var(--mono);font-size:.84rem;box-shadow:var(--shadow)}
   .term-body{overflow-x:auto}
@@ -535,23 +550,35 @@
   <div class="wrap">
     <div class="sec-eyebrow"><span data-lang-it>Agente Pod</span><span data-lang-en>Pod Agent</span></div>
     <h2 class="sec-title"><span data-lang-it>Lancialo come agente autonomo</span><span data-lang-en>Launch it as an autonomous agent</span></h2>
-    <p class="sec-sub"><span data-lang-it>Oltre a essere un runtime, Podz.AI può lanciare un Pod: un agente autonomo attivabile direttamente dalla UI su task locali, che percepisce, pianifica e agisce in autonomia — sempre entro i limiti che definisci.</span><span data-lang-en>Beyond being a runtime, Podz.AI can launch a Pod: an autonomous agent you start right from the UI on local tasks, that perceives, plans and acts on its own — always within the boundaries you set.</span></p>
+    <p class="sec-sub"><span data-lang-it>Oltre a essere un runtime, Podz.AI può lanciare un Pod: un agente autonomo che avvii con un clic dalla UI — niente console — su task locali. Percepisce, pianifica e agisce in autonomia, sempre entro i limiti che definisci.</span><span data-lang-en>Beyond being a runtime, Podz.AI can launch a Pod: an autonomous agent you start with one click from the UI — no console — on local tasks. It perceives, plans and acts on its own, always within the boundaries you set.</span></p>
 
     <div class="pod-grid">
-      <div class="terminal">
-        <div class="term-bar"><i></i><i></i><i></i><span>podz · pod mode</span></div>
-        <div class="term-body"><span class="cd"># <span data-lang-it>avvia Podz.AI come agente Pod autonomo</span><span data-lang-en>launch Podz.AI as an autonomous Pod agent</span></span>
-<span class="c1">$</span> podz pod run --autonomous
-
-<span class="c2">✓</span> runtime <span class="cd">ready</span>  ·  models <span class="cd">loaded</span>
-<span class="c2">✓</span> agents <span class="cd">attached</span>  ·  tools <span class="cd">registered</span>
-<span class="c3">⟳</span> <span data-lang-it>loop: percepisci → pianifica → agisci</span><span data-lang-en>loop: perceive → plan → act</span>
-<span class="c3">⟳</span> <span data-lang-it>obiettivo accettato, esecuzione autonoma…</span><span data-lang-en>goal accepted, running autonomously…</span></div>
+      <div class="pod-ui" aria-label="Podz Pod launcher">
+        <div class="pod-ui-head">
+          <span class="avatar"><img src="assets/podz-symbol-static.svg" alt="" /></span>
+          <div>
+            <div class="who">Podz · Pod</div>
+            <div class="stat"><span data-lang-it>pronto · locale</span><span data-lang-en>ready · local</span></div>
+          </div>
+        </div>
+        <div class="pod-ui-body">
+          <div class="pod-field">
+            <span class="lbl"><span data-lang-it>Obiettivo</span><span data-lang-en>Goal</span></span>
+            <span class="val"><span data-lang-it>Monitora la cartella contratti e segnala le scadenze.</span><span data-lang-en>Watch the contracts folder and flag upcoming deadlines.</span></span>
+          </div>
+          <span class="btn btn-primary pod-run"><span aria-hidden="true">▶</span> <span data-lang-it>Avvia Pod</span><span data-lang-en>Run Pod</span></span>
+          <ul class="pod-steps">
+            <li><span class="mk">✓</span> <span data-lang-it>percepisce</span><span data-lang-en>perceives</span></li>
+            <li><span class="mk">✓</span> <span data-lang-it>pianifica</span><span data-lang-en>plans</span></li>
+            <li><span class="mk">⟳</span> <span data-lang-it>agisce in autonomia</span><span data-lang-en>acts autonomously</span></li>
+          </ul>
+        </div>
+        <div class="pod-ui-foot"><span data-lang-it>Tutto dalla UI — nessun comando da console.</span><span data-lang-en>All from the UI — no console commands.</span></div>
       </div>
       <div class="pod-points">
         <div class="pod-point"><div class="n">1</div><div>
-          <h4><span data-lang-it>Autonomo per design</span><span data-lang-en>Autonomous by design</span></h4>
-          <p><span data-lang-it>Ricevi un obiettivo, il Pod lo persegue in autonomia con cicli di percezione, pianificazione e azione.</span><span data-lang-en>Give it a goal and the Pod pursues it autonomously through perceive–plan–act cycles.</span></p>
+          <h4><span data-lang-it>Avvii con un clic</span><span data-lang-en>One-click launch</span></h4>
+          <p><span data-lang-it>Apri il pannello, indica l'obiettivo e avvia: il Pod lo persegue in autonomia, senza scrivere comandi.</span><span data-lang-en>Open the panel, set the goal and start: the Pod pursues it autonomously, without typing any command.</span></p>
         </div></div>
         <div class="pod-point"><div class="n">2</div><div>
           <h4><span data-lang-it>Agente di nuova generazione</span><span data-lang-en>Next-generation agent</span></h4>
