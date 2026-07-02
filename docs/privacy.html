@@ -27,9 +27,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
 <link rel="alternate icon" href="assets/icons/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- set theme + language before paint to avoid flash -->
 <script>
@@ -48,6 +47,13 @@
 </script>
 
 <style>
+  /* -----------------------------------------------------------------------------------------------------------------
+       self-hosted fonts (no third-party requests)
+     ----------------------------------------------------------------------------------------------------------------- */
+  @font-face{font-family:'Inter';src:url('assets/fonts/inter-var.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  @font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-var.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  @font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-var-italic.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
+
   /* -----------------------------------------------------------------------------------------------------------------
        design tokens (shared with index.html / download.html / pricing.html)
      ----------------------------------------------------------------------------------------------------------------- */
@@ -201,6 +207,7 @@
   .cta h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:500;margin-bottom:12px}
   .cta p{color:var(--text-soft);max-width:52ch;margin:0 auto 24px}
   .cta-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .cta-mail{margin-top:18px;font-size:.9rem;color:var(--text-faint)}
   .note{max-width:780px;margin:34px auto 0;text-align:center;color:var(--text-faint);font-size:.84rem}
 
   /* -----------------------------------------------------------------------------------------------------------------
@@ -448,6 +455,7 @@
       <a class="btn btn-primary btn-lg" href="download.html"><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></a>
       <a class="btn btn-ghost btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a>
     </div>
+    <p class="cta-mail"><span data-lang-it>oppure scrivi direttamente a</span><span data-lang-en>or write directly to</span> <a href="mailto:info@ggtechnologies.sm">info@ggtechnologies.sm</a></p>
   </div>
   <p class="note">
     <span data-lang-it>Questa pagina descrive il funzionamento del prodotto e non costituisce una consulenza legale.</span>
@@ -485,7 +493,7 @@
 <footer>
   <div class="wrap foot-inner">
     <div><a href="index.html"><strong style="color:var(--text)">Podz.AI</strong></a> · <span data-lang-it>dal progetto DigiSense</span><span data-lang-en>from the DigiSense project</span></div>
-    <div><a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a> · © <span id="year"></span> G&amp;G Technologies Srl</div>
+    <div><a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a> · <a href="site-privacy.html"><span data-lang-it>Privacy del sito</span><span data-lang-en>Site privacy</span></a> · © <span id="year"></span> G&amp;G Technologies Srl</div>
   </div>
 </footer>
 

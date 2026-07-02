@@ -29,9 +29,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
 <link rel="alternate icon" href="assets/icons/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
 
 <!-- set theme + language before paint to avoid flash -->
 <script>
@@ -50,6 +49,13 @@
 </script>
 
 <style>
+  /* -----------------------------------------------------------------------------------------------------------------
+       self-hosted fonts (no third-party requests)
+     ----------------------------------------------------------------------------------------------------------------- */
+  @font-face{font-family:'Inter';src:url('assets/fonts/inter-var.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  @font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-var.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  @font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-var-italic.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
+
   /* -----------------------------------------------------------------------------------------------------------------
        design tokens
      ----------------------------------------------------------------------------------------------------------------- */
@@ -252,6 +258,21 @@
   /* demo "consulted" line */
   .consulted{display:flex;align-items:center;gap:7px;font-size:.78rem;color:var(--text-faint);padding-left:39px}
   .consulted b{color:var(--text-soft);font-weight:600}
+  #demo-engine{color:var(--accent-ink);border-color:color-mix(in srgb,var(--accent) 40%,var(--border));
+    background:color-mix(in srgb,var(--accent) 8%,transparent)}
+  .agent-note{padding:0 18px 12px;font-size:.72rem;color:var(--text-faint);text-align:center}
+
+  /* product screenshots */
+  .shots{display:grid;grid-template-columns:3fr 2fr;gap:20px;align-items:start}
+  @media(max-width:860px){.shots{grid-template-columns:1fr}}
+  .shot{margin:0}
+  .shot img{width:100%;height:auto;display:block;border-radius:var(--r-md);border:1px solid var(--border);box-shadow:var(--shadow)}
+  .shot figcaption{margin-top:10px;font-size:.85rem;color:var(--text-soft)}
+  .shots-note{margin-top:16px;font-size:.78rem;color:var(--text-faint)}
+
+  /* CTA band note */
+  .band-note{margin-top:22px;font-size:.88rem;color:var(--text-faint)}
+  .band-note a{color:var(--accent-ink)}
 
   /* small print inside cards */
   .card .fine{margin-top:10px;font-size:.8rem;color:var(--text-faint)}
@@ -263,20 +284,17 @@
   .card .install svg{width:14px;height:14px}
   .card .install.soon{color:var(--text-faint);border-color:var(--border);background:transparent}
 
-  /* releases */
-  .rel-list{display:flex;flex-direction:column;gap:16px;max-width:760px}
-  .rel{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--r-md);padding:24px}
-  .rel .meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
-  .rel .ver{font-family:var(--mono);font-weight:700;font-size:1.02rem;color:var(--text)}
-  .rel .tag{font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:var(--r-pill)}
+  /* releases (compact strip) */
+  .rel-strip{display:flex;flex-direction:column;gap:12px;max-width:880px}
+  .rel-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;border:1px solid var(--border);
+    background:var(--bg-elev);border-radius:var(--r-md);padding:14px 18px}
+  .ver{font-family:var(--mono);font-weight:700;font-size:.98rem;color:var(--text)}
+  .tag{font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:var(--r-pill)}
   .tag-latest{background:var(--btn-bg);color:var(--btn-text)}
   .tag-prev{background:var(--bg-subtle);color:var(--text-soft);border:1px solid var(--border)}
-  .rel .date{color:var(--text-faint);font-size:.82rem;font-family:var(--mono)}
-  .rel ul{list-style:none;display:flex;flex-direction:column;gap:7px}
-  .rel li{color:var(--text-soft);font-size:.95rem;padding-left:22px;position:relative}
-  .rel li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
-  .rel code{font-family:var(--mono);font-size:.82em;color:var(--code-fg);background:var(--code-bg);border-radius:5px;padding:1px 6px}
-  .rel-more{margin-top:24px}
+  .rel-date{color:var(--text-faint);font-size:.82rem;font-family:var(--mono)}
+  .rel-desc{color:var(--text-soft);font-size:.92rem}
+  .rel-links{margin-top:8px}
 
   /* CTA band */
   .band{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--r-lg);
@@ -414,6 +432,7 @@
         <span class="pill"><span data-lang-it>un solo interlocutore</span><span data-lang-en>one point of contact</span></span>
         <span class="pill"><span data-lang-it>specialisti su richiesta</span><span data-lang-en>specialists on demand</span></span>
       </div>
+      <div class="agent-note"><span data-lang-it>Esempio illustrativo — dati di fantasia.</span><span data-lang-en>Illustrative example — fictional data.</span></div>
     </aside>
   </div>
 </section>
@@ -466,6 +485,27 @@
         <p><span data-lang-it>Modelli di frontiera come Claude o GPT, con la tua chiave, solo quando lo scegli tu. E con l'Anonimizzatore i dati personali possono essere mascherati prima dell'invio.</span><span data-lang-en>Frontier models like Claude or GPT, with your own key, only when you choose. And with the Anonymizer, personal data can be masked before it is sent.</span></p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- product -->
+<section class="block" id="product">
+  <div class="wrap">
+    <div class="sec-eyebrow"><span data-lang-it>Il prodotto</span><span data-lang-en>The product</span></div>
+    <h2 class="sec-title"><span data-lang-it>Semplice come una chat</span><span data-lang-en>As simple as a chat</span></h2>
+    <p class="sec-sub"><span data-lang-it>Niente da configurare, nessun comando da imparare: scrivi a Podz come scriveresti a un collega. E in chat vedi sempre chi sta lavorando e cosa è stato protetto.</span><span data-lang-en>Nothing to configure, no commands to learn: you write to Podz like you would write to a colleague. And the chat always shows who is working and what has been protected.</span></p>
+
+    <div class="shots">
+      <figure class="shot">
+        <img src="assets/screenshot-chat.png" width="800" height="500" loading="lazy" alt="La chat di Podz: l'utente allega un contratto, Podz coinvolge l'Assistente Legale, elenca le clausole a rischio e mostra che i dati personali sono stati mascherati prima dell'invio al Motore Cloud." />
+        <figcaption><span data-lang-it>Alleghi un documento: Podz coinvolge lo specialista giusto e ti dice cosa ha protetto.</span><span data-lang-en>Attach a document: Podz brings in the right specialist and tells you what it protected.</span></figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/screenshot-catalog.png" width="640" height="500" loading="lazy" alt="Il catalogo degli specialisti di Podz: Assistente Legale e Ricercatore Web installati, Screening CV con bottone Installa, nuovi specialisti in arrivo." />
+        <figcaption><span data-lang-it>Il catalogo: gli specialisti si installano con un clic, come le app.</span><span data-lang-en>The catalog: specialists install with one click, like apps.</span></figcaption>
+      </figure>
+    </div>
+    <p class="shots-note"><span data-lang-it>Schermate illustrative dell'interfaccia.</span><span data-lang-en>Illustrative interface views.</span></p>
   </div>
 </section>
 
@@ -525,7 +565,7 @@
         <p><span data-lang-it>Il sig. <span class="msk">[NOME-1]</span>, nato a <span class="msk">[CITTÀ-1]</span> il <span class="msk">[DATA-1]</span>, residente in <span class="msk">[INDIRIZZO-1]</span>, dichiara di…</span><span data-lang-en>Mr <span class="msk">[NAME-1]</span>, born in <span class="msk">[CITY-1]</span> on <span class="msk">[DATE-1]</span>, residing at <span class="msk">[ADDRESS-1]</span>, declares that…</span></p>
       </div>
     </div>
-    <p class="anon-caption"><span data-lang-it>Nella risposta che leggi tu, i dati reali vengono ripristinati automaticamente: il fornitore cloud non li vede mai.</span><span data-lang-en>In the answer you read, the real data is restored automatically: the cloud provider never sees it.</span></p>
+    <p class="anon-caption"><span data-lang-it>Nella risposta che leggi tu, i dati reali vengono ripristinati automaticamente: il fornitore cloud non li vede mai. (Esempio con dati di fantasia.)</span><span data-lang-en>In the answer you read, the real data is restored automatically: the cloud provider never sees it. (Example with fictional data.)</span></p>
     <p class="anon-note"><span data-lang-it>L'anonimizzazione è una protezione forte, non una garanzia legale: sei sempre tu a decidere cosa può uscire dal tuo computer.</span><span data-lang-en>Anonymization is strong protection, not a legal guarantee: you always decide what may leave your computer.</span></p>
     <div class="privacy-more">
       <a class="btn btn-ghost" href="privacy.html"><span data-lang-it>Scopri dove stanno i tuoi dati e cosa succede col cloud</span><span data-lang-en>See where your data lives and what happens with the cloud</span> →</a>
@@ -565,35 +605,6 @@
   </div>
 </section>
 
-<!-- releases -->
-<section class="block" id="releases">
-  <div class="wrap">
-    <div class="sec-eyebrow"><span data-lang-it>Release</span><span data-lang-en>Releases</span></div>
-    <h2 class="sec-title"><span data-lang-it>Note di release</span><span data-lang-en>Release notes</span></h2>
-    <p class="sec-sub"><span data-lang-it>Le ultime due versioni di Podz.AI: l'attuale e la precedente.</span><span data-lang-en>The latest two Podz.AI versions: the current one and the previous.</span></p>
-
-    <div class="rel-list">
-      <div class="rel">
-        <div class="meta"><span class="ver">Podz.AI v1.0.18</span><span class="tag tag-latest"><span data-lang-it>ultima</span><span data-lang-en>latest</span></span><span class="date">2026-06-23</span></div>
-        <ul>
-          <li><span data-lang-it>Un'unica applicazione da installare: la tua workstation AI personale, con Motore Locale e Motore Cloud.</span><span data-lang-en>A single application to install: your personal AI workstation, with Local and Cloud engines.</span></li>
-          <li><span data-lang-it>Pacchetti per Windows x64, macOS (Apple Silicon / Intel), Linux x64 / ARM64.</span><span data-lang-en>Packages for Windows x64, macOS (Apple Silicon / Intel), Linux x64 / ARM64.</span></li>
-          <li><span data-lang-it>Build firmate: macOS firmato e notarizzato, installer Windows firmato Authenticode. Al primo avvio parte la prova gratuita di 30 giorni.</span><span data-lang-en>Signed builds: macOS signed and notarized, Windows installer Authenticode signed. The 30-day free trial starts on first launch.</span></li>
-        </ul>
-      </div>
-      <div class="rel">
-        <div class="meta"><span class="ver">Podz.AI v0.0.1</span><span class="tag tag-prev"><span data-lang-it>precedente</span><span data-lang-en>previous</span></span><span class="date">2026-06-22</span></div>
-        <ul>
-          <li><span data-lang-it>Primo rilascio pubblico di Podz.AI.</span><span data-lang-en>First public release of Podz.AI.</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="rel-more">
-      <a class="btn btn-ghost" href="https://github.com/G-G-Technologies-Srl/digisense-releases/releases" target="_blank" rel="noopener"><span data-lang-it>Tutte le release su GitHub</span><span data-lang-en>All releases on GitHub</span> ↗</a>
-    </div>
-  </div>
-</section>
-
 <!-- faq -->
 <section class="block" id="faq">
   <div class="wrap">
@@ -611,12 +622,20 @@
         <p><span data-lang-it>Per il Motore Locale serve un computer adeguato: un Mac con chip Apple Silicon o un PC recente. Se usi soprattutto il Motore Cloud, basta un normale computer da ufficio.</span><span data-lang-en>For the Local engine you need an adequate computer: a Mac with Apple Silicon or a recent PC. If you mostly use the Cloud engine, a normal office computer is enough.</span></p>
       </details>
       <details>
+        <summary><span data-lang-it>È difficile da installare? Serve l'IT?</span><span data-lang-en>Is it hard to install? Do I need IT support?</span></summary>
+        <p><span data-lang-it>No: Podz si installa come un normale programma — scarichi, installi, apri. Al primo avvio è già pronto, con la prova gratuita attiva. Niente server da configurare; se nello studio c'è un responsabile IT, gli basterà sapere che i dati restano in una cartella locale cifrata.</span><span data-lang-en>No: Podz installs like a normal program — download, install, open. On first launch it's ready, with the free trial active. No servers to configure; if your firm has an IT manager, all they need to know is that data stays in an encrypted local folder.</span></p>
+      </details>
+      <details>
         <summary><span data-lang-it>Posso usare la mia chiave Claude o OpenAI?</span><span data-lang-en>Can I use my own Claude or OpenAI key?</span></summary>
         <p><span data-lang-it>Sì: il Motore Cloud funziona con la tua chiave Anthropic (Claude) oppure OpenAI. I costi del cloud dipendono dal tuo contratto con quel fornitore: Podz non rivende il servizio e non fa da intermediario sui tuoi dati.</span><span data-lang-en>Yes: the Cloud engine works with your own Anthropic (Claude) or OpenAI key. Cloud costs depend on your agreement with that provider: Podz doesn't resell the service and doesn't sit between you and your data.</span></p>
       </details>
       <details>
         <summary><span data-lang-it>I miei documenti vengono usati per addestrare modelli?</span><span data-lang-en>Are my documents used to train models?</span></summary>
         <p><span data-lang-it>No. I tuoi documenti e le tue conversazioni restano sul tuo computer e non vengono usati per addestrare alcun modello.</span><span data-lang-en>No. Your documents and conversations stay on your computer and are not used to train any model.</span></p>
+      </details>
+      <details>
+        <summary><span data-lang-it>Posso esportare o portare via i miei dati?</span><span data-lang-en>Can I export or take my data with me?</span></summary>
+        <p><span data-lang-it>Sempre: conversazioni e documenti stanno in una cartella del tuo computer, non in un servizio esterno. Copi la cartella e hai il backup; la sposti su un nuovo computer e ti porti tutto dietro.</span><span data-lang-en>Always: conversations and documents live in a folder on your computer, not in an external service. Copy the folder and you have a backup; move it to a new computer and you take everything with you.</span></p>
       </details>
       <details>
         <summary><span data-lang-it>Posso usare l'AI con i dati dei miei clienti?</span><span data-lang-en>Can I use AI with my clients' data?</span></summary>
@@ -626,6 +645,32 @@
         <summary><span data-lang-it>Devo informare i clienti se uso l'AI?</span><span data-lang-en>Do I have to inform clients if I use AI?</span></summary>
         <p><span data-lang-it>La normativa italiana (L. 132/2025) chiede ai professionisti di informare i clienti sull'uso dell'AI. Lavorando sul tuo computer e con dati anonimizzati comunichi un uso responsabile e sotto controllo. Per gli obblighi specifici fai riferimento al tuo ordine professionale.</span><span data-lang-en>Italian law (132/2025) requires professionals to inform clients about AI use. Working on your own computer, with anonymized data, shows responsible, controlled use. For specific obligations, refer to your professional body.</span></p>
       </details>
+    </div>
+  </div>
+</section>
+
+<!-- releases (compact) -->
+<section class="block" id="releases">
+  <div class="wrap">
+    <div class="sec-eyebrow"><span data-lang-it>Release</span><span data-lang-en>Releases</span></div>
+    <h2 class="sec-title"><span data-lang-it>Sempre aggiornato</span><span data-lang-en>Always up to date</span></h2>
+
+    <div class="rel-strip">
+      <div class="rel-line">
+        <span class="ver">Podz.AI v1.0.18</span>
+        <span class="tag tag-latest"><span data-lang-it>ultima</span><span data-lang-en>latest</span></span>
+        <span class="rel-date"><span data-lang-it>23 giugno 2026</span><span data-lang-en>June 23, 2026</span></span>
+        <span class="rel-desc"><span data-lang-it>Un'unica applicazione per Windows, macOS e Linux; build firmate; prova di 30 giorni al primo avvio.</span><span data-lang-en>A single application for Windows, macOS and Linux; signed builds; 30-day trial on first launch.</span></span>
+      </div>
+      <div class="rel-line">
+        <span class="ver">Podz.AI v0.0.1</span>
+        <span class="tag tag-prev"><span data-lang-it>precedente</span><span data-lang-en>previous</span></span>
+        <span class="rel-date"><span data-lang-it>22 giugno 2026</span><span data-lang-en>June 22, 2026</span></span>
+        <span class="rel-desc"><span data-lang-it>Primo rilascio pubblico di Podz.AI.</span><span data-lang-en>First public release of Podz.AI.</span></span>
+      </div>
+      <div class="rel-links">
+        <a class="btn btn-ghost" href="https://github.com/G-G-Technologies-Srl/digisense-releases/releases" target="_blank" rel="noopener"><span data-lang-it>Tutte le release su GitHub</span><span data-lang-en>All releases on GitHub</span> ↗</a>
+      </div>
     </div>
   </div>
 </section>
@@ -640,6 +685,7 @@
         <a class="btn btn-primary btn-lg" href="download.html"><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></a>
         <a class="btn btn-ghost btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a>
       </div>
+      <p class="band-note"><span data-lang-it>Podz è sviluppato in Europa da G&amp;G Technologies Srl, il team del progetto DigiSense. Scrivici: risponde una persona del team — <a href="mailto:info@ggtechnologies.sm">info@ggtechnologies.sm</a></span><span data-lang-en>Podz is built in Europe by G&amp;G Technologies Srl, the team behind the DigiSense project. Write to us — a person answers: <a href="mailto:info@ggtechnologies.sm">info@ggtechnologies.sm</a></span></p>
     </div>
   </div>
 </section>
@@ -696,6 +742,11 @@
         },
         {
           "@type": "Question",
+          "name": "È difficile da installare? Serve l'IT?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No: Podz si installa come un normale programma — scarichi, installi, apri. Al primo avvio è già pronto, con la prova gratuita attiva. Niente server da configurare; se nello studio c'è un responsabile IT, gli basterà sapere che i dati restano in una cartella locale cifrata." }
+        },
+        {
+          "@type": "Question",
           "name": "Posso usare la mia chiave Claude o OpenAI?",
           "acceptedAnswer": { "@type": "Answer", "text": "Sì: il Motore Cloud funziona con la tua chiave Anthropic (Claude) oppure OpenAI. I costi del cloud dipendono dal tuo contratto con quel fornitore: Podz non rivende il servizio e non fa da intermediario sui tuoi dati." }
         },
@@ -703,6 +754,11 @@
           "@type": "Question",
           "name": "I miei documenti vengono usati per addestrare modelli?",
           "acceptedAnswer": { "@type": "Answer", "text": "No. I tuoi documenti e le tue conversazioni restano sul tuo computer e non vengono usati per addestrare alcun modello." }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso esportare o portare via i miei dati?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sempre: conversazioni e documenti stanno in una cartella del tuo computer, non in un servizio esterno. Copi la cartella e hai il backup; la sposti su un nuovo computer e ti porti tutto dietro." }
         },
         {
           "@type": "Question",
@@ -748,7 +804,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© <span id="year"></span> G&amp;G Technologies Srl · <span data-lang-it>DigiSense è un marchio registrato.</span><span data-lang-en>DigiSense is a registered trademark.</span></span>
+      <span>© <span id="year"></span> G&amp;G Technologies Srl · <span data-lang-it>DigiSense è un marchio registrato.</span><span data-lang-en>DigiSense is a registered trademark.</span> · <a href="site-privacy.html"><span data-lang-it>Privacy del sito</span><span data-lang-en>Site privacy</span></a> · <span data-lang-it>Questo sito non usa cookie né tracker.</span><span data-lang-en>This site uses no cookies or trackers.</span></span>
       <div class="share">
         <span class="lbl"><span data-lang-it>Condividi</span><span data-lang-en>Share</span></span>
         <a id="sh-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fg-g-technologies-srl.github.io%2Fdigisense-releases%2F" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05 4.02 0 4.76 2.65 4.76 6.1V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.9V21h-4z"/></svg></a>
@@ -833,8 +889,18 @@
         e = document.getElementById('demo-engine');
     if(!u || !b || !s || !c || !e) return;
     if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; // respect user preference: no auto-rotation
+    // pause while the user is reading (hover/focus) or the tab is hidden
+    var paused = false;
+    var host = document.querySelector('.agent');
+    if(host){
+      host.addEventListener('mouseenter', function(){ paused = true; });
+      host.addEventListener('mouseleave', function(){ paused = false; });
+      host.addEventListener('focusin',  function(){ paused = true; });
+      host.addEventListener('focusout', function(){ paused = false; });
+    }
     var i = 0;
     setInterval(function(){
+      if(paused || document.hidden) return;
       i = (i + 1) % DEMO.length;
       [u, b, s, c, e].forEach(function(el){ el.classList.add('demo-fading'); });
       setTimeout(function(){
@@ -843,7 +909,7 @@
         e.innerHTML = DEMO[i].engine;
         [u, b, s, c, e].forEach(function(el){ el.classList.remove('demo-fading'); });
       }, 360);
-    }, 5200);
+    }, 8500);
   })();
 
   // -----------------------------------------------------------------------------------------------------------------

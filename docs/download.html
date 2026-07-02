@@ -27,9 +27,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
 <link rel="alternate icon" href="assets/icons/favicon.ico" />
 <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
 
 <script>
   (function () {
@@ -47,6 +46,11 @@
 </script>
 
 <style>
+  /* self-hosted fonts (no third-party requests) */
+  @font-face{font-family:'Inter';src:url('assets/fonts/inter-var.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  @font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-var.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  @font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-var-italic.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
+
   :root[data-theme="light"]{
     --bg:#f4f6f8; --bg-elev:#ffffff; --bg-subtle:#eaf0f3; --bg-inset:#f8fafb;
     --text:#16273d; --text-soft:#475467; --text-faint:#5a6472;
@@ -272,7 +276,7 @@
 <footer>
   <div class="wrap foot-inner">
     <div><a href="index.html"><strong style="color:var(--text)">Podz.AI</strong></a> · <span data-lang-it>dal progetto DigiSense</span><span data-lang-en>from the DigiSense project</span></div>
-    <div><a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a> · © <span id="year"></span> G&amp;G Technologies Srl</div>
+    <div><a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a> · <a href="site-privacy.html"><span data-lang-it>Privacy del sito</span><span data-lang-en>Site privacy</span></a> · © <span id="year"></span> G&amp;G Technologies Srl</div>
   </div>
 </footer>
 

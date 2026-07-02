@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy di questo sito — Podz.AI</title>
+<meta name="description" content="Questo sito non usa cookie, tracker né analytics. Font serviti localmente, nessuna richiesta a CDN di terzi. Ecco tutto quello che c'è da sapere." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://g-g-technologies-srl.github.io/digisense-releases/site-privacy.html" />
+<meta property="og:site_name" content="Podz.AI" />
+<meta property="og:title" content="Privacy di questo sito — Podz.AI" />
+<meta property="og:description" content="Questo sito non usa cookie, tracker né analytics." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://g-g-technologies-srl.github.io/digisense-releases/site-privacy.html" />
+<meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#06080f" media="(prefers-color-scheme: dark)" />
+<link rel="icon" type="image/svg+xml" href="assets/podz-symbol-static.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
+<link rel="alternate icon" href="assets/icons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+<link rel="preload" href="assets/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/fraunces-var.woff2" as="font" type="font/woff2" crossorigin />
+
+<!-- set theme + language before paint to avoid flash -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('podz-theme');
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    try {
+      var l = localStorage.getItem('podz-lang');
+      if (l !== 'it' && l !== 'en') l = (navigator.language || 'it').slice(0, 2) === 'en' ? 'en' : 'it';
+      document.documentElement.setAttribute('lang', l);
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+  /* -----------------------------------------------------------------------------------------------------------------
+       self-hosted fonts (no third-party requests)
+     ----------------------------------------------------------------------------------------------------------------- */
+  @font-face{font-family:'Inter';src:url('assets/fonts/inter-var.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  @font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-var.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  @font-face{font-family:'Fraunces';src:url('assets/fonts/fraunces-var-italic.woff2') format('woff2');font-weight:100 900;font-style:italic;font-display:swap}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       design tokens (shared)
+     ----------------------------------------------------------------------------------------------------------------- */
+  :root[data-theme="light"]{
+    --bg:#f4f6f8; --bg-elev:#ffffff; --bg-subtle:#eaf0f3; --bg-inset:#f8fafb;
+    --text:#16273d; --text-soft:#475467; --text-faint:#5a6472;
+    --border:#e2e9ee; --border-strong:#d2dde4;
+    --accent:#1488c4; --accent-bright:#1ba6e4; --link:#0f6f9e; --accent-ink:#0f6f9e;
+    --btn-bg:#0e7cb3; --btn-text:#ffffff;
+    --ring:rgba(20,136,196,.40); --code-bg:#eef3f6; --code-fg:#0a5f88;
+    --shadow:0 1px 2px rgba(16,39,61,.05),0 8px 30px rgba(16,39,61,.06);
+  }
+  :root[data-theme="dark"]{
+    --bg:#06080f; --bg-elev:#0d1320; --bg-subtle:#0f1726; --bg-inset:#0a1018;
+    --text:#e9edf5; --text-soft:#aab4c4; --text-faint:#7c8798;
+    --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.17);
+    --accent:#38e1ff; --accent-bright:#5ad6f7; --link:#5ad6f7; --accent-ink:#7fe3ff;
+    --btn-bg:#38e1ff; --btn-text:#06121a;
+    --ring:rgba(56,225,255,.45); --code-bg:rgba(56,225,255,.10); --code-fg:#7fe3ff;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 50px rgba(0,0,0,.45);
+  }
+  :root{--maxw:1120px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-pill:999px;
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;min-height:100vh;transition:background .35s ease,color .35s ease}
+  @media(prefers-reduced-motion:reduce){body{transition:none}html{scroll-behavior:auto}}
+  a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:3px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;color:var(--text);line-height:1.1}
+  ::selection{background:var(--accent);color:var(--btn-text)}
+  .skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--bg-elev);color:var(--text);
+    border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:10px 16px}
+  .skip:focus{left:16px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  /* nav (shared) */
+  header.nav{position:sticky;top:0;z-index:100;background:var(--bg);background:color-mix(in srgb,var(--bg) 82%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  #main{scroll-margin-top:84px}
+  .nav-inner{display:flex;flex-wrap:nowrap;align-items:center;gap:12px;height:68px;min-width:0}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand-logo{height:30px;width:auto;display:block}
+  .brand-sub{color:var(--text-faint);font-weight:600;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+    border-left:1px solid var(--border-strong);padding-left:11px}
+  .nav-links{display:flex;flex-wrap:nowrap;white-space:nowrap;gap:3px;align-items:center;margin-left:8px;min-width:0}
+  .nav-links a{color:var(--text-soft);font-size:.9rem;font-weight:500;padding:8px 11px;border-radius:var(--r-sm)}
+  .nav-links a:hover{color:var(--text);background:var(--bg-subtle);text-decoration:none}
+  .nav-right{margin-left:auto;flex:0 0 auto;display:flex;align-items:center;gap:8px}
+  .icon-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--r-pill);
+    border:1px solid var(--border);background:var(--bg-elev);color:var(--text-soft);cursor:pointer;transition:.2s}
+  .icon-btn:hover{color:var(--text);border-color:var(--border-strong)}
+  .icon-btn svg{width:18px;height:18px}
+  .seg{display:flex;border:1px solid var(--border);border-radius:var(--r-pill);overflow:hidden;background:var(--bg-elev)}
+  .seg button{background:transparent;border:none;color:var(--text-faint);font:600 .76rem/1 var(--sans);padding:11px 14px;cursor:pointer;transition:.2s}
+  .seg button.active{background:var(--btn-bg);color:var(--btn-text)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:.95rem;
+    padding:11px 20px;border-radius:var(--r-pill);cursor:pointer;border:1px solid transparent;transition:.2s;white-space:nowrap}
+  .btn:hover{text-decoration:none}
+  .btn-primary{background:var(--btn-bg);color:var(--btn-text)}
+  .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn-ghost{background:var(--bg-elev);border-color:var(--border-strong);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--text)}
+  .nav-cta{display:inline-flex}
+  @media(max-width:900px){.nav-links{display:none}.nav-cta{display:none}}
+
+  /* hero + content */
+  .ph-head{text-align:center;padding:clamp(48px,8vw,84px) 0 8px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px}
+  .ph-head h1{font-size:clamp(2rem,4.6vw,3.1rem);font-weight:500;margin-bottom:16px}
+  .ph-head p{color:var(--text-soft);max-width:60ch;margin:0 auto;font-size:1.06rem}
+  .sec{padding:56px 0 8px}
+  .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:960px;margin:0 auto}
+  .how-card{border:1px solid var(--border);background:var(--bg-elev);border-radius:var(--r-md);padding:24px;display:flex;flex-direction:column;gap:11px}
+  .how-num{display:grid;place-items:center;width:38px;height:38px;border-radius:var(--r-pill);
+    background:color-mix(in srgb,var(--accent) 12%,var(--bg-elev));color:var(--accent-ink);
+    font-family:var(--serif);font-weight:600;font-size:1.1rem}
+  .how-card h3{font-size:1.12rem;font-weight:600}
+  .how-card p{color:var(--text-soft);font-size:.92rem}
+  .prose{max-width:760px;margin:36px auto 0;color:var(--text-soft);font-size:.98rem;display:flex;flex-direction:column;gap:16px}
+  .prose b{color:var(--text)}
+  .updated{max-width:760px;margin:30px auto 0;text-align:center;color:var(--text-faint);font-size:.84rem}
+
+  /* footer + i18n */
+  footer{border-top:1px solid var(--border);padding:40px 0;margin-top:64px}
+  .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--text-faint);font-size:.86rem}
+  .foot-inner a:hover{color:var(--accent)}
+  [data-lang-en]{display:none}
+  html[lang="en"] [data-lang-it]{display:none}
+  html[lang="en"] [data-lang-en]{display:inline}
+  .theme-dark-only{display:none}
+  :root[data-theme="dark"] .theme-dark-only{display:inline-flex}
+  :root[data-theme="dark"] .theme-light-only{display:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span data-lang-it>Vai al contenuto</span><span data-lang-en>Skip to content</span></a>
+
+<!-- nav -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Podz.AI home">
+      <img class="brand-logo theme-light-only" src="assets/podz-logo-light.svg" alt="Podz.AI" />
+      <img class="brand-logo theme-dark-only" src="assets/podz-logo-dark.svg" alt="Podz.AI" />
+      <span class="brand-sub">DigiSense</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#how"><span data-lang-it>Come funziona</span><span data-lang-en>How it works</span></a>
+      <a href="index.html#specialists"><span data-lang-it>Specialisti</span><span data-lang-en>Specialists</span></a>
+      <a href="privacy.html">Privacy</a>
+      <a href="pricing.html"><span data-lang-it>Prezzi</span><span data-lang-en>Pricing</span></a>
+      <a href="download.html">Download</a>
+    </nav>
+    <div class="nav-right">
+      <div class="seg" role="group" aria-label="Language">
+        <button id="lang-it" type="button" onclick="setLang('it')" aria-pressed="true">IT</button>
+        <button id="lang-en" type="button" onclick="setLang('en')" aria-pressed="false">EN</button>
+      </div>
+      <button class="icon-btn" id="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle dark/light theme" aria-pressed="false" title="Theme">
+        <svg class="theme-light-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+        <svg class="theme-dark-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-primary nav-cta" href="download.html"><span data-lang-it>Scarica</span><span data-lang-en>Download</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- hero -->
+<section class="ph-head wrap">
+  <div class="eyebrow"><span data-lang-it>Privacy del sito</span><span data-lang-en>Site privacy</span></div>
+  <h1>
+    <span data-lang-it>Questo sito non ti traccia.</span>
+    <span data-lang-en>This site doesn't track you.</span>
+  </h1>
+  <p>
+    <span data-lang-it>Vendiamo software che tiene i dati sul tuo computer: sarebbe strano fare il contrario con il nostro sito. Qui trovi, in parole semplici, tutto quello che questo sito fa — e soprattutto non fa.</span>
+    <span data-lang-en>We sell software that keeps data on your computer: it would be odd to do the opposite with our website. Here, in plain words, is everything this site does — and above all, doesn't do.</span>
+  </p>
+</section>
+
+<!-- cards -->
+<section class="sec wrap">
+  <div class="how">
+    <div class="how-card">
+      <div class="how-num">0</div>
+      <h3><span data-lang-it>Nessun cookie</span><span data-lang-en>No cookies</span></h3>
+      <p>
+        <span data-lang-it>Questo sito non imposta cookie. Non c'è nessun banner perché non c'è niente da accettare. Le uniche preferenze (tema chiaro/scuro e lingua) restano nel tuo browser e non vengono inviate a nessuno.</span>
+        <span data-lang-en>This site sets no cookies. There is no banner because there is nothing to accept. The only preferences (light/dark theme and language) stay in your browser and are never sent anywhere.</span>
+      </p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">0</div>
+      <h3><span data-lang-it>Nessun tracker o analytics</span><span data-lang-en>No trackers or analytics</span></h3>
+      <p>
+        <span data-lang-it>Niente analytics, niente pixel, niente fingerprinting. Anche i font sono serviti da questo stesso sito: nessuna richiesta parte verso CDN o servizi di terze parti mentre navighi.</span>
+        <span data-lang-en>No analytics, no pixels, no fingerprinting. Even the fonts are served by this same site: no request goes out to third-party CDNs or services while you browse.</span>
+      </p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">1</div>
+      <h3><span data-lang-it>Un solo fornitore: l'hosting</span><span data-lang-en>One provider: the hosting</span></h3>
+      <p>
+        <span data-lang-it>Il sito è ospitato su GitHub Pages. Come ogni hosting, il fornitore può registrare log tecnici (es. indirizzi IP) per sicurezza e distribuzione del servizio. Noi non li vediamo e non li usiamo.</span>
+        <span data-lang-en>The site is hosted on GitHub Pages. Like any hosting provider, it may keep technical logs (e.g. IP addresses) for security and delivery. We don't see them and don't use them.</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="prose">
+    <p>
+      <span data-lang-it><b>Link esterni.</b> I download puntano a GitHub (dove pubblichiamo le release). I pulsanti di condivisione (LinkedIn, X, WhatsApp, email) sono semplici link: si attivano solo se li clicchi tu, e da quel momento valgono le privacy policy dei rispettivi servizi.</span>
+      <span data-lang-en><b>External links.</b> Downloads point to GitHub (where we publish releases). The share buttons (LinkedIn, X, WhatsApp, email) are plain links: they only do something if you click them, and from that moment the respective services' privacy policies apply.</span>
+    </p>
+    <p>
+      <span data-lang-it><b>Email.</b> Se ci scrivi a <a href="mailto:info@ggtechnologies.sm">info@ggtechnologies.sm</a>, usiamo il tuo indirizzo solo per risponderti. Nessuna newsletter automatica, nessuna cessione a terzi.</span>
+      <span data-lang-en><b>Email.</b> If you write to <a href="mailto:info@ggtechnologies.sm">info@ggtechnologies.sm</a>, we use your address only to reply. No automatic newsletters, no sharing with third parties.</span>
+    </p>
+    <p>
+      <span data-lang-it><b>Titolare.</b> G&amp;G Technologies Srl — contatto: <a href="mailto:info@ggtechnologies.sm">info@ggtechnologies.sm</a>. Per la privacy del <em>prodotto</em> Podz (dove stanno i dati, cosa succede col cloud, come funziona l'Anonimizzatore) c'è una pagina dedicata: <a href="privacy.html"><span data-lang-it>Privacy &amp; local-first</span></a>.</span>
+      <span data-lang-en><b>Controller.</b> G&amp;G Technologies Srl — contact: <a href="mailto:info@ggtechnologies.sm">info@ggtechnologies.sm</a>. For the privacy of the Podz <em>product</em> (where data lives, what happens with the cloud, how the Anonymizer works) there is a dedicated page: <a href="privacy.html">Privacy &amp; local-first</a>.</span>
+    </p>
+  </div>
+  <p class="updated"><span data-lang-it>Ultimo aggiornamento: 2 luglio 2026.</span><span data-lang-en>Last updated: July 2, 2026.</span></p>
+</section>
+
+</main>
+
+<!-- footer -->
+<footer>
+  <div class="wrap foot-inner">
+    <div><a href="index.html"><strong style="color:var(--text)">Podz.AI</strong></a> · <span data-lang-it>dal progetto DigiSense</span><span data-lang-en>from the DigiSense project</span></div>
+    <div><a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a> · © <span id="year"></span> G&amp;G Technologies Srl</div>
+  </div>
+</footer>
+
+<script>
+  // -----------------------------------------------------------------------------------------------------------------
+  //  theme
+  // -----------------------------------------------------------------------------------------------------------------
+  function _applyThemeMeta(t){
+    var m = document.getElementById('meta-theme');
+    if(!m){ m = document.createElement('meta'); m.id = 'meta-theme'; m.name = 'theme-color'; document.head.appendChild(m); }
+    m.setAttribute('content', t === 'dark' ? '#06080f' : '#f4f6f8');
+    var tt = document.getElementById('theme-toggle'); if(tt) tt.setAttribute('aria-pressed', t === 'dark');
+  }
+  function toggleTheme(){
+    var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    _applyThemeMeta(next);
+    try{ localStorage.setItem('podz-theme', next); }catch(e){}
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  language
+  // -----------------------------------------------------------------------------------------------------------------
+  function _updateLangUI(lang){
+    var it = document.getElementById('lang-it'), en = document.getElementById('lang-en');
+    it.classList.toggle('active', lang === 'it'); en.classList.toggle('active', lang === 'en');
+    it.setAttribute('aria-pressed', lang === 'it'); en.setAttribute('aria-pressed', lang === 'en');
+  }
+  function setLang(lang){
+    document.documentElement.setAttribute('lang', lang);
+    _updateLangUI(lang);
+    try{ localStorage.setItem('podz-lang', lang); }catch(e){}
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  init
+  // -----------------------------------------------------------------------------------------------------------------
+  (function init(){
+    _updateLangUI(document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'it');
+    document.getElementById('year').textContent = new Date().getFullYear();
+    _applyThemeMeta(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  })();
+</script>
+</body>
+</html>
