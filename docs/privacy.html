@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy e local-first — Podz.AI | I tuoi dati restano sul tuo computer</title>
+<meta name="description" content="Dove stanno i tuoi dati con Podz, cosa succede quando scegli il Motore Cloud e come l'Anonimizzatore maschera i dati personali prima dell'invio." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://g-g-technologies-srl.github.io/digisense-releases/privacy.html" />
+<meta property="og:site_name" content="Podz.AI" />
+<meta property="og:locale" content="it_IT" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:title" content="Privacy e local-first — Podz.AI" />
+<meta property="og:description" content="Dove stanno i tuoi dati, cosa succede quando scegli il cloud e come l'Anonimizzatore maschera i dati personali prima dell'invio." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://g-g-technologies-srl.github.io/digisense-releases/privacy.html" />
+<meta property="og:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/og-card.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Privacy e local-first — Podz.AI" />
+<meta name="twitter:description" content="Dove stanno i tuoi dati, cosa succede quando scegli il cloud e come l'Anonimizzatore maschera i dati personali prima dell'invio." />
+<meta name="twitter:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/og-card.png" />
+<meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#06080f" media="(prefers-color-scheme: dark)" />
+<link rel="icon" type="image/svg+xml" href="assets/podz-symbol-static.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
+<link rel="alternate icon" href="assets/icons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- set theme + language before paint to avoid flash -->
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem('podz-theme');
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    try {
+      var l = localStorage.getItem('podz-lang');
+      if (l !== 'it' && l !== 'en') l = (navigator.language || 'it').slice(0, 2) === 'en' ? 'en' : 'it';
+      document.documentElement.setAttribute('lang', l);
+    } catch (e) {}
+  })();
+</script>
+
+<style>
+  /* -----------------------------------------------------------------------------------------------------------------
+       design tokens (shared with index.html / download.html / pricing.html)
+     ----------------------------------------------------------------------------------------------------------------- */
+  :root[data-theme="light"]{
+    --bg:#f4f6f8; --bg-elev:#ffffff; --bg-subtle:#eaf0f3; --bg-inset:#f8fafb;
+    --text:#16273d; --text-soft:#475467; --text-faint:#5a6472;
+    --border:#e2e9ee; --border-strong:#d2dde4;
+    --accent:#1488c4; --accent-bright:#1ba6e4; --link:#0f6f9e; --accent-ink:#0f6f9e;
+    --btn-bg:#0e7cb3; --btn-text:#ffffff;
+    --ring:rgba(20,136,196,.40); --code-bg:#eef3f6; --code-fg:#0a5f88;
+    --shadow:0 1px 2px rgba(16,39,61,.05),0 8px 30px rgba(16,39,61,.06);
+  }
+  :root[data-theme="dark"]{
+    --bg:#06080f; --bg-elev:#0d1320; --bg-subtle:#0f1726; --bg-inset:#0a1018;
+    --text:#e9edf5; --text-soft:#aab4c4; --text-faint:#7c8798;
+    --border:rgba(255,255,255,.10); --border-strong:rgba(255,255,255,.17);
+    --accent:#38e1ff; --accent-bright:#5ad6f7; --link:#5ad6f7; --accent-ink:#7fe3ff;
+    --btn-bg:#38e1ff; --btn-text:#06121a;
+    --ring:rgba(56,225,255,.45); --code-bg:rgba(56,225,255,.10); --code-fg:#7fe3ff;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 18px 50px rgba(0,0,0,.45);
+  }
+  :root{--maxw:1120px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-pill:999px;
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;
+    -webkit-font-smoothing:antialiased;min-height:100vh;transition:background .35s ease,color .35s ease}
+  @media(prefers-reduced-motion:reduce){body{transition:none}html{scroll-behavior:auto}}
+  a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:3px}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;color:var(--text);line-height:1.1}
+  ::selection{background:var(--accent);color:var(--btn-text)}
+  .skip{position:absolute;left:-999px;top:8px;z-index:200;background:var(--bg-elev);color:var(--text);
+    border:1px solid var(--border-strong);border-radius:var(--r-sm);padding:10px 16px}
+  .skip:focus{left:16px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       nav (shared)
+     ----------------------------------------------------------------------------------------------------------------- */
+  header.nav{position:sticky;top:0;z-index:100;background:var(--bg);background:color-mix(in srgb,var(--bg) 82%,transparent);
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  #main{scroll-margin-top:84px}
+  .nav-inner{display:flex;flex-wrap:nowrap;align-items:center;gap:12px;height:68px;min-width:0}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand-logo{height:30px;width:auto;display:block}
+  .brand-sub{color:var(--text-faint);font-weight:600;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
+    border-left:1px solid var(--border-strong);padding-left:11px}
+  .nav-links{display:flex;flex-wrap:nowrap;white-space:nowrap;gap:3px;align-items:center;margin-left:8px;min-width:0}
+  .nav-links a{color:var(--text-soft);font-size:.9rem;font-weight:500;padding:8px 11px;border-radius:var(--r-sm)}
+  .nav-links a:hover{color:var(--text);background:var(--bg-subtle);text-decoration:none}
+  .nav-links a.active{color:var(--text);background:var(--bg-subtle)}
+  .nav-right{margin-left:auto;flex:0 0 auto;display:flex;align-items:center;gap:8px}
+  .icon-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:var(--r-pill);
+    border:1px solid var(--border);background:var(--bg-elev);color:var(--text-soft);cursor:pointer;transition:.2s}
+  .icon-btn:hover{color:var(--text);border-color:var(--border-strong)}
+  .icon-btn svg{width:18px;height:18px}
+  .seg{display:flex;border:1px solid var(--border);border-radius:var(--r-pill);overflow:hidden;background:var(--bg-elev)}
+  .seg button{background:transparent;border:none;color:var(--text-faint);font:600 .76rem/1 var(--sans);padding:11px 14px;cursor:pointer;transition:.2s}
+  .seg button.active{background:var(--btn-bg);color:var(--btn-text)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:600;font-size:.95rem;
+    padding:11px 20px;border-radius:var(--r-pill);cursor:pointer;border:1px solid transparent;transition:.2s;white-space:nowrap}
+  .btn:hover{text-decoration:none}
+  .btn-primary{background:var(--btn-bg);color:var(--btn-text)}
+  .btn-primary:hover{filter:brightness(1.06);transform:translateY(-1px)}
+  .btn-ghost{background:var(--bg-elev);border-color:var(--border-strong);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--text)}
+  .btn-lg{padding:14px 26px;font-size:1rem}
+  .nav-cta{display:inline-flex}
+  .menu-toggle{display:none}
+  @media(max-width:900px){.nav-links{display:none}.menu-toggle{display:grid}.nav-cta{display:none}}
+  .mobile-nav{display:none;flex-direction:column;gap:4px;position:sticky;top:68px;z-index:99;
+    background:var(--bg-elev);border-bottom:1px solid var(--border);padding:14px 24px}
+  .mobile-nav.open{display:flex}
+  .mobile-nav a{padding:12px 12px;border-radius:var(--r-sm);color:var(--text-soft);font-weight:500}
+  .mobile-nav a:hover{background:var(--bg-subtle);color:var(--text);text-decoration:none}
+  @media(min-width:901px){.mobile-nav{display:none !important}}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       hero
+     ----------------------------------------------------------------------------------------------------------------- */
+  .ph-head{text-align:center;padding:clamp(48px,8vw,84px) 0 8px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:14px}
+  .ph-head h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:500;margin-bottom:16px}
+  .ph-head p{color:var(--text-soft);max-width:60ch;margin:0 auto;font-size:1.06rem}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       sections
+     ----------------------------------------------------------------------------------------------------------------- */
+  .sec{padding:64px 0 8px}
+  .sec-eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);text-align:center;margin-bottom:12px}
+  .sec-title{text-align:center;font-size:clamp(1.6rem,3.6vw,2.3rem);font-weight:500;margin-bottom:14px}
+  .sec-sub{text-align:center;color:var(--text-soft);max-width:58ch;margin:0 auto 36px;font-size:1.02rem}
+  .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;max-width:960px;margin:0 auto}
+  .how-card{border:1px solid var(--border);background:var(--bg-elev);border-radius:var(--r-md);padding:24px;display:flex;flex-direction:column;gap:11px}
+  .how-num{display:grid;place-items:center;width:38px;height:38px;border-radius:var(--r-pill);
+    background:color-mix(in srgb,var(--accent) 12%,var(--bg-elev));color:var(--accent-ink);
+    font-family:var(--serif);font-weight:600;font-size:1.1rem}
+  .how-card h3{font-size:1.12rem;font-weight:600}
+  .how-card p{color:var(--text-soft);font-size:.92rem}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       cloud flow
+     ----------------------------------------------------------------------------------------------------------------- */
+  .flow{max-width:880px;margin:34px auto 0;display:flex;flex-direction:column;gap:0}
+  .flow-step{display:grid;grid-template-columns:auto 1fr;gap:18px}
+  .flow-rail{display:flex;flex-direction:column;align-items:center}
+  .flow-dot{width:34px;height:34px;border-radius:var(--r-pill);flex:0 0 auto;display:grid;place-items:center;
+    background:var(--btn-bg);color:var(--btn-text);font-weight:700;font-size:.9rem;font-family:var(--sans)}
+  .flow-line{width:2px;flex:1 1 auto;background:var(--border-strong);min-height:14px;margin:4px 0}
+  .flow-step:last-child .flow-line{display:none}
+  .flow-body{padding-bottom:26px}
+  .flow-body h3{font-size:1.1rem;font-weight:600;margin-bottom:5px}
+  .flow-body p{color:var(--text-soft);font-size:.94rem}
+  .flow-body .tagline{display:inline-block;margin-top:7px;font-family:var(--mono);font-size:.72rem;
+    color:var(--accent-ink);background:color-mix(in srgb,var(--accent) 10%,var(--bg-elev));
+    border:1px solid color-mix(in srgb,var(--accent) 28%,var(--border));border-radius:var(--r-pill);padding:3px 11px}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       anonymizer before/after
+     ----------------------------------------------------------------------------------------------------------------- */
+  .anon{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch;max-width:900px;margin:0 auto}
+  @media(max-width:760px){.anon{grid-template-columns:1fr}.anon-arrow{transform:rotate(90deg);justify-self:center}}
+  .anon-panel{border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg-elev);padding:20px 22px}
+  .anon-panel .atag{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--text-faint);display:block;margin-bottom:10px}
+  .anon-panel p{font-family:var(--mono);font-size:.85rem;line-height:1.95;color:var(--text)}
+  .anon-panel .pii{background:color-mix(in srgb,var(--accent) 16%,transparent);border-radius:5px;padding:1px 5px}
+  .anon-panel .msk{background:var(--code-bg);color:var(--code-fg);border-radius:5px;padding:1px 5px}
+  .anon-arrow{display:grid;place-items:center;color:var(--accent);align-self:center}
+  .anon-arrow svg{width:26px;height:26px}
+  .anon-caption{text-align:center;color:var(--text-soft);font-size:.92rem;margin:16px auto 0;max-width:70ch}
+  .anon-note{margin:22px auto 0;text-align:center;color:var(--text-faint);font-size:.86rem;max-width:70ch}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       facts box
+     ----------------------------------------------------------------------------------------------------------------- */
+  .facts{max-width:780px;margin:34px auto 0;border:1px solid color-mix(in srgb,var(--accent) 32%,var(--border));
+    border-radius:var(--r-md);background:color-mix(in srgb,var(--accent) 6%,var(--bg-elev));padding:26px 28px}
+  .facts h4{font-family:var(--serif);font-size:1.05rem;font-weight:600;margin-bottom:12px}
+  .facts ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .facts li{font-size:.94rem;color:var(--text-soft);padding-left:24px;position:relative}
+  .facts li::before{content:"✓";position:absolute;left:2px;color:var(--accent-ink);font-weight:700}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       cta + note
+     ----------------------------------------------------------------------------------------------------------------- */
+  .cta{max-width:780px;margin:0 auto;text-align:center;border:1px solid color-mix(in srgb,var(--accent) 35%,var(--border));
+    background:color-mix(in srgb,var(--accent) 7%,var(--bg-elev));border-radius:var(--r-lg);padding:40px 28px}
+  .cta h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:500;margin-bottom:12px}
+  .cta p{color:var(--text-soft);max-width:52ch;margin:0 auto 24px}
+  .cta-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+  .note{max-width:780px;margin:34px auto 0;text-align:center;color:var(--text-faint);font-size:.84rem}
+
+  /* -----------------------------------------------------------------------------------------------------------------
+       footer + i18n + theme visibility (shared)
+     ----------------------------------------------------------------------------------------------------------------- */
+  footer{border-top:1px solid var(--border);padding:40px 0;margin-top:72px}
+  .foot-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center;color:var(--text-faint);font-size:.86rem}
+  .foot-inner a:hover{color:var(--accent)}
+
+  [data-lang-en]{display:none}
+  html[lang="en"] [data-lang-it]{display:none}
+  html[lang="en"] [data-lang-en]{display:inline}
+  .theme-dark-only{display:none}
+  :root[data-theme="dark"] .theme-dark-only{display:inline-flex}
+  :root[data-theme="dark"] .theme-light-only{display:none}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span data-lang-it>Vai al contenuto</span><span data-lang-en>Skip to content</span></a>
+
+<!-- nav -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="index.html" aria-label="Podz.AI home">
+      <img class="brand-logo theme-light-only" src="assets/podz-logo-light.svg" alt="Podz.AI" />
+      <img class="brand-logo theme-dark-only" src="assets/podz-logo-dark.svg" alt="Podz.AI" />
+      <span class="brand-sub">DigiSense</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html#how"><span data-lang-it>Come funziona</span><span data-lang-en>How it works</span></a>
+      <a href="index.html#specialists"><span data-lang-it>Specialisti</span><span data-lang-en>Specialists</span></a>
+      <a href="privacy.html" class="active">Privacy</a>
+      <a href="pricing.html"><span data-lang-it>Prezzi</span><span data-lang-en>Pricing</span></a>
+      <a href="download.html">Download</a>
+    </nav>
+    <div class="nav-right">
+      <div class="seg" role="group" aria-label="Language">
+        <button id="lang-it" type="button" onclick="setLang('it')" aria-pressed="true">IT</button>
+        <button id="lang-en" type="button" onclick="setLang('en')" aria-pressed="false">EN</button>
+      </div>
+      <button class="icon-btn" id="theme-toggle" type="button" onclick="toggleTheme()" aria-label="Toggle dark/light theme" aria-pressed="false" title="Theme">
+        <svg class="theme-light-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M19 5l-1.5 1.5M6.5 17.5L5 19"/></svg>
+        <svg class="theme-dark-only" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-primary nav-cta" href="download.html"><span data-lang-it>Scarica</span><span data-lang-en>Download</span></a>
+      <button class="icon-btn menu-toggle" id="menu-toggle" type="button" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
+    <a href="index.html#how" onclick="closeMenu()"><span data-lang-it>Come funziona</span><span data-lang-en>How it works</span></a>
+    <a href="index.html#specialists" onclick="closeMenu()"><span data-lang-it>Specialisti</span><span data-lang-en>Specialists</span></a>
+    <a href="privacy.html" onclick="closeMenu()">Privacy</a>
+    <a href="pricing.html" onclick="closeMenu()"><span data-lang-it>Prezzi</span><span data-lang-en>Pricing</span></a>
+    <a href="download.html" onclick="closeMenu()">Download</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- hero -->
+<section class="ph-head wrap">
+  <div class="eyebrow">Privacy &amp; local-first</div>
+  <h1>
+    <span data-lang-it>I tuoi dati restano da te. Ecco come.</span>
+    <span data-lang-en>Your data stays with you. Here's how.</span>
+  </h1>
+  <p>
+    <span data-lang-it>Niente promesse generiche: questa pagina spiega dove stanno i tuoi dati, cosa può uscire dal tuo computer — solo se lo scegli tu — e come viene protetto prima di uscire.</span>
+    <span data-lang-en>No generic promises: this page explains where your data lives, what may leave your computer — only if you choose — and how it is protected before it does.</span>
+  </p>
+</section>
+
+<!-- where your data lives -->
+<section class="sec wrap">
+  <div class="sec-eyebrow"><span data-lang-it>Dove stanno i dati</span><span data-lang-en>Where the data lives</span></div>
+  <h2 class="sec-title"><span data-lang-it>Podz lo possiedi, non lo affitti</span><span data-lang-en>You own Podz, you don't rent it</span></h2>
+  <p class="sec-sub">
+    <span data-lang-it>Podz è un programma che installi, non un servizio a cui accedi: l'AI sta sul tuo computer, insieme ai tuoi documenti.</span>
+    <span data-lang-en>Podz is a program you install, not a service you log into: the AI lives on your computer, together with your documents.</span>
+  </p>
+
+  <div class="how">
+    <div class="how-card">
+      <div class="how-num">⌂</div>
+      <h3><span data-lang-it>Sul tuo computer</span><span data-lang-en>On your computer</span></h3>
+      <p>
+        <span data-lang-it>Conversazioni, documenti e impostazioni vivono in una cartella del tuo computer, con database cifrato. Non esiste un nostro server con i tuoi dati.</span>
+        <span data-lang-en>Conversations, documents and settings live in a folder on your computer, with an encrypted database. There is no server of ours holding your data.</span>
+      </p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">⧉</div>
+      <h3><span data-lang-it>Backup semplice</span><span data-lang-en>Simple backup</span></h3>
+      <p>
+        <span data-lang-it>Il tuo Podz è un oggetto che possiedi: per fare un backup basta copiare quella cartella, e per cambiare computer la porti con te.</span>
+        <span data-lang-en>Your Podz is something you own: to back it up you just copy that folder, and when you change computer you take it with you.</span>
+      </p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">✓</div>
+      <h3><span data-lang-it>Nessun account obbligatorio</span><span data-lang-en>No mandatory account</span></h3>
+      <p>
+        <span data-lang-it>Per lavorare con il Motore Locale, Podz non richiede registrazioni né abbonamenti a piattaforme esterne. E funziona anche offline.</span>
+        <span data-lang-en>To work with the Local engine, Podz requires no sign-up and no subscription to external platforms. And it works offline too.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- what happens with the cloud -->
+<section class="sec wrap">
+  <div class="sec-eyebrow"><span data-lang-it>Il cloud, se lo scegli</span><span data-lang-en>The cloud, if you choose it</span></div>
+  <h2 class="sec-title"><span data-lang-it>Cosa succede quando usi il Motore Cloud</span><span data-lang-en>What happens when you use the Cloud engine</span></h2>
+  <p class="sec-sub">
+    <span data-lang-it>Il Motore Cloud dà accesso a modelli più potenti, come Claude o GPT. È una scelta esplicita — e ha una protezione in più.</span>
+    <span data-lang-en>The Cloud engine gives you access to more powerful models, like Claude or GPT. It's an explicit choice — with an extra layer of protection.</span>
+  </p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-rail"><div class="flow-dot">1</div><div class="flow-line"></div></div>
+      <div class="flow-body">
+        <h3><span data-lang-it>Il cloud è una scelta, non il default</span><span data-lang-en>The cloud is a choice, not the default</span></h3>
+        <p>
+          <span data-lang-it>Il Motore Cloud si attiva solo se lo scegli tu, con la tua chiave Anthropic (Claude) o OpenAI. Per tutto il resto lavora il Motore Locale, sul tuo computer.</span>
+          <span data-lang-en>The Cloud engine only turns on if you choose it, with your own Anthropic (Claude) or OpenAI key. Everything else runs on the Local engine, on your computer.</span>
+        </p>
+        <span class="tagline"><span data-lang-it>scelta esplicita · con la tua chiave</span><span data-lang-en>explicit choice · with your key</span></span>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-rail"><div class="flow-dot">2</div><div class="flow-line"></div></div>
+      <div class="flow-body">
+        <h3><span data-lang-it>L'Anonimizzatore maschera i dati personali</span><span data-lang-en>The Anonymizer masks personal data</span></h3>
+        <p>
+          <span data-lang-it>Prima dell'invio, nomi, indirizzi, date e codici possono essere sostituiti da segnaposto neutri. Il fornitore cloud riceve il testo mascherato, mai i dati reali.</span>
+          <span data-lang-en>Before anything is sent, names, addresses, dates and codes can be replaced with neutral placeholders. The cloud provider receives the masked text, never the real data.</span>
+        </p>
+        <span class="tagline"><span data-lang-it>protezione automatica dei dati personali</span><span data-lang-en>automatic protection of personal data</span></span>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-rail"><div class="flow-dot">3</div><div class="flow-line"></div></div>
+      <div class="flow-body">
+        <h3><span data-lang-it>La risposta ti arriva completa</span><span data-lang-en>The answer comes back complete</span></h3>
+        <p>
+          <span data-lang-it>Quando la risposta torna sul tuo computer, Podz rimette i dati reali al posto dei segnaposto. Tu leggi un testo normale, senza accorgerti di nulla.</span>
+          <span data-lang-en>When the answer returns to your computer, Podz puts the real data back in place of the placeholders. You read normal text, without noticing a thing.</span>
+        </p>
+        <span class="tagline"><span data-lang-it>dati ripristinati sul tuo computer</span><span data-lang-en>data restored on your computer</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- anonymizer in practice -->
+<section class="sec wrap">
+  <div class="sec-eyebrow"><span data-lang-it>Prima / dopo</span><span data-lang-en>Before / after</span></div>
+  <h2 class="sec-title"><span data-lang-it>L'Anonimizzatore in pratica</span><span data-lang-en>The Anonymizer in practice</span></h2>
+  <p class="sec-sub">
+    <span data-lang-it>Un esempio con dati di fantasia: a sinistra il testo com'è sul tuo computer, a destra quello che vedrebbe il fornitore cloud.</span>
+    <span data-lang-en>An example with made-up data: on the left, the text as it is on your computer; on the right, what the cloud provider would see.</span>
+  </p>
+
+  <div class="anon" aria-label="Anonymizer example">
+    <div class="anon-panel">
+      <span class="atag"><span data-lang-it>Sul tuo computer</span><span data-lang-en>On your computer</span></span>
+      <p><span data-lang-it>Il sig. <span class="pii">Mario Rossi</span>, nato a <span class="pii">Rimini</span> il <span class="pii">3/4/1980</span>, residente in <span class="pii">via Garibaldi 12</span>, dichiara di aver ricevuto l'importo di <span class="pii">12.500 €</span>…</span><span data-lang-en>Mr <span class="pii">Mario Rossi</span>, born in <span class="pii">Rimini</span> on <span class="pii">3/4/1980</span>, residing at <span class="pii">12 Garibaldi St.</span>, declares he received the amount of <span class="pii">€12,500</span>…</span></p>
+    </div>
+    <div class="anon-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    <div class="anon-panel">
+      <span class="atag"><span data-lang-it>Quello che vede il cloud</span><span data-lang-en>What the cloud sees</span></span>
+      <p><span data-lang-it>Il sig. <span class="msk">[NOME-1]</span>, nato a <span class="msk">[CITTÀ-1]</span> il <span class="msk">[DATA-1]</span>, residente in <span class="msk">[INDIRIZZO-1]</span>, dichiara di aver ricevuto l'importo di <span class="msk">[IMPORTO-1]</span>…</span><span data-lang-en>Mr <span class="msk">[NAME-1]</span>, born in <span class="msk">[CITY-1]</span> on <span class="msk">[DATE-1]</span>, residing at <span class="msk">[ADDRESS-1]</span>, declares he received the amount of <span class="msk">[AMOUNT-1]</span>…</span></p>
+    </div>
+  </div>
+  <p class="anon-caption">
+    <span data-lang-it>Nella risposta che leggi tu, i dati reali vengono ripristinati automaticamente. Sei tu a decidere cosa mascherare.</span>
+    <span data-lang-en>In the answer you read, the real data is restored automatically. You decide what gets masked.</span>
+  </p>
+  <p class="anon-note">
+    <span data-lang-it>L'anonimizzazione è una mitigazione forte, non una certificazione: la conformità — GDPR compreso — dipende sempre dal tuo specifico utilizzo. Podz non sostituisce una valutazione legale.</span>
+    <span data-lang-en>Anonymization is a strong mitigation, not a certification: compliance — GDPR included — always depends on your specific use. Podz does not replace a legal assessment.</span>
+  </p>
+</section>
+
+<!-- transparency & control -->
+<section class="sec wrap">
+  <div class="sec-eyebrow"><span data-lang-it>Trasparenza</span><span data-lang-en>Transparency</span></div>
+  <h2 class="sec-title"><span data-lang-it>Non è una scatola nera</span><span data-lang-en>Not a black box</span></h2>
+  <p class="sec-sub">
+    <span data-lang-it>Vedere cosa succede è parte della protezione: in ogni momento sai chi sta lavorando e con quale motore.</span>
+    <span data-lang-en>Seeing what happens is part of the protection: at any moment you know who is working and with which engine.</span>
+  </p>
+
+  <div class="how">
+    <div class="how-card">
+      <div class="how-num">👁</div>
+      <h3><span data-lang-it>Vedi chi lavora</span><span data-lang-en>See who's working</span></h3>
+      <p>
+        <span data-lang-it>In chat si vede quando Podz coinvolge uno specialista, legge un documento o cerca sul web.</span>
+        <span data-lang-en>The chat shows when Podz brings in a specialist, reads a document or searches the web.</span>
+      </p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">⚙</div>
+      <h3><span data-lang-it>Specialisti sotto il tuo controllo</span><span data-lang-en>Specialists under your control</span></h3>
+      <p>
+        <span data-lang-it>Gli specialisti installati si possono aprire, leggere e adattare alle tue esigenze: sai sempre che istruzioni seguono.</span>
+        <span data-lang-en>Installed specialists can be opened, read and adapted to your needs: you always know what instructions they follow.</span>
+      </p>
+    </div>
+    <div class="how-card">
+      <div class="how-num">⇄</div>
+      <h3><span data-lang-it>Decidi tu cosa esce</span><span data-lang-en>You decide what goes out</span></h3>
+      <p>
+        <span data-lang-it>Scegli il motore quando vuoi e decidi cosa può essere mascherato e inviato. Il punto di partenza è sempre: tutto resta da te.</span>
+        <span data-lang-en>You pick the engine whenever you want and decide what may be masked and sent. The starting point is always: everything stays with you.</span>
+      </p>
+    </div>
+  </div>
+
+  <div class="facts">
+    <h4><span data-lang-it>Come funziona davvero, in cinque punti</span><span data-lang-en>How it really works, in five points</span></h4>
+    <ul>
+      <li><span data-lang-it>Un solo programma da installare, per Windows, macOS e Linux.</span><span data-lang-en>A single program to install, for Windows, macOS and Linux.</span></li>
+      <li><span data-lang-it>I dati stanno in una cartella del tuo computer, con database cifrato.</span><span data-lang-en>Your data sits in a folder on your computer, with an encrypted database.</span></li>
+      <li><span data-lang-it>I modelli AI locali girano sul tuo hardware, anche senza internet.</span><span data-lang-en>Local AI models run on your hardware, even without internet.</span></li>
+      <li><span data-lang-it>Il cloud si usa solo con la tua chiave (Anthropic o OpenAI), mai di nascosto.</span><span data-lang-en>The cloud is used only with your own key (Anthropic or OpenAI), never silently.</span></li>
+      <li><span data-lang-it>I tuoi documenti non vengono usati per addestrare alcun modello.</span><span data-lang-en>Your documents are not used to train any model.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- cta -->
+<section class="sec wrap">
+  <div class="cta">
+    <h2><span data-lang-it>Vuoi vederlo con i tuoi documenti?</span><span data-lang-en>Want to see it with your own documents?</span></h2>
+    <p>
+      <span data-lang-it>Scarica Podz.AI e provalo gratis per 30 giorni: al primo avvio hai tutte le funzionalità, senza registrazione.</span>
+      <span data-lang-en>Download Podz.AI and try it free for 30 days: on first launch you get every feature, no sign-up.</span>
+    </p>
+    <div class="cta-actions">
+      <a class="btn btn-primary btn-lg" href="download.html"><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></a>
+      <a class="btn btn-ghost btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a>
+    </div>
+  </div>
+  <p class="note">
+    <span data-lang-it>Questa pagina descrive il funzionamento del prodotto e non costituisce una consulenza legale.</span>
+    <span data-lang-en>This page describes how the product works and does not constitute legal advice.</span>
+  </p>
+</section>
+
+</main>
+
+<!-- structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://g-g-technologies-srl.github.io/digisense-releases/" },
+        { "@type": "ListItem", "position": 2, "name": "Privacy e local-first", "item": "https://g-g-technologies-srl.github.io/digisense-releases/privacy.html" }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "name": "Privacy e local-first — Podz.AI",
+      "url": "https://g-g-technologies-srl.github.io/digisense-releases/privacy.html",
+      "inLanguage": ["it", "en"],
+      "description": "Dove stanno i tuoi dati con Podz, cosa succede quando scegli il Motore Cloud e come l'Anonimizzatore maschera i dati personali prima dell'invio.",
+      "isPartOf": { "@id": "https://g-g-technologies-srl.github.io/digisense-releases/#website" }
+    }
+  ]
+}
+</script>
+
+<!-- footer -->
+<footer>
+  <div class="wrap foot-inner">
+    <div><a href="index.html"><strong style="color:var(--text)">Podz.AI</strong></a> · <span data-lang-it>dal progetto DigiSense</span><span data-lang-en>from the DigiSense project</span></div>
+    <div><a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a> · © <span id="year"></span> G&amp;G Technologies Srl</div>
+  </div>
+</footer>
+
+<script>
+  // -----------------------------------------------------------------------------------------------------------------
+  //  theme
+  // -----------------------------------------------------------------------------------------------------------------
+  function _applyThemeMeta(t){
+    var m = document.getElementById('meta-theme');
+    if(!m){ m = document.createElement('meta'); m.id = 'meta-theme'; m.name = 'theme-color'; document.head.appendChild(m); }
+    m.setAttribute('content', t === 'dark' ? '#06080f' : '#f4f6f8');
+    var tt = document.getElementById('theme-toggle'); if(tt) tt.setAttribute('aria-pressed', t === 'dark');
+  }
+  function toggleTheme(){
+    var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    var next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    _applyThemeMeta(next);
+    try{ localStorage.setItem('podz-theme', next); }catch(e){}
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  language
+  // -----------------------------------------------------------------------------------------------------------------
+  function _updateLangUI(lang){
+    var it = document.getElementById('lang-it'), en = document.getElementById('lang-en');
+    it.classList.toggle('active', lang === 'it'); en.classList.toggle('active', lang === 'en');
+    it.setAttribute('aria-pressed', lang === 'it'); en.setAttribute('aria-pressed', lang === 'en');
+  }
+  function setLang(lang){
+    document.documentElement.setAttribute('lang', lang);
+    _updateLangUI(lang);
+    try{ localStorage.setItem('podz-lang', lang); }catch(e){}
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  mobile menu
+  // -----------------------------------------------------------------------------------------------------------------
+  function toggleMenu(){
+    var n = document.getElementById('mobile-nav'), b = document.getElementById('menu-toggle');
+    var open = !n.classList.contains('open');
+    n.classList.toggle('open', open); n.hidden = !open; b.setAttribute('aria-expanded', open);
+  }
+  function closeMenu(){
+    var n = document.getElementById('mobile-nav');
+    n.classList.remove('open'); n.hidden = true;
+    document.getElementById('menu-toggle').setAttribute('aria-expanded', 'false');
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
+  //  init
+  // -----------------------------------------------------------------------------------------------------------------
+  (function init(){
+    _updateLangUI(document.documentElement.getAttribute('lang') === 'en' ? 'en' : 'it');
+    document.getElementById('year').textContent = new Date().getFullYear();
+    _applyThemeMeta(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+  })();
+</script>
+</body>
+</html>

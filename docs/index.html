@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Podz.AI — Intelligenza artificiale locale e privata</title>
-<meta name="description" content="Podz.AI: l'intelligenza artificiale local-first che lavora sui dati riservati senza inviarli al cloud. Privacy by design, anonimizzazione documenti, conforme a GDPR e AI Act. Per studi legali, commercialisti e aziende." />
-<meta name="keywords" content="intelligenza artificiale locale, IA on-premise, AI privata GDPR, anonimizzazione documenti, alternativa privata ChatGPT, IA per studi legali, IA per commercialisti, sovranità del dato, AI Act, local-first AI" />
+<title>Podz.AI — La tua AI. Sul tuo computer. Con i tuoi dati al sicuro.</title>
+<meta name="description" content="Podz è la tua workstation AI personale: un'unica app sul tuo computer che lavora con i tuoi documenti, senza mandare i dati a nessuno. Specialisti con un clic." />
 <meta name="author" content="G&G Technologies Srl" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)" />
@@ -14,19 +13,18 @@
 <meta property="og:site_name" content="Podz.AI" />
 <meta property="og:locale" content="it_IT" />
 <meta property="og:locale:alternate" content="en_US" />
-<meta property="og:title" content="Podz.AI — IA locale e privata, i dati restano da te" />
-<meta property="og:description" content="Usa modelli e agenti sui dati riservati senza inviarli al cloud. Privacy by design, anonimizzazione documenti, GDPR e AI Act. Per studi legali, commercialisti e aziende." />
+<meta property="og:title" content="Podz.AI — La tua AI. Sul tuo computer. Con i tuoi dati al sicuro." />
+<meta property="og:description" content="Un'unica applicazione che installi sul tuo computer e che lavora per te, con i tuoi documenti, senza mandare i tuoi dati a nessuno. Il cloud è una scelta, non il default." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://g-g-technologies-srl.github.io/digisense-releases/" />
 <meta property="og:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/og-card.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Podz.AI — Usa l'IA sui tuoi dati riservati. Senza farli uscire." />
+<meta property="og:image:alt" content="Podz.AI — La tua AI. Sul tuo computer. Con i tuoi dati al sicuro." />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Podz.AI — IA locale e privata, i dati restano da te" />
-<meta name="twitter:description" content="Usa modelli e agenti sui dati riservati senza inviarli al cloud. Privacy by design, anonimizzazione, GDPR e AI Act." />
+<meta name="twitter:title" content="Podz.AI — La tua AI. Sul tuo computer. Con i tuoi dati al sicuro." />
+<meta name="twitter:description" content="Un'unica applicazione sul tuo computer che lavora con i tuoi documenti, senza mandare i tuoi dati a nessuno. Il cloud è una scelta, non il default." />
 <meta name="twitter:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/og-card.png" />
-<meta name="twitter:image" content="https://g-g-technologies-srl.github.io/digisense-releases/assets/icons/icon-512.png" />
 <link rel="icon" type="image/svg+xml" href="assets/podz-symbol-static.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon-32.png" />
 <link rel="alternate icon" href="assets/icons/favicon.ico" />
@@ -180,7 +178,7 @@
   .msg .ava img{width:20px;height:20px}
   .msg .ava.user{background:var(--bg-subtle);color:var(--text-soft);font-weight:700;font-size:.8rem}
   .bubble{background:var(--bg-subtle);border:1px solid var(--border);border-radius:14px;padding:11px 14px;font-size:.92rem;color:var(--text);max-width:90%;transition:opacity .35s ease}
-  #demo-sector{transition:opacity .35s ease}
+  #demo-sector,#demo-engine,.consulted{transition:opacity .35s ease}
   .demo-fading{opacity:0}
   @media(prefers-reduced-motion:reduce){.bubble,#demo-sector{transition:none}}
   .msg.me{flex-direction:row-reverse}
@@ -205,52 +203,65 @@
   .card h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin-bottom:8px}
   .card p{color:var(--text-soft);font-size:.96rem}
 
-  /* architecture */
-  .arch{display:flex;flex-direction:column;gap:14px;max-width:760px;margin:0 auto}
-  .layer{border:1px solid var(--border);border-radius:var(--r-md);padding:20px 22px;background:var(--bg-elev);position:relative}
-  .layer .ltag{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--text-faint);font-weight:700}
-  .layer h4{font-family:var(--serif);font-size:1.12rem;font-weight:600;margin:5px 0 4px}
-  .layer p{color:var(--text-soft);font-size:.92rem}
-  .layer.core{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
-    background:color-mix(in srgb,var(--accent) 7%,var(--bg-elev))}
+  /* chips */
   .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}
   .chip{font-size:.74rem;font-family:var(--mono);color:var(--text-soft);border:1px solid var(--border);border-radius:7px;padding:4px 10px;background:var(--bg-inset)}
-  .arrow{display:grid;place-items:center;color:var(--text-faint)}
-  .arrow svg{width:18px;height:18px}
 
-  /* pod */
-  .pod-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,52px);align-items:center}
-  @media(max-width:860px){.pod-grid{grid-template-columns:1fr}}
-  .pod-points{display:flex;flex-direction:column;gap:22px}
-  .pod-point{display:flex;gap:14px}
-  .pod-point .n{flex:0 0 auto;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-weight:700;
-    font-family:var(--mono);font-size:.85rem;color:var(--btn-text);background:var(--btn-bg)}
-  .pod-point h4{font-family:var(--serif);font-size:1.08rem;font-weight:600;margin-bottom:3px}
-  .pod-point p{color:var(--text-soft);font-size:.95rem}
-  /* pod UI panel (no console) */
-  .pod-ui{background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
-  .pod-ui-head{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--border);background:var(--bg-inset)}
-  .pod-ui-head .who{font-weight:600;font-size:.95rem}
-  .pod-ui-head .stat{font-size:.76rem;color:var(--text-faint);display:flex;align-items:center;gap:6px}
-  .pod-ui-head .stat::before{content:"";width:7px;height:7px;border-radius:50%;background:#27c498;box-shadow:0 0 8px #27c498}
-  .pod-ui-body{padding:18px;display:flex;flex-direction:column;gap:14px}
-  .pod-field{display:flex;flex-direction:column;gap:5px;border:1px solid var(--border);border-radius:12px;padding:11px 13px;background:var(--bg-inset)}
-  .pod-field .lbl{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-faint);font-weight:700}
-  .pod-field .val{font-size:.94rem;color:var(--text)}
-  .pod-run{justify-content:center;width:100%;pointer-events:none}
-  .pod-steps{list-style:none;display:flex;flex-direction:column;gap:9px;margin:0}
-  .pod-steps li{font-size:.92rem;color:var(--text-soft);display:flex;align-items:center;gap:9px}
-  .pod-steps li .mk{color:var(--accent);font-weight:700}
-  .pod-ui-foot{padding:12px 18px;border-top:1px solid var(--border);font-size:.8rem;color:var(--text-faint);text-align:center}
-  .terminal{border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;background:var(--term-bg);
-    color:var(--term-text);font-family:var(--mono);font-size:.84rem;box-shadow:var(--shadow)}
-  .term-body{overflow-x:auto}
-  .term-bar{display:flex;gap:7px;align-items:center;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.08)}
-  .term-bar i{width:11px;height:11px;border-radius:50%;display:inline-block}
-  .term-bar i:nth-child(1){background:#ff5f57}.term-bar i:nth-child(2){background:#febc2e}.term-bar i:nth-child(3){background:#28c840}
-  .term-bar span{margin-left:8px;color:#8090a4;font-size:.74rem}
-  .term-body{padding:18px;line-height:1.9;white-space:pre-wrap}
-  .term-body .c1{color:var(--accent-bright)}.term-body .c2{color:#3bffb0}.term-body .c3{color:#a78bfa}.term-body .cd{color:#7c8aa0}
+  /* how-it-works steps (timeline) */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  @media(max-width:820px){.steps{grid-template-columns:1fr;gap:34px}}
+  .step .s-head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .step .s-num{width:40px;height:40px;border-radius:var(--r-pill);background:var(--btn-bg);color:var(--btn-text);
+    display:grid;place-items:center;font-weight:700;font-family:var(--sans);flex:0 0 auto;
+    box-shadow:0 0 0 6px color-mix(in srgb,var(--accent) 12%,transparent)}
+  .step .s-head::after{content:"";height:2px;flex:1 1 auto;background:var(--border-strong);border-radius:2px}
+  .step:last-child .s-head::after{display:none}
+  @media(max-width:820px){.step .s-head::after{display:none}}
+  .step h3{font-family:var(--serif);font-size:1.2rem;font-weight:600;margin-bottom:8px}
+  .step p{color:var(--text-soft);font-size:.96rem}
+
+  /* engines (Local / Cloud) */
+  .engines-lead{text-align:center;color:var(--text-soft);max-width:56ch;margin:46px auto 0;font-size:1.04rem}
+  .engines{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:840px;margin:20px auto 0}
+  @media(max-width:680px){.engines{grid-template-columns:1fr}}
+  .engine{border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg-elev);padding:24px}
+  .engine.is-default{border-color:color-mix(in srgb,var(--accent) 45%,var(--border));
+    background:color-mix(in srgb,var(--accent) 6%,var(--bg-elev))}
+  .engine .ehead{display:flex;align-items:center;gap:13px;margin-bottom:10px}
+  .engine .eico{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;flex:0 0 auto;
+    background:color-mix(in srgb,var(--accent) 12%,transparent);border:1px solid var(--border);color:var(--accent)}
+  .engine .eico svg{width:21px;height:21px}
+  .engine .etag{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);font-weight:700}
+  .engine h4{font-family:var(--serif);font-size:1.15rem;font-weight:600;margin:2px 0 0}
+  .engine p{color:var(--text-soft);font-size:.94rem}
+
+  /* anonymizer before/after */
+  .anon{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:stretch;max-width:900px}
+  @media(max-width:760px){.anon{grid-template-columns:1fr}.anon-arrow{transform:rotate(90deg);justify-self:center}}
+  .anon-panel{border:1px solid var(--border);border-radius:var(--r-md);background:var(--bg-elev);padding:20px 22px}
+  .anon-panel .atag{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--text-faint);display:block;margin-bottom:10px}
+  .anon-panel p{font-family:var(--mono);font-size:.85rem;line-height:1.95;color:var(--text)}
+  .anon-panel .pii{background:color-mix(in srgb,var(--accent) 16%,transparent);border-radius:5px;padding:1px 5px}
+  .anon-panel .msk{background:var(--code-bg);color:var(--code-fg);border-radius:5px;padding:1px 5px}
+  .anon-arrow{display:grid;place-items:center;color:var(--accent);align-self:center}
+  .anon-arrow svg{width:26px;height:26px}
+  .anon-caption{color:var(--text-soft);font-size:.92rem;margin-top:16px;max-width:70ch}
+  .anon-note{margin-top:22px;color:var(--text-faint);font-size:.86rem;max-width:70ch}
+  .privacy-more{margin-top:26px}
+
+  /* demo "consulted" line */
+  .consulted{display:flex;align-items:center;gap:7px;font-size:.78rem;color:var(--text-faint);padding-left:39px}
+  .consulted b{color:var(--text-soft);font-weight:600}
+
+  /* small print inside cards */
+  .card .fine{margin-top:10px;font-size:.8rem;color:var(--text-faint)}
+
+  /* app-store style install chip */
+  .card .install{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:.8rem;font-weight:600;
+    color:var(--accent-ink);border:1px solid color-mix(in srgb,var(--accent) 35%,var(--border));
+    background:color-mix(in srgb,var(--accent) 8%,transparent);border-radius:var(--r-pill);padding:6px 13px}
+  .card .install svg{width:14px;height:14px}
+  .card .install.soon{color:var(--text-faint);border-color:var(--border);background:transparent}
 
   /* releases */
   .rel-list{display:flex;flex-direction:column;gap:16px;max-width:760px}
@@ -329,9 +340,9 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="#how"><span data-lang-it>Come funziona</span><span data-lang-en>How it works</span></a>
-      <a href="#compliance"><span data-lang-it>Conformità</span><span data-lang-en>Compliance</span></a>
-      <a href="#overview"><span data-lang-it>Funzionalità</span><span data-lang-en>Features</span></a>
-      <a href="#releases"><span data-lang-it>Release</span><span data-lang-en>Releases</span></a>
+      <a href="#specialists"><span data-lang-it>Specialisti</span><span data-lang-en>Specialists</span></a>
+      <a href="privacy.html">Privacy</a>
+      <a href="#audience"><span data-lang-it>Per chi è</span><span data-lang-en>Who it's for</span></a>
       <a href="pricing.html"><span data-lang-it>Prezzi</span><span data-lang-en>Pricing</span></a>
     </nav>
     <div class="nav-right">
@@ -351,9 +362,9 @@
   </div>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile" hidden>
     <a href="#how" onclick="closeMenu()"><span data-lang-it>Come funziona</span><span data-lang-en>How it works</span></a>
-    <a href="#compliance" onclick="closeMenu()"><span data-lang-it>Conformità</span><span data-lang-en>Compliance</span></a>
-    <a href="#overview" onclick="closeMenu()"><span data-lang-it>Funzionalità</span><span data-lang-en>Features</span></a>
-    <a href="#pod" onclick="closeMenu()"><span data-lang-it>Agente Pod</span><span data-lang-en>Pod Agent</span></a>
+    <a href="#specialists" onclick="closeMenu()"><span data-lang-it>Specialisti</span><span data-lang-en>Specialists</span></a>
+    <a href="privacy.html" onclick="closeMenu()">Privacy</a>
+    <a href="#audience" onclick="closeMenu()"><span data-lang-it>Per chi è</span><span data-lang-en>Who it's for</span></a>
     <a href="#releases" onclick="closeMenu()"><span data-lang-it>Release</span><span data-lang-en>Releases</span></a>
     <a href="pricing.html" onclick="closeMenu()"><span data-lang-it>Prezzi</span><span data-lang-en>Pricing</span></a>
     <a class="btn btn-primary" href="download.html"><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></a>
@@ -367,39 +378,41 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow"><span class="dot"></span><span data-lang-it>La tua IA Local-First</span><span data-lang-en>Your Local-First AI</span></span>
+      <span class="eyebrow"><span class="dot"></span><span data-lang-it>La tua workstation AI personale</span><span data-lang-en>Your personal AI workstation</span></span>
       <h1>
-        <span data-lang-it>Usa l'IA sui tuoi dati riservati. <span class="em">Senza farli uscire.</span></span>
-        <span data-lang-en>Use AI on your confidential data. <span class="em">Without letting it leave.</span></span>
+        <span data-lang-it>La tua AI. Sul tuo computer. <span class="em">Con i tuoi dati al sicuro.</span></span>
+        <span data-lang-en>Your AI. On your computer. <span class="em">With your data kept safe.</span></span>
       </h1>
       <p class="lead">
-        <span data-lang-it>Esegui modelli, agenti e app dove vivono i tuoi dati — sulla tua macchina o sul tuo server. Quando serve un LLM in cloud, i dati personali vengono anonimizzati prima. Tutta la produttività dell'IA, riservatezza compresa.</span>
-        <span data-lang-en>Run models, agents and apps where your data already lives — on your own machine or server. When a cloud LLM is needed, personal data is anonymized first. All the productivity of AI, confidentiality included.</span>
+        <span data-lang-it>Podz è un'unica applicazione che installi sul tuo computer e che lavora per te, con i tuoi documenti, senza mandare i tuoi dati a nessuno. Niente account obbligatori: il cloud è una scelta, non il default.</span>
+        <span data-lang-en>Podz is a single application you install on your computer that works for you, with your documents, without sending your data to anyone. No mandatory accounts: the cloud is a choice, not the default.</span>
       </p>
       <div class="cta-row">
         <a class="btn btn-primary btn-lg" href="download.html"><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></a>
         <a class="btn btn-ghost btn-lg" href="#how"><span data-lang-it>Come funziona</span><span data-lang-en>How it works</span></a>
-        <a class="btn btn-ghost btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a>
       </div>
-      <p class="hero-note"><span data-lang-it>Pensato per GDPR e AI Act · Made in EU</span><span data-lang-en>Built for GDPR and the AI Act · Made in EU</span></p>
-      <p class="hero-cap"><span data-lang-it>I tuoi modelli, in locale o in cloud:</span><span data-lang-en>Your models, local or cloud:</span> <span class="chip">OLLAMA</span><span class="chip">ONNX</span><span class="chip">auto-select</span></p>
+      <p class="hero-note"><span data-lang-it>Prova gratuita di 30 giorni al primo avvio · Made in EU · <a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni">Parla con noi</a></span><span data-lang-en>30-day free trial on first launch · Made in EU · <a href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni">Talk to us</a></span></p>
+      <p class="hero-cap"><span data-lang-it>Tu scegli solo il motore:</span><span data-lang-en>You only choose the engine:</span> <span class="chip"><span data-lang-it>Locale · privato</span><span data-lang-en>Local · private</span></span><span class="chip"><span data-lang-it>Cloud · più potente</span><span data-lang-en>Cloud · more powerful</span></span></p>
     </div>
 
-    <aside class="agent" aria-label="Podz agent preview">
+    <aside class="agent" aria-label="Podz preview">
       <div class="agent-head">
         <span class="avatar"><img src="assets/podz-symbol-static.svg" alt="" /></span>
         <div>
-          <div class="who">Podz Agent</div>
-          <div class="stat"><span data-lang-it>in esecuzione · locale</span><span data-lang-en>running · local</span></div>
+          <div class="who">Podz</div>
+          <div class="stat"><span data-lang-it>al lavoro · sul tuo computer</span><span data-lang-en>working · on your computer</span></div>
         </div>
         <span class="pill" id="demo-sector" style="margin-left:auto"><span data-lang-it>Studio legale</span><span data-lang-en>Law firm</span></span>
       </div>
       <div class="agent-body">
-        <div class="msg me"><span class="ava user">GA</span><div class="bubble" id="demo-user"><span data-lang-it>Estrai le clausole chiave da questi contratti con dati dei clienti.</span><span data-lang-en>Extract the key clauses from these contracts containing client data.</span></div></div>
-        <div class="msg"><span class="ava"><img src="assets/podz-symbol-static.svg" alt="Podz" /></span><div class="bubble" id="demo-assistant"><span data-lang-it>Fatto. Elaborazione in locale; quando ho interpellato un LLM in cloud, <strong>nomi e identificativi erano già anonimizzati</strong> — non sono mai usciti.</span><span data-lang-en>Done. Processed locally; when I queried a cloud LLM, <strong>names and identifiers were already anonymized</strong> — they never left.</span></div></div>
+        <div class="msg me"><span class="ava user"><span data-lang-it>Tu</span><span data-lang-en>You</span></span><div class="bubble" id="demo-user"><span data-lang-it>Leggi questo contratto e segnalami le clausole a rischio.</span><span data-lang-en>Read this contract and flag the risky clauses.</span></div></div>
+        <div class="msg"><span class="ava"><img src="assets/podz-symbol-static.svg" alt="Podz" /></span><div class="bubble" id="demo-assistant"><span data-lang-it>Fatto: tre clausole da rivedere, spiegate punto per punto. Prima di usare il Motore Cloud ho <strong>mascherato nomi e dati personali</strong>: non hanno mai lasciato il tuo computer.</span><span data-lang-en>Done: three clauses to review, each explained. Before using the Cloud engine I <strong>masked names and personal data</strong> — they never left your computer.</span></div></div>
+        <div class="consulted" id="demo-consulted"><span aria-hidden="true">↳</span><span><span data-lang-it>Podz ha coinvolto: <b>Assistente Legale</b></span><span data-lang-en>Podz brought in: <b>Legal Assistant</b></span></span></div>
       </div>
       <div class="agent-foot">
-        <span class="pill">local-first</span><span class="pill">data sovereignty</span><span class="pill">anonymization</span><span class="pill">privacy by design</span>
+        <span class="pill" id="demo-engine"><span data-lang-it>Motore Cloud · dati mascherati</span><span data-lang-en>Cloud engine · data masked</span></span>
+        <span class="pill"><span data-lang-it>un solo interlocutore</span><span data-lang-en>one point of contact</span></span>
+        <span class="pill"><span data-lang-it>specialisti su richiesta</span><span data-lang-en>specialists on demand</span></span>
       </div>
     </aside>
   </div>
@@ -409,194 +422,144 @@
 <section class="block" id="how">
   <div class="wrap">
     <div class="sec-eyebrow"><span data-lang-it>Come funziona</span><span data-lang-en>How it works</span></div>
-    <h2 class="sec-title"><span data-lang-it>I tuoi dati restano dove sono</span><span data-lang-en>Your data stays where it is</span></h2>
-    <p class="sec-sub"><span data-lang-it>Tre passaggi: sfrutti l'IA mantenendo il controllo su ogni dato riservato.</span><span data-lang-en>Three steps: you harness AI while keeping control over every piece of confidential data.</span></p>
+    <h2 class="sec-title"><span data-lang-it>Tre passaggi, un solo interlocutore</span><span data-lang-en>Three steps, one point of contact</span></h2>
+    <p class="sec-sub"><span data-lang-it>Non devi scegliere quale AI usare né imparare termini tecnici: tu pensi alla richiesta, al resto pensa Podz.</span><span data-lang-en>You don't have to pick which AI to use or learn technical terms: you think about the request, Podz takes care of the rest.</span></p>
 
-    <div class="cards">
-      <div class="card">
-        <div class="ico" style="font-family:var(--serif);font-weight:600;font-size:1.25rem;color:var(--accent-ink)">1</div>
-        <h3><span data-lang-it>Esegui in locale</span><span data-lang-en>Run locally</span></h3>
-        <p><span data-lang-it>Modelli e agenti girano sulla tua macchina o sul tuo server. I dati riservati restano dentro la tua infrastruttura.</span><span data-lang-en>Models and agents run on your machine or server. Confidential data stays inside your infrastructure.</span></p>
+    <div class="steps">
+      <div class="step">
+        <div class="s-head"><span class="s-num">1</span></div>
+        <h3><span data-lang-it>Parla con Podz</span><span data-lang-en>Talk to Podz</span></h3>
+        <p><span data-lang-it>Una sola chat, un solo interlocutore. Scrivi la richiesta con parole tue e allega i tuoi documenti.</span><span data-lang-en>One chat, one point of contact. Write your request in your own words and attach your documents.</span></p>
       </div>
-      <div class="card">
-        <div class="ico" style="font-family:var(--serif);font-weight:600;font-size:1.25rem;color:var(--accent-ink)">2</div>
-        <h3><span data-lang-it>Anonimizza prima del cloud</span><span data-lang-en>Anonymize before the cloud</span></h3>
-        <p><span data-lang-it>Se un task richiede un LLM in cloud, nomi, identificativi e dati personali vengono mascherati prima dell'invio.</span><span data-lang-en>If a task needs a cloud LLM, names, identifiers and personal data are masked before anything is sent.</span></p>
+      <div class="step">
+        <div class="s-head"><span class="s-num">2</span></div>
+        <h3><span data-lang-it>Podz coinvolge gli specialisti</span><span data-lang-en>Podz brings in the specialists</span></h3>
+        <p><span data-lang-it>Alle domande normali risponde direttamente. Quando serve una competenza specifica — legale, ricerca, selezione del personale — coinvolge lo specialista giusto e ne coordina il lavoro.</span><span data-lang-en>It answers everyday questions directly. When specific expertise is needed — legal, research, recruiting — it brings in the right specialist and coordinates the work.</span></p>
       </div>
-      <div class="card">
-        <div class="ico" style="font-family:var(--serif);font-weight:600;font-size:1.25rem;color:var(--accent-ink)">3</div>
-        <h3><span data-lang-it>Ricomponi e tieni traccia</span><span data-lang-en>Re-merge and keep a trail</span></h3>
-        <p><span data-lang-it>I risultati vengono ricomposti in locale, con log e supervisione umana a supporto della tracciabilità.</span><span data-lang-en>Results are reassembled locally, with logs and human oversight to support traceability.</span></p>
+      <div class="step">
+        <div class="s-head"><span class="s-num">3</span></div>
+        <h3><span data-lang-it>Ricevi una risposta unica, con i dati protetti</span><span data-lang-en>Get one answer, with your data protected</span></h3>
+        <p><span data-lang-it>Una risposta chiara e sintetica, e in chat vedi sempre chi ha lavorato. Se un passaggio richiede il cloud, i dati personali possono essere mascherati prima di uscire dal tuo computer.</span><span data-lang-en>One clear, concise answer, and the chat always shows who did the work. If a step needs the cloud, personal data can be masked before it leaves your computer.</span></p>
+      </div>
+    </div>
+
+    <p class="engines-lead"><span data-lang-it>L'unica scelta che fai tu è il <strong>motore</strong> — al resto pensa Podz.</span><span data-lang-en>The only choice you make is the <strong>engine</strong> — Podz handles the rest.</span></p>
+    <div class="engines">
+      <div class="engine is-default">
+        <div class="ehead">
+          <span class="eico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+          <div>
+            <span class="etag"><span data-lang-it>Predefinito</span><span data-lang-en>Default</span></span>
+            <h4><span data-lang-it>Motore Locale · privato</span><span data-lang-en>Local engine · private</span></h4>
+          </div>
+        </div>
+        <p><span data-lang-it>I modelli AI girano sul tuo computer: conversazioni e documenti restano lì, e funziona anche senza internet.</span><span data-lang-en>The AI models run on your computer: conversations and documents stay there, and it works even without internet.</span></p>
+      </div>
+      <div class="engine">
+        <div class="ehead">
+          <span class="eico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 0 0 0-9 6 6 0 0 0-11.7 1.7A4 4 0 0 0 7 19z"/></svg></span>
+          <div>
+            <span class="etag"><span data-lang-it>Quando serve più potenza</span><span data-lang-en>When you need more power</span></span>
+            <h4><span data-lang-it>Motore Cloud · più potente</span><span data-lang-en>Cloud engine · more powerful</span></h4>
+          </div>
+        </div>
+        <p><span data-lang-it>Modelli di frontiera come Claude o GPT, con la tua chiave, solo quando lo scegli tu. E con l'Anonimizzatore i dati personali possono essere mascherati prima dell'invio.</span><span data-lang-en>Frontier models like Claude or GPT, with your own key, only when you choose. And with the Anonymizer, personal data can be masked before it is sent.</span></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- compliance -->
-<section class="block" id="compliance">
+<!-- specialists -->
+<section class="block" id="specialists">
   <div class="wrap">
-    <div class="sec-eyebrow"><span data-lang-it>Conformità</span><span data-lang-en>Compliance</span></div>
-    <h2 class="sec-title"><span data-lang-it>Pensato per chi lavora sotto GDPR e AI Act</span><span data-lang-en>Built for teams working under GDPR and the AI Act</span></h2>
-    <p class="sec-sub"><span data-lang-it>Avvocati e commercialisti, sanità, finanza e pubblica amministrazione: usa l'IA generativa sui dati coperti da segreto professionale, senza spostarli fuori dal tuo controllo.</span><span data-lang-en>Lawyers and accountants, healthcare, finance and public sector: use generative AI on data covered by professional secrecy, without moving it outside your control.</span></p>
+    <div class="sec-eyebrow"><span data-lang-it>Gli specialisti</span><span data-lang-en>The specialists</span></div>
+    <h2 class="sec-title"><span data-lang-it>Un assistente, tanti specialisti</span><span data-lang-en>One assistant, many specialists</span></h2>
+    <p class="sec-sub"><span data-lang-it>Competenze pronte all'uso, che installi con un clic — come le app di un telefono. Tu parli sempre e solo con Podz: è lui a coinvolgerle quando servono.</span><span data-lang-en>Ready-to-use expertise you install with one click — like apps on a phone. You always talk to Podz alone: it brings them in when needed.</span></p>
 
     <div class="cards">
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 7.2-7 8.2-4-1-7-3.8-7-8.2V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <h3><span data-lang-it>GDPR & privacy by design</span><span data-lang-en>GDPR & privacy by design</span></h3>
-        <p><span data-lang-it>Data minimization, anonimizzazione e trattamento on-premise: gli strumenti per applicare i principi del GDPR direttamente nel tuo flusso di lavoro.</span><span data-lang-en>Data minimization, anonymization and on-premise processing: the tools to apply GDPR principles directly in your workflow.</span></p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg></div>
-        <h3><span data-lang-it>Sovranità del dato UE</span><span data-lang-en>EU data sovereignty</span></h3>
-        <p><span data-lang-it>I dati non lasciano la tua infrastruttura: eviti i trasferimenti verso paesi terzi e l'incertezza giuridica legata a Schrems II e al CLOUD Act statunitense.</span><span data-lang-en>Data never leaves your infrastructure: you avoid transfers to third countries and the legal uncertainty around Schrems II and the US CLOUD Act.</span></p>
-      </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M6 21h12M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/></svg></div>
-        <h3><span data-lang-it>Verso l'AI Act</span><span data-lang-en>Toward the AI Act</span></h3>
-        <p><span data-lang-it>Esecuzione locale, tracciabilità e supervisione umana: una base solida in vista della piena applicazione dell'AI Act (2 agosto 2026).</span><span data-lang-en>Local execution, traceability and human oversight: a solid foundation ahead of the AI Act's full application (2 August 2026).</span></p>
+        <h3><span data-lang-it>Assistente Legale</span><span data-lang-en>Legal Assistant</span></h3>
+        <p><span data-lang-it>Legge contratti e documenti, evidenzia rischi e clausole critiche, anonimizza i dati. Con un team dedicato a contrattualistica, privacy e contenzioso.</span><span data-lang-en>Reads contracts and documents, highlights risks and critical clauses, anonymizes data. With a team dedicated to contracts, privacy and litigation.</span></p>
+        <p class="fine"><span data-lang-it>Assiste il professionista: non sostituisce il parere legale.</span><span data-lang-en>It assists the professional: it does not replace legal advice.</span></p>
+        <span class="install"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M6 9l6 6 6-6"/><path d="M5 21h14"/></svg><span data-lang-it>Si installa con un clic</span><span data-lang-en>One-click install</span></span>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M4 11h14M11 4a10.6 10.6 0 0 1 0 14M11 4a10.6 10.6 0 0 0 0 14"/></svg></div>
+        <h3><span data-lang-it>Ricercatore Web</span><span data-lang-en>Web Researcher</span></h3>
+        <p><span data-lang-it>Cerca sul web, legge le pagine rilevanti e risponde citando sempre le fonti. Disponibile anche in versione 100% locale, senza alcuna chiave cloud.</span><span data-lang-en>Searches the web, reads the relevant pages and answers while always citing its sources. Also available in a 100% local version, with no cloud key at all.</span></p>
+        <span class="install"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M6 9l6 6 6-6"/><path d="M5 21h14"/></svg><span data-lang-it>Si installa con un clic</span><span data-lang-en>One-click install</span></span>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><circle cx="10" cy="13" r="2"/><path d="M7 18c.5-1.5 1.8-2 3-2s2.5.5 3 2"/></svg></div>
+        <h3><span data-lang-it>Screening CV</span><span data-lang-en>CV Screening</span></h3>
+        <p><span data-lang-it>Valuta le candidature alla cieca: ogni CV viene anonimizzato prima della valutazione, per ridurre i bias.</span><span data-lang-en>Assesses applications blind: every CV is anonymized before the review, to reduce bias.</span></p>
+        <p class="fine"><span data-lang-it>È una valutazione di supporto: la decisione di assunzione resta a te.</span><span data-lang-en>It is a supporting assessment: the hiring decision stays with you.</span></p>
+        <span class="install"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M6 9l6 6 6-6"/><path d="M5 21h14"/></svg><span data-lang-it>Si installa con un clic</span><span data-lang-en>One-click install</span></span>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M17.5 14v7M14 17.5h7"/></svg></div>
+        <h3><span data-lang-it>In arrivo</span><span data-lang-en>Coming soon</span></h3>
+        <p><span data-lang-it>Il catalogo cresce nel tempo: nuovi specialisti pronti da installare con un clic. E quelli installati restano sotto il tuo controllo: puoi vederli e adattarli alle tue esigenze.</span><span data-lang-en>The catalog grows over time: new specialists ready to install with one click. And the ones you install stay under your control: you can inspect and adapt them to your needs.</span></p>
+        <span class="install soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg><span data-lang-it>Presto nel catalogo</span><span data-lang-en>Coming to the catalog</span></span>
       </div>
     </div>
-    <p style="margin-top:30px;font-size:.85rem;color:var(--text-faint);max-width:64ch">
-      <span data-lang-it>Podz.AI è uno strumento che ti aiuta ad applicare questi principi: non è una consulenza legale e non garantisce di per sé la conformità, che dipende dal tuo specifico utilizzo e contesto.</span>
-      <span data-lang-en>Podz.AI is a tool that helps you apply these principles: it is not legal advice and does not by itself guarantee compliance, which depends on your specific use and context.</span>
-    </p>
   </div>
 </section>
 
-<!-- overview -->
-<section class="block" id="overview">
+<!-- privacy & local-first -->
+<section class="block" id="privacy">
   <div class="wrap">
-    <div class="sec-eyebrow"><span data-lang-it>Funzionalità</span><span data-lang-en>Features</span></div>
-    <h2 class="sec-title"><span data-lang-it>Produttività con l'IA, senza compromessi sulla privacy</span><span data-lang-en>AI productivity, without privacy trade-offs</span></h2>
-    <p class="sec-sub"><span data-lang-it>Tutto ciò che serve per portare l'IA generativa in azienda mantenendo i dati sotto il tuo controllo.</span><span data-lang-en>Everything you need to bring generative AI into your organization while keeping data under your control.</span></p>
+    <div class="sec-eyebrow">Privacy &amp; local-first</div>
+    <h2 class="sec-title"><span data-lang-it>La privacy è un meccanismo, non uno slogan</span><span data-lang-en>Privacy is a mechanism, not a slogan</span></h2>
+    <p class="sec-sub"><span data-lang-it>Conversazioni e documenti restano sulla tua macchina, in una cartella che è tua, con database cifrato. E quando un lavoro passa dal cloud, l'Anonimizzatore può mascherare prima i dati personali. Ecco cosa vedrebbe il fornitore cloud:</span><span data-lang-en>Conversations and documents stay on your machine, in a folder you own, with an encrypted database. And when a job goes through the cloud, the Anonymizer can mask personal data first. Here is what the cloud provider would see:</span></p>
+
+    <div class="anon" aria-label="Anonymizer example">
+      <div class="anon-panel">
+        <span class="atag"><span data-lang-it>Sul tuo computer</span><span data-lang-en>On your computer</span></span>
+        <p><span data-lang-it>Il sig. <span class="pii">Mario Rossi</span>, nato a <span class="pii">Rimini</span> il <span class="pii">3/4/1980</span>, residente in <span class="pii">via Garibaldi 12</span>, dichiara di…</span><span data-lang-en>Mr <span class="pii">Mario Rossi</span>, born in <span class="pii">Rimini</span> on <span class="pii">3/4/1980</span>, residing at <span class="pii">12 Garibaldi St.</span>, declares that…</span></p>
+      </div>
+      <div class="anon-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="anon-panel">
+        <span class="atag"><span data-lang-it>Quello che vede il cloud</span><span data-lang-en>What the cloud sees</span></span>
+        <p><span data-lang-it>Il sig. <span class="msk">[NOME-1]</span>, nato a <span class="msk">[CITTÀ-1]</span> il <span class="msk">[DATA-1]</span>, residente in <span class="msk">[INDIRIZZO-1]</span>, dichiara di…</span><span data-lang-en>Mr <span class="msk">[NAME-1]</span>, born in <span class="msk">[CITY-1]</span> on <span class="msk">[DATE-1]</span>, residing at <span class="msk">[ADDRESS-1]</span>, declares that…</span></p>
+      </div>
+    </div>
+    <p class="anon-caption"><span data-lang-it>Nella risposta che leggi tu, i dati reali vengono ripristinati automaticamente: il fornitore cloud non li vede mai.</span><span data-lang-en>In the answer you read, the real data is restored automatically: the cloud provider never sees it.</span></p>
+    <p class="anon-note"><span data-lang-it>L'anonimizzazione è una protezione forte, non una garanzia legale: sei sempre tu a decidere cosa può uscire dal tuo computer.</span><span data-lang-en>Anonymization is strong protection, not a legal guarantee: you always decide what may leave your computer.</span></p>
+    <div class="privacy-more">
+      <a class="btn btn-ghost" href="privacy.html"><span data-lang-it>Scopri dove stanno i tuoi dati e cosa succede col cloud</span><span data-lang-en>See where your data lives and what happens with the cloud</span> →</a>
+    </div>
+  </div>
+</section>
+
+<!-- who it's for -->
+<section class="block" id="audience">
+  <div class="wrap">
+    <div class="sec-eyebrow"><span data-lang-it>Per chi è</span><span data-lang-en>Who it's for</span></div>
+    <h2 class="sec-title"><span data-lang-it>Pensato per chi lavora con dati riservati</span><span data-lang-en>Built for people who work with confidential data</span></h2>
+    <p class="sec-sub"><span data-lang-it>Se i documenti dei tuoi clienti non possono finire in un chatbot qualunque, Podz è fatto per te.</span><span data-lang-en>If your clients' documents can't end up in just any chatbot, Podz is built for you.</span></p>
 
     <div class="cards">
       <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
-        <h3><span data-lang-it>Local-first</span><span data-lang-en>Local-first</span></h3>
-        <p><span data-lang-it>Modelli e dati restano sulla tua infrastruttura: mantieni il pieno controllo su dove e come vengono trattati — la base della sovranità del dato.</span><span data-lang-en>Models and data stay on your infrastructure: keep full control over where and how they are processed — the foundation of data sovereignty.</span></p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M6 21h12M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/></svg></div>
+        <h3><span data-lang-it>Studi legali e professionali</span><span data-lang-en>Law &amp; professional firms</span></h3>
+        <p><span data-lang-it>Contratti, atti e pareri restano nello studio. L'Assistente Legale evidenzia rischi e clausole, a tutela del segreto professionale.</span><span data-lang-en>Contracts, deeds and opinions stay inside the firm. The Legal Assistant highlights risks and clauses, protecting professional secrecy.</span></p>
       </div>
       <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18"/><path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/><path d="M9.4 5.1A8.6 8.6 0 0 1 12 5c5 0 9 5 9 7a13 13 0 0 1-2 2.8M6 6.7C3.6 8.2 2 11 2 12c0 0 3.5 7 10 7 .9 0 1.7-.1 2.5-.3"/></svg></div>
-        <h3><span data-lang-it>Anonimizzatore documenti</span><span data-lang-en>Document anonymizer</span></h3>
-        <p><span data-lang-it>Maschera nomi, identificativi e dati sensibili prima di ogni chiamata a un LLM in cloud: usi i modelli più potenti senza esporre informazioni personali. Sei tu a decidere cosa mascherare.</span><span data-lang-en>Masks names, identifiers and sensitive data before any call to a cloud LLM: use the most powerful models without exposing personal information. You decide what gets masked.</span></p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3><span data-lang-it>HR e selezione</span><span data-lang-en>HR &amp; recruiting</span></h3>
+        <p><span data-lang-it>Valutazioni alla cieca dei CV e documenti del personale trattati sul tuo computer, non su piattaforme esterne.</span><span data-lang-en>Blind CV screening and personnel documents handled on your computer, not on external platforms.</span></p>
       </div>
       <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14h6v6"/><path d="M20 10h-6V4"/><path d="M10 14l-7 7"/><path d="M14 10l7-7"/></svg></div>
-        <h3><span data-lang-it>Compressione del contesto</span><span data-lang-en>Context compression</span></h3>
-        <p><span data-lang-it>Riduci il contesto fino all'<strong>80% dei token</strong>, a seconda del contenuto: meno costi, risposte più rapide e meno dati inviati a ogni richiesta.</span><span data-lang-en>Shrink the context by up to <strong>80% of tokens</strong>, depending on the content: lower cost, faster answers and less data sent with every request.</span></p>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1M9 13h1M14 9h1M14 13h1M11 21v-4h2v4"/></svg></div>
+        <h3><span data-lang-it>PMI con dati sensibili</span><span data-lang-en>SMEs with sensitive data</span></h3>
+        <p><span data-lang-it>Preventivi, bilanci, dati di clienti e fornitori: l'AI lavora dove i tuoi dati stanno già, senza mandarli fuori.</span><span data-lang-en>Quotes, accounts, customer and supplier data: the AI works where your data already lives, without sending it out.</span></p>
       </div>
       <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
-        <h3><span data-lang-it>Profilo hardware e modelli ottimali</span><span data-lang-en>Hardware profiling &amp; model matching</span></h3>
-        <p><span data-lang-it>Analizza le prestazioni del tuo hardware e individua automaticamente i modelli locali migliori per la tua configurazione.</span><span data-lang-en>Profiles your hardware performance and automatically picks the best local models for your setup.</span></p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="20" r="2"/><path d="M7 6.5 10 10M17 6.5 14 10M12 15v3"/></svg></div>
-        <h3><span data-lang-it>Sistema multi-agente</span><span data-lang-en>Multi-agent system</span></h3>
-        <p><span data-lang-it>Agent orchestrator, skill e funzioni avanzate per coordinare più agenti su compiti complessi, sempre con supervisione umana.</span><span data-lang-en>Agent orchestrator, skills and advanced features to coordinate multiple agents on complex tasks, always with human oversight.</span></p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M10.5 4h3M9 13h.01M15 13h.01M5 14H3M21 14h-2"/></svg></div>
-        <h3><span data-lang-it>Agente Pod</span><span data-lang-en>Pod agent</span></h3>
-        <p><span data-lang-it>Lancia un agente autonomo direttamente dalla UI e attivalo su task locali, entro le barriere e la supervisione che configuri.</span><span data-lang-en>Launch an autonomous agent right from the UI and run it on local tasks, within the guardrails and oversight you configure.</span></p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></div>
-        <h3><span data-lang-it>Runtime multipli</span><span data-lang-en>Multiple runtimes</span></h3>
-        <p><span data-lang-it>OLLAMA, ONNX e altri runtime supportati, con selezione automatica di quello più adatto a ogni modello.</span><span data-lang-en>OLLAMA, ONNX and more runtimes supported, with automatic selection of the best one for each model.</span></p>
-      </div>
-      <div class="card">
-        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-        <h3><span data-lang-it>Estensioni & container</span><span data-lang-en>Extensions & containers</span></h3>
-        <p><span data-lang-it>Gestisci estensioni e contenitori per aggiungere funzioni avanzate ed estendere il runtime.</span><span data-lang-en>Manage extensions and containers to add advanced capabilities and extend the runtime.</span></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- architecture -->
-<section class="block" id="architecture">
-  <div class="wrap">
-    <div class="sec-eyebrow"><span data-lang-it>Architettura</span><span data-lang-en>Architecture</span></div>
-    <h2 class="sec-title"><span data-lang-it>Un runtime, tre layer che si parlano</span><span data-lang-en>One runtime, three layers working together</span></h2>
-    <p class="sec-sub"><span data-lang-it>Il runtime fa da fondamenta e ospita modelli, agenti e applicazioni, con orchestrazione e osservabilità trasversali.</span><span data-lang-en>The runtime is the foundation hosting models, agents and applications, with cross-cutting orchestration and observability.</span></p>
-
-    <div class="arch">
-      <div class="layer">
-        <span class="ltag">Layer 03 · <span data-lang-it>Applicazioni</span><span data-lang-en>Applications</span></span>
-        <h4><span data-lang-it>Applicazioni & interfacce</span><span data-lang-en>Applications & interfaces</span></h4>
-        <p><span data-lang-it>App, API e UI che consumano gli agenti del runtime.</span><span data-lang-en>Apps, APIs and UIs consuming the runtime's agents.</span></p>
-        <div class="chips"><span class="chip">REST / WS API</span><span class="chip">UI</span><span class="chip">workflows</span><span class="chip">plugins</span></div>
-      </div>
-      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
-      <div class="layer">
-        <span class="ltag">Layer 02 · <span data-lang-it>Agenti</span><span data-lang-en>Agents</span></span>
-        <h4><span data-lang-it>Agenti & orchestrazione</span><span data-lang-en>Agents & orchestration</span></h4>
-        <p><span data-lang-it>Agenti con strumenti, memoria e obiettivi, coordinati da un orchestrator con skill e funzioni avanzate.</span><span data-lang-en>Agents with tools, memory and goals, coordinated by an orchestrator with skills and advanced features.</span></p>
-        <div class="chips"><span class="chip">orchestrator</span><span class="chip">tools</span><span class="chip">skills</span><span class="chip">memory</span><span class="chip">planning</span><span class="chip">messaging</span></div>
-      </div>
-      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
-      <div class="layer">
-        <span class="ltag">Layer 01 · <span data-lang-it>Modelli</span><span data-lang-en>Models</span></span>
-        <h4><span data-lang-it>Modelli & runtime</span><span data-lang-en>Models & runtimes</span></h4>
-        <p><span data-lang-it>Hosting e serving dei modelli su runtime multipli (OLLAMA, ONNX…) con selezione automatica e risorse condivise.</span><span data-lang-en>Model hosting and serving across multiple runtimes (OLLAMA, ONNX…) with automatic selection and shared resources.</span></p>
-        <div class="chips"><span class="chip">LLM</span><span class="chip">OLLAMA</span><span class="chip">ONNX</span><span class="chip">routing</span><span class="chip">embeddings</span><span class="chip">auto-select</span></div>
-      </div>
-      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
-      <div class="layer core">
-        <span class="ltag">Core · Runtime</span>
-        <h4>Podz.AI Runtime</h4>
-        <p><span data-lang-it>Fondamenta agentiche: ciclo di vita, stato, sicurezza, osservabilità e, quando serve, esecuzione come Pod autonomo.</span><span data-lang-en>Agentic foundation: lifecycle, state, security, observability and, when needed, execution as an autonomous Pod.</span></p>
-        <div class="chips"><span class="chip">lifecycle</span><span class="chip">state</span><span class="chip">security</span><span class="chip">observability</span><span class="chip">scheduler</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- pod -->
-<section class="block" id="pod">
-  <div class="wrap">
-    <div class="sec-eyebrow"><span data-lang-it>Agente Pod</span><span data-lang-en>Pod Agent</span></div>
-    <h2 class="sec-title"><span data-lang-it>Lancialo come agente autonomo</span><span data-lang-en>Launch it as an autonomous agent</span></h2>
-    <p class="sec-sub"><span data-lang-it>Oltre a essere un runtime, Podz.AI può lanciare un Pod: un agente autonomo che avvii con un clic dalla UI — niente console — su task locali. Percepisce, pianifica e agisce in autonomia, sempre entro i limiti che definisci.</span><span data-lang-en>Beyond being a runtime, Podz.AI can launch a Pod: an autonomous agent you start with one click from the UI — no console — on local tasks. It perceives, plans and acts on its own, always within the boundaries you set.</span></p>
-
-    <div class="pod-grid">
-      <div class="pod-ui" aria-label="Podz Pod launcher">
-        <div class="pod-ui-head">
-          <span class="avatar"><img src="assets/podz-symbol-static.svg" alt="" /></span>
-          <div>
-            <div class="who">Podz · Pod</div>
-            <div class="stat"><span data-lang-it>pronto · locale</span><span data-lang-en>ready · local</span></div>
-          </div>
-        </div>
-        <div class="pod-ui-body">
-          <div class="pod-field">
-            <span class="lbl"><span data-lang-it>Obiettivo</span><span data-lang-en>Goal</span></span>
-            <span class="val"><span data-lang-it>Monitora la cartella contratti e segnala le scadenze.</span><span data-lang-en>Watch the contracts folder and flag upcoming deadlines.</span></span>
-          </div>
-          <span class="btn btn-primary pod-run"><span aria-hidden="true">▶</span> <span data-lang-it>Avvia Pod</span><span data-lang-en>Run Pod</span></span>
-          <ul class="pod-steps">
-            <li><span class="mk">✓</span> <span data-lang-it>percepisce</span><span data-lang-en>perceives</span></li>
-            <li><span class="mk">✓</span> <span data-lang-it>pianifica</span><span data-lang-en>plans</span></li>
-            <li><span class="mk">⟳</span> <span data-lang-it>agisce in autonomia</span><span data-lang-en>acts autonomously</span></li>
-          </ul>
-        </div>
-        <div class="pod-ui-foot"><span data-lang-it>Tutto dalla UI — nessun comando da console.</span><span data-lang-en>All from the UI — no console commands.</span></div>
-      </div>
-      <div class="pod-points">
-        <div class="pod-point"><div class="n">1</div><div>
-          <h4><span data-lang-it>Avvii con un clic</span><span data-lang-en>One-click launch</span></h4>
-          <p><span data-lang-it>Apri il pannello, indica l'obiettivo e avvia: il Pod lo persegue in autonomia, senza scrivere comandi.</span><span data-lang-en>Open the panel, set the goal and start: the Pod pursues it autonomously, without typing any command.</span></p>
-        </div></div>
-        <div class="pod-point"><div class="n">2</div><div>
-          <h4><span data-lang-it>Agente di nuova generazione</span><span data-lang-en>Next-generation agent</span></h4>
-          <p><span data-lang-it>Strumenti, memoria persistente e iniziativa propria, entro le regole e la supervisione che configuri.</span><span data-lang-en>Tools, persistent memory and self-initiative, within the rules and oversight you configure.</span></p>
-        </div></div>
-        <div class="pod-point"><div class="n">3</div><div>
-          <h4><span data-lang-it>Stesso runtime, due modalità</span><span data-lang-en>Same runtime, two modes</span></h4>
-          <p><span data-lang-it>Host condiviso per app e agenti, oppure Pod singolo autonomo: nessun codice da riscrivere.</span><span data-lang-en>Shared host for apps and agents, or a single autonomous Pod: no code to rewrite.</span></p>
-        </div></div>
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-3V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M9 7V5h6v2"/><path d="M2 13h20"/></svg></div>
+        <h3><span data-lang-it>Consulenti</span><span data-lang-en>Consultants</span></h3>
+        <p><span data-lang-it>Ricerche con fonti citate e sintesi pronte da consegnare, con i dati dei clienti sempre sotto controllo.</span><span data-lang-en>Research with cited sources and summaries ready to deliver, with client data always under control.</span></p>
       </div>
     </div>
   </div>
@@ -613,9 +576,9 @@
       <div class="rel">
         <div class="meta"><span class="ver">Podz.AI v1.0.18</span><span class="tag tag-latest"><span data-lang-it>ultima</span><span data-lang-en>latest</span></span><span class="date">2026-06-23</span></div>
         <ul>
-          <li><span data-lang-it>Runtime IA multi-agente local-first con framework <strong>DigiSense</strong> ed edge-AI integrata.</span><span data-lang-en>Local-first, multi-agent AI runtime with the <strong>DigiSense</strong> framework and built-in edge-AI.</span></li>
+          <li><span data-lang-it>Un'unica applicazione da installare: la tua workstation AI personale, con Motore Locale e Motore Cloud.</span><span data-lang-en>A single application to install: your personal AI workstation, with Local and Cloud engines.</span></li>
           <li><span data-lang-it>Pacchetti per Windows x64, macOS (Apple Silicon / Intel), Linux x64 / ARM64.</span><span data-lang-en>Packages for Windows x64, macOS (Apple Silicon / Intel), Linux x64 / ARM64.</span></li>
-          <li><span data-lang-it>macOS firmato e notarizzato; installer Windows firmato Authenticode. Build self-contained, richiede <strong>Docker</strong>.</span><span data-lang-en>macOS signed and notarized; Windows installer Authenticode signed. Self-contained build, requires <strong>Docker</strong>.</span></li>
+          <li><span data-lang-it>Build firmate: macOS firmato e notarizzato, installer Windows firmato Authenticode. Al primo avvio parte la prova gratuita di 30 giorni.</span><span data-lang-en>Signed builds: macOS signed and notarized, Windows installer Authenticode signed. The 30-day free trial starts on first launch.</span></li>
         </ul>
       </div>
       <div class="rel">
@@ -636,28 +599,32 @@
   <div class="wrap">
     <div class="sec-eyebrow">FAQ</div>
     <h2 class="sec-title"><span data-lang-it>Domande frequenti</span><span data-lang-en>Frequently asked questions</span></h2>
-    <p class="sec-sub"><span data-lang-it>Le risposte alle domande più comuni su IA, privacy e dati riservati.</span><span data-lang-en>Answers to the most common questions about AI, privacy and confidential data.</span></p>
+    <p class="sec-sub"><span data-lang-it>Le risposte alle domande più comuni su Podz, privacy e dati riservati.</span><span data-lang-en>Answers to the most common questions about Podz, privacy and confidential data.</span></p>
 
     <div class="faq">
       <details>
-        <summary><span data-lang-it>Posso usare l'IA con i dati dei miei clienti?</span><span data-lang-en>Can I use AI with my clients' data?</span></summary>
-        <p><span data-lang-it>Sì, se restano sotto il tuo controllo. Con Podz.AI l'elaborazione avviene in locale; quando serve un modello in cloud, i dati personali vengono anonimizzati prima. Riduci l'esposizione e tuteli il segreto professionale.</span><span data-lang-en>Yes, as long as it stays under your control. With Podz.AI processing happens locally; when a cloud model is needed, personal data is anonymized first. You reduce exposure and protect professional secrecy.</span></p>
+        <summary><span data-lang-it>Serve una connessione a internet?</span><span data-lang-en>Do I need an internet connection?</span></summary>
+        <p><span data-lang-it>Solo per il Motore Cloud e per la ricerca sul web. Con il Motore Locale, Podz funziona anche offline: modelli, conversazioni e documenti stanno sul tuo computer.</span><span data-lang-en>Only for the Cloud engine and web research. With the Local engine, Podz also works offline: models, conversations and documents live on your computer.</span></p>
       </details>
       <details>
-        <summary><span data-lang-it>Podz.AI è conforme al GDPR e all'AI Act?</span><span data-lang-en>Is Podz.AI GDPR and AI Act compliant?</span></summary>
-        <p><span data-lang-it>Podz.AI è progettato attorno ai principi di privacy by design, data minimization e sovranità del dato, con supervisione umana e tracciabilità. La conformità dipende dal tuo utilizzo: Podz.AI ti fornisce gli strumenti per applicarli, ma non sostituisce una valutazione legale.</span><span data-lang-en>Podz.AI is designed around privacy-by-design, data minimization and data-sovereignty principles, with human oversight and traceability. Compliance depends on your use: Podz.AI gives you the tools to apply these principles but does not replace a legal assessment.</span></p>
+        <summary><span data-lang-it>Che computer serve?</span><span data-lang-en>What computer do I need?</span></summary>
+        <p><span data-lang-it>Per il Motore Locale serve un computer adeguato: un Mac con chip Apple Silicon o un PC recente. Se usi soprattutto il Motore Cloud, basta un normale computer da ufficio.</span><span data-lang-en>For the Local engine you need an adequate computer: a Mac with Apple Silicon or a recent PC. If you mostly use the Cloud engine, a normal office computer is enough.</span></p>
       </details>
       <details>
-        <summary><span data-lang-it>I dati restano in Italia e nell'UE?</span><span data-lang-en>Does my data stay in Italy and the EU?</span></summary>
-        <p><span data-lang-it>Sì: i dati riservati restano sulla tua macchina o sul tuo server. Niente trasferimenti automatici verso cloud statunitensi, evitando le incertezze legate a Schrems II e al CLOUD Act.</span><span data-lang-en>Yes: confidential data stays on your machine or server. No automatic transfers to US clouds, avoiding the uncertainty around Schrems II and the CLOUD Act.</span></p>
+        <summary><span data-lang-it>Posso usare la mia chiave Claude o OpenAI?</span><span data-lang-en>Can I use my own Claude or OpenAI key?</span></summary>
+        <p><span data-lang-it>Sì: il Motore Cloud funziona con la tua chiave Anthropic (Claude) oppure OpenAI. I costi del cloud dipendono dal tuo contratto con quel fornitore: Podz non rivende il servizio e non fa da intermediario sui tuoi dati.</span><span data-lang-en>Yes: the Cloud engine works with your own Anthropic (Claude) or OpenAI key. Cloud costs depend on your agreement with that provider: Podz doesn't resell the service and doesn't sit between you and your data.</span></p>
       </details>
       <details>
-        <summary><span data-lang-it>È un'alternativa privata a ChatGPT per studi e aziende?</span><span data-lang-en>Is it a private alternative to ChatGPT for firms and companies?</span></summary>
-        <p><span data-lang-it>Sì: usi modelli potenti, locali e in cloud, senza incollare dati riservati in chatbot esterni. Tu decidi cosa resta in locale e cosa, già anonimizzato, può uscire.</span><span data-lang-en>Yes: you use powerful models, both local and cloud, without pasting confidential data into external chatbots. You decide what stays local and what, already anonymized, can leave.</span></p>
+        <summary><span data-lang-it>I miei documenti vengono usati per addestrare modelli?</span><span data-lang-en>Are my documents used to train models?</span></summary>
+        <p><span data-lang-it>No. I tuoi documenti e le tue conversazioni restano sul tuo computer e non vengono usati per addestrare alcun modello.</span><span data-lang-en>No. Your documents and conversations stay on your computer and are not used to train any model.</span></p>
       </details>
       <details>
-        <summary><span data-lang-it>Devo informare i clienti se uso l'IA?</span><span data-lang-en>Do I have to inform clients if I use AI?</span></summary>
-        <p><span data-lang-it>La normativa italiana (L. 132/2025) chiede ai professionisti di informare i clienti sull'uso dell'IA. Lavorando in locale e con dati anonimizzati comunichi un uso responsabile e sotto controllo. Per gli obblighi specifici fai riferimento ai modelli del tuo ordine professionale.</span><span data-lang-en>Italian law (132/2025) requires professionals to inform clients about AI use. Working locally and with anonymized data shows responsible, controlled use. For specific obligations, refer to your professional body's templates.</span></p>
+        <summary><span data-lang-it>Posso usare l'AI con i dati dei miei clienti?</span><span data-lang-en>Can I use AI with my clients' data?</span></summary>
+        <p><span data-lang-it>Sì, perché restano sotto il tuo controllo: l'elaborazione avviene sul tuo computer e, se un passaggio richiede il cloud, i dati personali possono essere mascherati prima dell'invio. È una protezione forte — non una garanzia legale: la valutazione di conformità resta tua.</span><span data-lang-en>Yes, because it stays under your control: processing happens on your computer and, if a step needs the cloud, personal data can be masked before it is sent. Strong protection — not a legal guarantee: the compliance assessment remains yours.</span></p>
+      </details>
+      <details>
+        <summary><span data-lang-it>Devo informare i clienti se uso l'AI?</span><span data-lang-en>Do I have to inform clients if I use AI?</span></summary>
+        <p><span data-lang-it>La normativa italiana (L. 132/2025) chiede ai professionisti di informare i clienti sull'uso dell'AI. Lavorando sul tuo computer e con dati anonimizzati comunichi un uso responsabile e sotto controllo. Per gli obblighi specifici fai riferimento al tuo ordine professionale.</span><span data-lang-en>Italian law (132/2025) requires professionals to inform clients about AI use. Working on your own computer, with anonymized data, shows responsible, controlled use. For specific obligations, refer to your professional body.</span></p>
       </details>
     </div>
   </div>
@@ -667,8 +634,8 @@
 <section class="block">
   <div class="wrap">
     <div class="band">
-      <h2><span data-lang-it>Porta l'IA in azienda, non i tuoi dati fuori</span><span data-lang-en>Bring AI into your business, not your data out</span></h2>
-      <p><span data-lang-it>Installa Podz.AI su Windows, macOS o Linux e inizia a usare modelli e agenti mantenendo i dati sotto il tuo controllo.</span><span data-lang-en>Install Podz.AI on Windows, macOS or Linux and start using models and agents while keeping your data under your control.</span></p>
+      <h2><span data-lang-it>Porta l'AI nel tuo lavoro. I tuoi dati restano da te.</span><span data-lang-en>Bring AI into your work. Your data stays with you.</span></h2>
+      <p><span data-lang-it>Installa Podz.AI su Windows, macOS o Linux: al primo avvio parte la prova gratuita di 30 giorni, con tutte le funzionalità.</span><span data-lang-en>Install Podz.AI on Windows, macOS or Linux: on first launch the 30-day free trial starts, with every feature.</span></p>
       <div class="cta-row">
         <a class="btn btn-primary btn-lg" href="download.html"><span data-lang-it>Scarica Podz.AI</span><span data-lang-en>Download Podz.AI</span></a>
         <a class="btn btn-ghost btn-lg" href="mailto:info@ggtechnologies.sm?subject=Podz.AI%20-%20richiesta%20informazioni"><span data-lang-it>Parla con noi</span><span data-lang-en>Talk to us</span></a>
@@ -707,7 +674,11 @@
       "url": "https://g-g-technologies-srl.github.io/digisense-releases/",
       "downloadUrl": "https://g-g-technologies-srl.github.io/digisense-releases/download.html",
       "image": "https://g-g-technologies-srl.github.io/digisense-releases/assets/og-card.png",
-      "description": "Intelligenza artificiale local-first: esegue modelli, agenti e applicazioni sui dati riservati senza inviarli al cloud. Privacy by design, anonimizzazione dei documenti e sovranità del dato, pensato per GDPR e AI Act.",
+      "description": "Podz è la workstation di intelligenza artificiale personale: un'unica applicazione sul tuo computer che lavora con i tuoi documenti senza mandare i dati a nessuno. Specialisti da installare con un clic (Assistente Legale, Ricercatore Web, Screening CV) e dati personali mascherati prima di ogni uso del cloud.",
+      "offers": [
+        { "@type": "Offer", "name": "Prova gratuita 30 giorni", "price": "0", "priceCurrency": "EUR", "description": "Al primo avvio parte una prova gratuita di 30 giorni con tutte le funzionalità, senza registrazione." },
+        { "@type": "Offer", "name": "Licenza completa", "price": "2400", "priceCurrency": "EUR", "description": "Una tantum, per postazione: uso perpetuo della versione acquistata, con 12 mesi di aggiornamenti inclusi. IVA esclusa." }
+      ],
       "publisher": { "@id": "https://g-g-technologies-srl.github.io/digisense-releases/#org" }
     },
     {
@@ -715,28 +686,33 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Posso usare l'IA con i dati dei miei clienti?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sì, se restano sotto il tuo controllo. Con Podz.AI l'elaborazione avviene in locale; quando serve un modello in cloud, i dati personali vengono anonimizzati prima. Riduci l'esposizione e tuteli il segreto professionale." }
+          "name": "Serve una connessione a internet?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Solo per il Motore Cloud e per la ricerca sul web. Con il Motore Locale, Podz funziona anche offline: modelli, conversazioni e documenti stanno sul tuo computer." }
         },
         {
           "@type": "Question",
-          "name": "Podz.AI è conforme al GDPR e all'AI Act?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Podz.AI è progettato attorno ai principi di privacy by design, data minimization e sovranità del dato, con supervisione umana e tracciabilità. La conformità dipende dal tuo utilizzo: Podz.AI ti fornisce gli strumenti per applicarli, ma non sostituisce una valutazione legale." }
+          "name": "Che computer serve?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Per il Motore Locale serve un computer adeguato: un Mac con chip Apple Silicon o un PC recente. Se usi soprattutto il Motore Cloud, basta un normale computer da ufficio." }
         },
         {
           "@type": "Question",
-          "name": "I dati restano in Italia e nell'UE?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sì: i dati riservati restano sulla tua macchina o sul tuo server. Niente trasferimenti automatici verso cloud statunitensi, evitando le incertezze legate a Schrems II e al CLOUD Act." }
+          "name": "Posso usare la mia chiave Claude o OpenAI?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sì: il Motore Cloud funziona con la tua chiave Anthropic (Claude) oppure OpenAI. I costi del cloud dipendono dal tuo contratto con quel fornitore: Podz non rivende il servizio e non fa da intermediario sui tuoi dati." }
         },
         {
           "@type": "Question",
-          "name": "È un'alternativa privata a ChatGPT per studi e aziende?",
-          "acceptedAnswer": { "@type": "Answer", "text": "Sì: usi modelli potenti, locali e in cloud, senza incollare dati riservati in chatbot esterni. Tu decidi cosa resta in locale e cosa, già anonimizzato, può uscire." }
+          "name": "I miei documenti vengono usati per addestrare modelli?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. I tuoi documenti e le tue conversazioni restano sul tuo computer e non vengono usati per addestrare alcun modello." }
         },
         {
           "@type": "Question",
-          "name": "Devo informare i clienti se uso l'IA?",
-          "acceptedAnswer": { "@type": "Answer", "text": "La normativa italiana (L. 132/2025) chiede ai professionisti di informare i clienti sull'uso dell'IA. Lavorando in locale e con dati anonimizzati comunichi un uso responsabile e sotto controllo. Per gli obblighi specifici fai riferimento ai modelli del tuo ordine professionale." }
+          "name": "Posso usare l'AI con i dati dei miei clienti?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sì, perché restano sotto il tuo controllo: l'elaborazione avviene sul tuo computer e, se un passaggio richiede il cloud, i dati personali possono essere mascherati prima dell'invio. È una protezione forte — non una garanzia legale: la valutazione di conformità resta tua." }
+        },
+        {
+          "@type": "Question",
+          "name": "Devo informare i clienti se uso l'AI?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La normativa italiana (L. 132/2025) chiede ai professionisti di informare i clienti sull'uso dell'AI. Lavorando sul tuo computer e con dati anonimizzati comunichi un uso responsabile e sotto controllo. Per gli obblighi specifici fai riferimento al tuo ordine professionale." }
         }
       ]
     }
@@ -751,14 +727,14 @@
       <div class="foot-brand">
         <img class="brand-logo theme-light-only" src="assets/podz-logo-light.svg" alt="Podz.AI" />
         <img class="brand-logo theme-dark-only" src="assets/podz-logo-dark.svg" alt="Podz.AI" />
-        <p><span data-lang-it>La tua IA local-first. Privacy by design e sovranità del dato. Software europeo, dal progetto DigiSense.</span><span data-lang-en>Your local-first AI. Privacy by design and data sovereignty. European software, from the DigiSense project.</span></p>
+        <p><span data-lang-it>La tua workstation AI personale. I tuoi documenti restano sul tuo computer. Software europeo, dal progetto DigiSense.</span><span data-lang-en>Your personal AI workstation. Your documents stay on your computer. European software, from the DigiSense project.</span></p>
       </div>
       <div class="foot-cols">
         <div class="foot-col">
           <h5><span data-lang-it>Prodotto</span><span data-lang-en>Product</span></h5>
-          <a href="#overview"><span data-lang-it>Funzionalità</span><span data-lang-en>Features</span></a>
-          <a href="#compliance"><span data-lang-it>Conformità</span><span data-lang-en>Compliance</span></a>
-          <a href="#pod"><span data-lang-it>Agente Pod</span><span data-lang-en>Pod Agent</span></a>
+          <a href="#how"><span data-lang-it>Come funziona</span><span data-lang-en>How it works</span></a>
+          <a href="#specialists"><span data-lang-it>Specialisti</span><span data-lang-en>Specialists</span></a>
+          <a href="privacy.html">Privacy</a>
           <a href="pricing.html"><span data-lang-it>Prezzi</span><span data-lang-en>Pricing</span></a>
           <a href="download.html">Download</a>
         </div>
@@ -836,38 +812,36 @@
   // -----------------------------------------------------------------------------------------------------------------
   var DEMO = [
     { sector:'<span data-lang-it>Studio legale</span><span data-lang-en>Law firm</span>',
-      user:'<span data-lang-it>Estrai le clausole chiave da questi contratti con dati dei clienti.</span><span data-lang-en>Extract the key clauses from these contracts containing client data.</span>',
-      bot:'<span data-lang-it>Fatto. Elaborazione in locale; quando ho interpellato un LLM in cloud, <strong>nomi e identificativi erano già anonimizzati</strong> — non sono mai usciti.</span><span data-lang-en>Done. Processed locally; when I queried a cloud LLM, <strong>names and identifiers were already anonymized</strong> — they never left.</span>' },
-    { sector:'<span data-lang-it>Studio commercialista</span><span data-lang-en>Accounting firm</span>',
-      user:'<span data-lang-it>Riassumi questi bilanci e segnala le anomalie: sono dati fiscali dei clienti.</span><span data-lang-en>Summarize these financial statements and flag anomalies — it\'s clients\' tax data.</span>',
-      bot:'<span data-lang-it>Pronto. Analisi in locale; i dati fiscali e i nominativi sono stati <strong>anonimizzati prima di qualsiasi chiamata</strong> in cloud.</span><span data-lang-en>Ready. Analyzed locally; tax data and names were <strong>anonymized before any cloud call</strong>.</span>' },
-    { sector:'<span data-lang-it>PMI · Contratti</span><span data-lang-en>SME · Contracts</span>',
-      user:'<span data-lang-it>Confronta questi contratti con i fornitori e segnala le clausole a rischio.</span><span data-lang-en>Compare these supplier contracts and flag the risky clauses.</span>',
-      bot:'<span data-lang-it>Confronto eseguito in locale. Importi e ragioni sociali <strong>mascherati prima</strong> di consultare il modello in cloud.</span><span data-lang-en>Compared locally. Amounts and company names <strong>masked before</strong> consulting the cloud model.</span>' },
-    { sector:'<span data-lang-it>Ufficio brevetti · IP</span><span data-lang-en>Patent office · IP</span>',
-      user:'<span data-lang-it>Analizza questa documentazione tecnica brevettuale, è riservata.</span><span data-lang-en>Analyze this patent technical documentation — it\'s confidential.</span>',
-      bot:'<span data-lang-it>Analisi interamente on-device: <strong>l\'invenzione non lascia la rete aziendale</strong>. Nessun dato inviato in cloud.</span><span data-lang-en>Fully on-device analysis: <strong>the invention never leaves your network</strong>. No data sent to the cloud.</span>' },
-    { sector:'<span data-lang-it>Ufficio legale</span><span data-lang-en>In-house legal</span>',
-      user:'<span data-lang-it>Rivedi questo NDA e verifica le clausole di riservatezza.</span><span data-lang-en>Review this NDA and check the confidentiality clauses.</span>',
-      bot:'<span data-lang-it>Revisione in locale; controparti e termini sensibili <strong>anonimizzati prima</strong> del supporto cloud.</span><span data-lang-en>Reviewed locally; counterparties and sensitive terms <strong>anonymized before</strong> any cloud assistance.</span>' },
-    { sector:'<span data-lang-it>Ufficio produzione</span><span data-lang-en>Production</span>',
-      user:'<span data-lang-it>Estrai i parametri di processo da queste distinte riservate.</span><span data-lang-en>Extract the process parameters from these confidential bills of materials.</span>',
-      bot:'<span data-lang-it>Estrazione on-device: <strong>i segreti industriali restano sui tuoi server</strong>.</span><span data-lang-en>On-device extraction: <strong>trade secrets stay on your servers</strong>.</span>' },
-    { sector:'<span data-lang-it>HR · Dati dipendenti</span><span data-lang-en>HR · Employee data</span>',
-      user:'<span data-lang-it>Riassumi questi CV e le valutazioni dei dipendenti.</span><span data-lang-en>Summarize these CVs and employee reviews.</span>',
-      bot:'<span data-lang-it>Sintesi in locale; i dati personali dei dipendenti sono stati <strong>anonimizzati prima di ogni passaggio</strong> in cloud.</span><span data-lang-en>Summarized locally; employees\' personal data was <strong>anonymized before any cloud step</strong>.</span>' }
+      user:'<span data-lang-it>Leggi questo contratto e segnalami le clausole a rischio.</span><span data-lang-en>Read this contract and flag the risky clauses.</span>',
+      bot:'<span data-lang-it>Fatto: tre clausole da rivedere, spiegate punto per punto. Prima di usare il Motore Cloud ho <strong>mascherato nomi e dati personali</strong>: non hanno mai lasciato il tuo computer.</span><span data-lang-en>Done: three clauses to review, each explained. Before using the Cloud engine I <strong>masked names and personal data</strong> — they never left your computer.</span>',
+      consulted:'<span data-lang-it>Podz ha coinvolto: <b>Assistente Legale</b></span><span data-lang-en>Podz brought in: <b>Legal Assistant</b></span>',
+      engine:'<span data-lang-it>Motore Cloud · dati mascherati</span><span data-lang-en>Cloud engine · data masked</span>' },
+    { sector:'<span data-lang-it>Ufficio HR</span><span data-lang-en>HR office</span>',
+      user:'<span data-lang-it>Valuta queste candidature per la posizione di contabile.</span><span data-lang-en>Assess these applications for the accountant role.</span>',
+      bot:'<span data-lang-it>Valutazione alla cieca completata: ogni CV è stato <strong>anonimizzato prima dell\'analisi</strong>, per ridurre i bias. Ecco i cinque profili più adatti — la decisione resta a te.</span><span data-lang-en>Blind screening done: every CV was <strong>anonymized before the review</strong>, to reduce bias. Here are the five strongest profiles — the decision stays with you.</span>',
+      consulted:'<span data-lang-it>Podz ha coinvolto: <b>Screening CV</b></span><span data-lang-en>Podz brought in: <b>CV Screening</b></span>',
+      engine:'<span data-lang-it>Motore Locale · privato</span><span data-lang-en>Local engine · private</span>' },
+    { sector:'<span data-lang-it>Consulente</span><span data-lang-en>Consultant</span>',
+      user:'<span data-lang-it>Cerca le ultime novità normative sui bonus edilizi e preparami una sintesi.</span><span data-lang-en>Find the latest regulatory news on building incentives and prepare a summary.</span>',
+      bot:'<span data-lang-it>Ecco la sintesi, con <strong>le fonti citate</strong> punto per punto. Ho letto le pagine più rilevanti e scartato quelle non attendibili.</span><span data-lang-en>Here is the summary, with <strong>sources cited</strong> point by point. I read the most relevant pages and discarded the unreliable ones.</span>',
+      consulted:'<span data-lang-it>Podz ha coinvolto: <b>Ricercatore Web</b></span><span data-lang-en>Podz brought in: <b>Web Researcher</b></span>',
+      engine:'<span data-lang-it>Motore Locale · privato</span><span data-lang-en>Local engine · private</span>' }
   ];
   (function demoRotate(){
-    var u = document.getElementById('demo-user'), b = document.getElementById('demo-assistant'), s = document.getElementById('demo-sector');
-    if(!u || !b || !s) return;
+    var u = document.getElementById('demo-user'), b = document.getElementById('demo-assistant'),
+        s = document.getElementById('demo-sector'), c = document.getElementById('demo-consulted'),
+        e = document.getElementById('demo-engine');
+    if(!u || !b || !s || !c || !e) return;
     if(matchMedia('(prefers-reduced-motion: reduce)').matches) return; // respect user preference: no auto-rotation
     var i = 0;
     setInterval(function(){
       i = (i + 1) % DEMO.length;
-      [u, b, s].forEach(function(el){ el.classList.add('demo-fading'); });
+      [u, b, s, c, e].forEach(function(el){ el.classList.add('demo-fading'); });
       setTimeout(function(){
         u.innerHTML = DEMO[i].user; b.innerHTML = DEMO[i].bot; s.innerHTML = DEMO[i].sector;
-        [u, b, s].forEach(function(el){ el.classList.remove('demo-fading'); });
+        c.innerHTML = '<span aria-hidden="true">↳</span><span>' + DEMO[i].consulted + '</span>';
+        e.innerHTML = DEMO[i].engine;
+        [u, b, s, c, e].forEach(function(el){ el.classList.remove('demo-fading'); });
       }, 360);
     }, 5200);
   })();
@@ -880,8 +854,8 @@
     var u = encodeURIComponent(url);
     var en = document.documentElement.getAttribute('lang') === 'en';
     var t = encodeURIComponent(en
-      ? 'Podz.AI — your local-first AI: use AI on confidential data without letting it leave.'
-      : 'Podz.AI — la tua IA local-first: usa l\'IA sui dati riservati senza farli uscire.');
+      ? 'Podz.AI — your personal AI workstation: one app on your computer, your data stays with you.'
+      : 'Podz.AI — la tua workstation AI personale: un\'unica app sul tuo computer, i tuoi dati restano da te.');
     function set(id, href){ var el = document.getElementById(id); if(el) el.setAttribute('href', href); }
     set('sh-li', 'https://www.linkedin.com/sharing/share-offsite/?url=' + u);
     set('sh-x',  'https://twitter.com/intent/tweet?text=' + t + '&url=' + u);
