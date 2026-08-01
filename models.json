@@ -1,0 +1,19 @@
+{
+  "ver": 1,
+  "generatedAt": "2026-07-30T17:30:00Z",
+  "models": {
+    "rizzo-pii-0.3B": [
+      {
+        "version": "v1.2.0-int8",
+        "sourceUri": "https://github.com/G-G-Technologies-Srl/digisense-releases/releases/download/model-rizzo-pii-0.3B-v1.2.0-int8",
+        "files": ["model_quantized.onnx", "tokenizer.json", "config.json"],
+        "fileSha256": {
+          "model_quantized.onnx": "f406a2fbe33d9c9b4634eed9850196dd16c882802d5874ddd01cdfb205cf8e6f",
+          "tokenizer.json": "a0ab5772a8c5450f45a66c95985d6df2205bf09449ba7ff7bb46de034eaa118a",
+          "config.json": "e8ffa087a41e627638267772d7935a3cd23ee4872da4fc40dbac478ccdfcaab1"
+        },
+        "notes": "Primo export pubblicato (revision upstream a7f1160d, 2026-07-29)."
+      }
+    ]
+  }
+}
