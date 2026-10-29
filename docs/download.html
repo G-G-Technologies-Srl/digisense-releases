@@ -297,6 +297,7 @@
 
   var PLATFORMS = [
     { key:'windows-x64', os:'windows', arch:'x64',   name:'Windows x64',          sub:'Windows 10 / 11' },
+    { key:'windows-arm64', os:'windows', arch:'arm64', name:'Windows ARM64',      sub:'Windows 11 · ARM' },
     { key:'mac-arm64',   os:'mac',     arch:'arm64', name:'macOS · Apple Silicon', sub:'M1 / M2 / M3 …' },
     { key:'mac-x64',     os:'mac',     arch:'x64',   name:'macOS · Intel',         sub:'Intel Mac' },
     { key:'linux-x64',   os:'linux',   arch:'x64',   name:'Linux x64',             sub:'.deb · amd64' },
@@ -305,18 +306,20 @@
 
   // local fallback used when the GitHub API is unreachable (offline / blocked / preview).
   // replaced by live API data as soon as the request succeeds.
-  var FB_VER = 'v1.0.18';
-  var FB_DATE = '2026-06-23T06:08:00Z';
+  var FB_VER = 'v2.0.0';
+  var FB_DATE = '2026-10-29T09:02:12Z';
   var FB_BASE = 'https://github.com/' + REPO + '/releases/download/' + FB_VER + '/';
   var FALLBACK = {
     tag_name: FB_VER, published_at: FB_DATE, _fallback: true,
     assets: [
-      { name:'podz-ai-1.0.18-win-x64-setup.exe', browser_download_url: FB_BASE + 'podz-ai-1.0.18-win-x64-setup.exe' },
-      { name:'podz-ai-1.0.18-win-x64.zip',       browser_download_url: FB_BASE + 'podz-ai-1.0.18-win-x64.zip' },
-      { name:'podz-ai-1.0.18-osx-arm64.pkg',     browser_download_url: FB_BASE + 'podz-ai-1.0.18-osx-arm64.pkg' },
-      { name:'podz-ai-1.0.18-osx-x64.pkg',       browser_download_url: FB_BASE + 'podz-ai-1.0.18-osx-x64.pkg' },
-      { name:'podz-ai-1.0.18-linux-x64.deb',     browser_download_url: FB_BASE + 'podz-ai-1.0.18-linux-x64.deb' },
-      { name:'podz-ai-1.0.18-linux-arm64.deb',   browser_download_url: FB_BASE + 'podz-ai-1.0.18-linux-arm64.deb' }
+      { name:'podz-ai-2.0.0-win-x64-setup.exe',   browser_download_url: FB_BASE + 'podz-ai-2.0.0-win-x64-setup.exe' },
+      { name:'podz-ai-2.0.0-win-x64.zip',         browser_download_url: FB_BASE + 'podz-ai-2.0.0-win-x64.zip' },
+      { name:'podz-ai-2.0.0-win-arm64-setup.exe', browser_download_url: FB_BASE + 'podz-ai-2.0.0-win-arm64-setup.exe' },
+      { name:'podz-ai-2.0.0-win-arm64.zip',       browser_download_url: FB_BASE + 'podz-ai-2.0.0-win-arm64.zip' },
+      { name:'podz-ai-2.0.0-osx-arm64.pkg',       browser_download_url: FB_BASE + 'podz-ai-2.0.0-osx-arm64.pkg' },
+      { name:'podz-ai-2.0.0-osx-x64.pkg',         browser_download_url: FB_BASE + 'podz-ai-2.0.0-osx-x64.pkg' },
+      { name:'podz-ai-2.0.0-linux-x64.deb',       browser_download_url: FB_BASE + 'podz-ai-2.0.0-linux-x64.deb' },
+      { name:'podz-ai-2.0.0-linux-arm64.deb',     browser_download_url: FB_BASE + 'podz-ai-2.0.0-linux-arm64.deb' }
     ]
   };
 
@@ -421,7 +424,7 @@
   }
   function _recommendedKeys(){
     var os = STATE.detected.os, arch = STATE.detected.arch;
-    if(os === 'windows') return ['windows-x64'];
+    if(os === 'windows') return arch === 'arm64' ? ['windows-arm64'] : ['windows-x64'];
     if(os === 'mac'){ if(arch==='arm64') return ['mac-arm64']; if(arch==='x64') return ['mac-x64']; return ['mac-arm64','mac-x64']; }
     if(os === 'linux'){ if(arch==='arm64') return ['linux-arm64']; if(arch==='x64') return ['linux-x64']; return ['linux-x64','linux-arm64']; }
     return [];
@@ -432,6 +435,8 @@
   // -----------------------------------------------------------------------------------------------------------------
   function _classify(name){
     var n = name.toLowerCase();
+    if(n.indexOf('win')>-1 && n.indexOf('arm64')>-1 && /\.exe$/.test(n)) return {key:'windows-arm64', kind:'installer'};
+    if(n.indexOf('win')>-1 && n.indexOf('arm64')>-1 && /\.zip$/.test(n)) return {key:'windows-arm64', kind:'portable'};
     if(n.indexOf('win')>-1 && n.indexOf('x64')>-1 && /\.exe$/.test(n))  return {key:'windows-x64', kind:'installer'};
     if(n.indexOf('win')>-1 && n.indexOf('x64')>-1 && /\.zip$/.test(n))  return {key:'windows-x64', kind:'portable'};
     if(n.indexOf('osx')>-1 && n.indexOf('arm64')>-1)                    return {key:'mac-arm64',   kind:'pkg'};

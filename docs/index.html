@@ -656,17 +656,17 @@
     <h2 class="sec-title"><span data-lang-it>Sempre aggiornato</span><span data-lang-en>Always up to date</span></h2>
 
     <div class="rel-strip">
-      <div class="rel-line">
-        <span class="ver">Podz.AI v1.0.18</span>
+      <div class="rel-line" id="rel-latest" data-tag="v2.0.0">
+        <span class="ver">Podz.AI v2.0.0</span>
         <span class="tag tag-latest"><span data-lang-it>ultima</span><span data-lang-en>latest</span></span>
-        <span class="rel-date"><span data-lang-it>23 giugno 2026</span><span data-lang-en>June 23, 2026</span></span>
-        <span class="rel-desc"><span data-lang-it>Un'unica applicazione per Windows, macOS e Linux; build firmate; prova di 30 giorni al primo avvio.</span><span data-lang-en>A single application for Windows, macOS and Linux; signed builds; 30-day trial on first launch.</span></span>
+        <span class="rel-date"><span data-lang-it>29 ottobre 2026</span><span data-lang-en>October 29, 2026</span></span>
+        <span class="rel-desc"><span data-lang-it>Su macOS Podz porta il proprio motore per i servizi: Docker Desktop non serve più. Pacchetti circa tre volte più leggeri.</span><span data-lang-en>On macOS Podz brings its own engine for its services: Docker Desktop is no longer needed. Packages about three times lighter.</span></span>
       </div>
       <div class="rel-line">
-        <span class="ver">Podz.AI v0.0.1</span>
+        <span class="ver">Podz.AI v1.4.1</span>
         <span class="tag tag-prev"><span data-lang-it>precedente</span><span data-lang-en>previous</span></span>
-        <span class="rel-date"><span data-lang-it>22 giugno 2026</span><span data-lang-en>June 22, 2026</span></span>
-        <span class="rel-desc"><span data-lang-it>Primo rilascio pubblico di Podz.AI.</span><span data-lang-en>First public release of Podz.AI.</span></span>
+        <span class="rel-date"><span data-lang-it>29 agosto 2026</span><span data-lang-en>August 29, 2026</span></span>
+        <span class="rel-desc"><span data-lang-it>Un'unica applicazione per Windows, macOS e Linux; build firmate.</span><span data-lang-en>A single application for Windows, macOS and Linux; signed builds.</span></span>
       </div>
       <div class="rel-links">
         <a class="btn btn-ghost" href="https://github.com/G-G-Technologies-Srl/digisense-releases/releases" target="_blank" rel="noopener"><span data-lang-it>Tutte le release su GitHub</span><span data-lang-en>All releases on GitHub</span> ↗</a>
@@ -716,7 +716,7 @@
       "name": "Podz.AI",
       "operatingSystem": "Windows, macOS, Linux",
       "applicationCategory": "BusinessApplication",
-      "softwareVersion": "1.0.18",
+      "softwareVersion": "2.0.0",
       "url": "https://ggtechnologies.sm/digisense-releases/",
       "downloadUrl": "https://ggtechnologies.sm/digisense-releases/download.html",
       "image": "https://ggtechnologies.sm/digisense-releases/assets/og-card.png",
@@ -939,6 +939,39 @@
   }
 
   // -----------------------------------------------------------------------------------------------------------------
+  //  latest release: the strip is written by hand, so a newer release on GitHub replaces its first line
+  // -----------------------------------------------------------------------------------------------------------------
+  function _relDate(iso, locale){
+    try{ return new Date(iso).toLocaleDateString(locale, { year:'numeric', month:'long', day:'numeric' }); }catch(e){ return ''; }
+  }
+  function _langSpans(it, en){
+    var f = document.createDocumentFragment();
+    var a = document.createElement('span'); a.setAttribute('data-lang-it', ''); a.textContent = it; f.appendChild(a);
+    var b = document.createElement('span'); b.setAttribute('data-lang-en', ''); b.textContent = en; f.appendChild(b);
+    return f;
+  }
+  function latestReleaseInit(){
+    var line = document.getElementById('rel-latest');
+    if(!line || !window.fetch) return;
+    fetch('https://api.github.com/repos/G-G-Technologies-Srl/digisense-releases/releases/latest', { headers:{ 'Accept':'application/vnd.github+json' } })
+      .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+      .then(function(rel){
+        if(!rel || !rel.tag_name || rel.tag_name === line.getAttribute('data-tag')) return;
+        line.setAttribute('data-tag', rel.tag_name);
+        line.querySelector('.ver').textContent = 'Podz.AI ' + rel.tag_name;
+        var date = line.querySelector('.rel-date');
+        date.textContent = ''; date.appendChild(_langSpans(_relDate(rel.published_at, 'it-IT'), _relDate(rel.published_at, 'en-US')));
+        var link = document.createElement('a');
+        link.href = 'https://github.com/G-G-Technologies-Srl/digisense-releases/releases/tag/' + encodeURIComponent(rel.tag_name);
+        link.target = '_blank'; link.rel = 'noopener';
+        link.appendChild(_langSpans('Novità di questa versione su GitHub', "What's new in this version on GitHub"));
+        link.appendChild(document.createTextNode(' ↗'));
+        var desc = line.querySelector('.rel-desc');
+        desc.textContent = ''; desc.appendChild(link);
+      }).catch(function(){ /* keep the line written in the page */ });
+  }
+
+  // -----------------------------------------------------------------------------------------------------------------
   //  init
   // -----------------------------------------------------------------------------------------------------------------
   (function init(){
@@ -946,6 +979,7 @@
     document.getElementById('year').textContent = new Date().getFullYear();
     applyTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
     shareInit();
+    latestReleaseInit();
   })();
 </script>
 </body>
